@@ -6,6 +6,7 @@ module.exports = {
     "./node_modules/flowbite/**/*.js",
     'node_modules/preline/dist/*.js',
   ],
+  darkMode: 'class',
   theme: {
     extend: {},
   },

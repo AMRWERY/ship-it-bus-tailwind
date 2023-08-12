@@ -35,21 +35,19 @@
         focus:ring-offset-2
         focus:ring-offset-gray-800
       ">
-                                <i class="fa-solid fa-earth-africa"></i>
+                                <i class="fa-solid fa-earth-africa fa-xl"></i>
                             </button>
                         </div>
                         <div>
-                            <button type="button" class="
-        rounded-full
-        p-1
-        text-gray-400
-        focus:outline-none
-        focus:ring-2
-        focus:ring-white
-        focus:ring-offset-2
-        focus:ring-offset-gray-800
-      ">
-                                <i class="fa-solid fa-moon"></i>
+                            <button v-if="isDarkMode" type="button"
+                                class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                @click="toggleTheme">
+                                <i class="fa-solid fa-moon fa-xl"></i>
+                            </button>
+                            <button v-else type="button"
+                                class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                @click="toggleTheme">
+                                <i class="fa-solid fa-sun fa-xl"></i>
                             </button>
                         </div>
                     </div>
@@ -85,7 +83,7 @@
                 dark:hover:bg-gray-700
                 group
               ">
-                        <i class="fa-solid fa-chart-line"></i>
+                        <i class="fa-solid fa-chart-line fa-lg"></i>
                         <span class="ml-3">Dashboard</span>
                     </router-link>
                 </li>
@@ -101,7 +99,7 @@
                 dark:hover:bg-gray-700
                 group
               ">
-                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        <i class="fa-solid fa-arrow-trend-up fa-lg"></i>
                         <span class="flex-1 ml-3 whitespace-nowrap">Invoices</span>
                     </router-link>
                 </li>
@@ -117,7 +115,7 @@
                 dark:hover:bg-gray-700
                 group
               ">
-                        <i class="fa-solid fa-bag-shopping"></i>
+                        <i class="fa-solid fa-bag-shopping fa-lg"></i>
                         <span class="flex-1 ml-3 whitespace-nowrap">Products</span>
                     </router-link>
                 </li>
@@ -133,7 +131,7 @@
                 dark:hover:bg-gray-700
                 group
               ">
-                        <i class="fa-solid fa-list-ol"></i>
+                        <i class="fa-solid fa-list-ol fa-lg"></i>
                         <span class="flex-1 ml-3 whitespace-nowrap">Categories</span>
                     </router-link>
                 </li>
@@ -150,8 +148,7 @@
                 dark:hover:bg-gray-700
                 group
               ">
-                        <i class="fa-solid fa-shop"></i>
-
+                        <i class="fa-solid fa-shop fa-lg"></i>
                         <span class="flex-1 ml-3 whitespace-nowrap">Back to Shopping</span>
                     </router-link>
                 </li>
@@ -166,16 +163,48 @@
     </div>
 </template>
 
-
 <script setup>
-import { onMounted } from 'vue'
-import { initFlowbite } from 'flowbite'
+import { ref, onMounted } from 'vue';
+import { initFlowbite } from 'flowbite';
 import { RouterView } from 'vue-router';
 
 onMounted(() => {
     initFlowbite();
-})
+});
+
+const isDarkMode = ref(false);
+
+const themeCheck = () => {
+    document.documentElement.classList.add('dark');
+    isDarkMode.value = true;
+};
+
+const iconToggle = () => {
+    isDarkMode.value = !isDarkMode.value;
+};
+
+const toggleTheme = () => {
+    if (isDarkMode.value) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        iconToggle();
+    } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        iconToggle();
+    }
+};
+
+const userTheme = localStorage.getItem('theme');
+const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (userTheme === 'dark' || (!userTheme && systemTheme)) {
+    themeCheck();
+} else {
+    iconToggle();
+}
 </script>
+
 
 <style scoped>
 @media (max-width: 768px) {
