@@ -2,9 +2,7 @@
   <div id="home">
     <div class="lg:flex justify-between items-center mb-6 mt-16">
       <p class="text-2xl font-semibold mb-2 lg:mb-0">Good afternoon, Amr!</p>
-      <button
-        class="bg-blue-500 hover:bg-blue-600 focus:outline-none rounded-lg px-6 py-2 text-white font-semibold shadow">View
-        Logs</button>
+      <TodayDeal />
     </div>
 
     <div class="flex flex-wrap -mx-3 mb-20">
@@ -77,7 +75,7 @@
         <p class="text-xl font-semibold mb-4">Recent Sales</p>
 
         <div class="w-full bg-white border rounded-lg p-4 mb-8 xl:mb-0">
-          <canvas id="buyers-chart" width="600" height="400"></canvas>
+          <canvas id="buyers-chart" width="600" height="500"></canvas>
         </div>
       </div>
 
@@ -85,7 +83,7 @@
         <p class="text-xl font-semibold mb-4">Recent Reviews</p>
 
         <div class="w-full bg-white border rounded-lg p-4 mb-8 xl:mb-0">
-          <canvas id="reviews-chart" width="600" height="400"></canvas>
+          <canvas id="reviews-chart" width="600" height="500"></canvas>
         </div>
       </div>
 
@@ -130,8 +128,126 @@
 </template>
 
 <script>
+import TodayDeal from '../reusable/todayDeal/TodayDeal.vue';
+import { Bar, Line } from 'vue-chartjs'
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, PointElement, LineElement } from 'chart.js'
+
+ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, PointElement, LineElement)
+
 export default {
   name: 'Dashboard',
 
+  components: { TodayDeal, Bar, Line },
+
+  data() {
+    return {
+      buyersData: {
+        type: 'line',
+        data: {
+          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          datasets: [{
+            label: 'Data One',
+            backgroundColor: "rgba(99,179,237,0.4)",
+            strokeColor: "#63b3ed",
+            pointColor: "#fff",
+            pointStrokeColor: "#63b3ed",
+            data: [203, 156, 99, 251, 305, 247, 256]
+          }]
+        },
+        options: {
+          legend: {
+            display: false
+          },
+          scales: {
+            yAxes: [{
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                display: false
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: false
+              }
+            }]
+          }
+        }
+      },
+      reviewsData: {
+        type: 'bar',
+        data: {
+          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          datasets: [{
+            backgroundColor: "rgba(99,179,237,0.4)",
+            strokeColor: "#63b3ed",
+            pointColor: "#fff",
+            pointStrokeColor: "#63b3ed",
+            data: [203, 156, 99, 251, 305, 247, 256],
+          }]
+        },
+        options: {
+          legend: {
+            display: false
+          },
+          scales: {
+            yAxes: [{
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                display: false
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: false
+              }
+            }]
+          }
+        }
+
+      }
+    }
+  },
+
+  mounted() {
+    const ctx = document.getElementById('buyers-chart').getContext('2d');
+    new ChartJS(ctx, {
+      type: 'bar',
+      data: {
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        datasets: [{
+          backgroundColor: "rgba(99,179,237,0.4)",
+            strokeColor: "#63b3ed",
+            pointColor: "#fff",
+            pointStrokeColor: "#63b3ed",
+            data: [203, 156, 99, 251, 305, 247, 256],
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    const ctax = document.getElementById('reviews-chart').getContext('2d');
+    new ChartJS(ctax, {
+      type: 'line',
+      data: {
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        datasets: [{
+          backgroundColor: "rgba(99,179,237,0.4)",
+          strokeColor: "#63b3ed",
+          pointColor: "#fff",
+          pointStrokeColor: "#63b3ed",
+          data: [203, 156, 99, 251, 305, 247, 256]
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+  }
 }
 </script>

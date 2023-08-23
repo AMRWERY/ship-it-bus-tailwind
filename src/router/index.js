@@ -4,21 +4,6 @@ import Home from "../views/Home.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    // {
-    //   path: "/sign-up",
-    //   name: "Register",
-    //   component: () => import('../auth/Register.vue'),
-    // },
-    // {
-    //   path: "/login",
-    //   name: "Login",
-    //   component: () => import('../auth/Login.vue'),
-    // },
-    // {
-    //   path: "/reset-password",
-    //   name: "ResetPassword",
-    //   component: () => import('../auth/ResetPassword.vue'),
-    // },
     {
       path: "/",
       name: "Home",
@@ -28,6 +13,11 @@ const router = createRouter({
       path: "/invoices",
       name: "Invoices",
       component: () => import('../components/Invoices.vue'),
+    },
+    {
+      path: "/orders",
+      name: "Orders",
+      component: () => import('../components/Orders.vue'),
     },
     {
       path: "/products",

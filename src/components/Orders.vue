@@ -164,14 +164,7 @@
                                             <div class="group inline-flex items-center">
                                                 <div class="hs-tooltip inline-block">
                                                     <div class="px-4 py-1.5">
-                                                        <router-link
-                                                            class="inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 hover:underline font-medium"
-                                                            to="">
-                                                            <button type="button"
-                                                                class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                                                                <i class="fa-regular fa-pen-to-square"></i>
-                                                            </button>
-                                                        </router-link>
+                                                            <OrdersDialog />
                                                     </div>
                                                 </div>
                                                 <div class="hs-dropdown relative inline-flex [--placement:bottom-right]">
@@ -244,8 +237,11 @@
 
 <script>
 import('preline')
+import OrdersDialog from '../reusable/OrdersDialog.vue';
 
 export default {
-    name: 'Invoices'
+    name: 'Orders',
+
+    components: {OrdersDialog}
 }
 </script>

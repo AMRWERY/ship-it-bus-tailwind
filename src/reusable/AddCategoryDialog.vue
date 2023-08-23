@@ -35,14 +35,7 @@
                                     x-transition:enter="transition ease-out duration-300"
                                     x-transition:enter-start="opacity-0 transform scale-90"
                                     x-transition:enter-end="opacity-100 transform scale-100">
-                                    <img class="w-full h-auto"
-                                        src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                                        alt="front credit card">
-                                    <div
-                                        class="front bg-transparent text-lg w-full text-white px-12 absolute left-0 bottom-12">
-                                        <p class="number mb-5 sm:text-xl"
-                                            x-text="cardNumber !== '' ? cardNumber : '0000 0000 0000 0000'"></p>
-                                    </div>
+                                    <img class="w-full h-auto" :src="categoryImg">
                                 </div>
                                 <ul class="flex">
                                     <li class="mx-2">
@@ -53,18 +46,8 @@
                                                     alt="Add Image" />
                                             </label>
                                             <input id="imageInput" type="file" accept="image/*"
-                                                class="absolute inset-0 opacity-0 cursor-pointer w-full h-full" />
-                                        </div>
-                                    </li>
-                                    <li class="mx-2">
-                                        <div
-                                            class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 relative">
-                                            <label for="imageInput" class="cursor-pointer">
-                                                <img class="w-12" src="../../public/add-circle-svgrepo-com.svg"
-                                                    alt="Add Image" />
-                                            </label>
-                                            <input id="imageInput" type="file" accept="image/*"
-                                                class="absolute inset-0 opacity-0 cursor-pointer w-full h-full" />
+                                                class="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
+                                                @change="handleImageChange('front')" />
                                         </div>
                                     </li>
                                 </ul>
@@ -74,12 +57,8 @@
                                     <div class="my-3">
                                         <input type="text"
                                             class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                            placeholder="Category Name" maxlength="22" x-model="productName" />
-                                    </div>
-                                    <div class="my-3">
-                                        <input type="text"
-                                            class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                            placeholder="SKU" x-model="price" />
+                                            placeholder="Category Name" maxlength="22" x-model="categoryName"
+                                            v-model.trim="title" />
                                     </div>
                                 </div>
                             </main>
@@ -88,7 +67,7 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button data-modal-hide="defaultModal" type="button"
+                    <button data-modal-hide="defaultModal" type="button" @click="addNewCategory"
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Add</button>
                 </div>
@@ -97,11 +76,56 @@
     </div>
 </template>
 
-<script setup>
-import { onMounted } from 'vue'
+
+<script>
+import { mapActions } from 'vuex';
 import { initFlowbite } from 'flowbite'
 
-onMounted(() => {
-    initFlowbite();
-})
+export default {
+    name: 'AddCategoryDialog',
+
+    data() {
+        return {
+            dialog: false,
+            title: '',
+            img: null,
+            categoryImg: ''
+        }
+    },
+
+    methods: {
+        ...mapActions(['addCategory', 'fetchCategories']),
+        async addNewCategory() {
+            this.dialog = false;
+            let obj = {
+                title: this.title,
+                img: this.img,
+                categoryImg: this.categoryImg,
+            };
+            try {
+                await this.addCategory(obj);
+                await this.fetchCategories();
+            } catch (error) {
+                console.error('Error adding category:', error);
+            }
+        },
+        handleImageChange(cardType) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    if (cardType === 'front') {
+                        this.img = reader.result;
+                        this.categoryImg = reader.result;
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    },
+
+    mounted() {
+        initFlowbite();
+    }
+}
 </script>

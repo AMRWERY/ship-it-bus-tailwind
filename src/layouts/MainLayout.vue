@@ -15,26 +15,17 @@
                         </svg>
                     </button>
                     <router-link to="" class="flex ml-2 md:mr-24">
-                        <img src="../../public/shopping-bags-svgrepo-com.svg" class="w-10 h-10 mr-1">
+                        <img src="../assets/shopping-bags-svgrepo-com.svg" class="w-10 h-10 mr-1">
                         <span
                             class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Ship-IT</span>
                     </router-link>
                 </div>
 
-
                 <div class="flex items-center">
                     <div class="flex items-center ml-3 space-x-2.5">
                         <div>
-                            <button type="button" class="
-        rounded-full
-        p-1
-        text-gray-400
-        focus:outline-none
-        focus:ring-2
-        focus:ring-white
-        focus:ring-offset-2
-        focus:ring-offset-gray-800
-      ">
+                            <button type="button"
+                                class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                 <i class="fa-solid fa-earth-africa fa-xl"></i>
                             </button>
                         </div>
@@ -53,101 +44,54 @@
                     </div>
                 </div>
 
-
             </div>
         </div>
     </nav>
 
-    <aside id="logo-sidebar" class="
-        fixed
-        top-0
-        left-0
-        z-40
-        w-64
-        h-screen
-        transition-transform
-        -translate-x-full
-        sm:translate-x-0
-      " aria-label="Sidebar">
+    <aside id="logo-sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        aria-label="Sidebar">
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
             <ul class="space-y-2 font-medium mt-16">
                 <li>
-                    <router-link to="/" class="
-                flex
-                items-center
-                p-2
-                text-gray-900
-                rounded-lg
-                dark:text-white
-                hover:bg-gray-100
-                dark:hover:bg-gray-700
-                group
-              ">
+                    <router-link to="/"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <i class="fa-solid fa-chart-line fa-lg"></i>
                         <span class="ml-3">Dashboard</span>
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/invoices" class="
-                flex
-                items-center
-                p-2
-                text-gray-900
-                rounded-lg
-                dark:text-white
-                hover:bg-gray-100
-                dark:hover:bg-gray-700
-                group
-              ">
+                    <router-link to="/invoices"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <i class="fa-solid fa-arrow-trend-up fa-lg"></i>
                         <span class="flex-1 ml-3 whitespace-nowrap">Invoices</span>
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/products" class="
-                flex
-                items-center
-                p-2
-                text-gray-900
-                rounded-lg
-                dark:text-white
-                hover:bg-gray-100
-                dark:hover:bg-gray-700
-                group
-              ">
+                    <router-link to="/orders"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <i class="fa-solid fa-arrow-up-wide-short fa-lg"></i>
+                        <span class="flex-1 ml-3 whitespace-nowrap">Orders</span>
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/products"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <i class="fa-solid fa-bag-shopping fa-lg"></i>
                         <span class="flex-1 ml-3 whitespace-nowrap">Products</span>
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/categories" class="
-                flex
-                items-center
-                p-2
-                text-gray-900
-                rounded-lg
-                dark:text-white
-                hover:bg-gray-100
-                dark:hover:bg-gray-700
-                group
-              ">
+                    <router-link to="/categories"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <i class="fa-solid fa-list-ol fa-lg"></i>
                         <span class="flex-1 ml-3 whitespace-nowrap">Categories</span>
                     </router-link>
                 </li>
                 <li>
 
-                    <router-link to="" class="
-                flex
-                items-center
-                p-2
-                text-gray-900
-                rounded-lg
-                dark:text-white
-                hover:bg-gray-100
-                dark:hover:bg-gray-700
-                group
-              ">
+                    <router-link to=""
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <i class="fa-solid fa-shop fa-lg"></i>
                         <span class="flex-1 ml-3 whitespace-nowrap">Back to Shopping</span>
                     </router-link>
@@ -164,45 +108,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
+// import { ref, onMounted } from 'vue';
 import { initFlowbite } from 'flowbite';
 import { RouterView } from 'vue-router';
 
 onMounted(() => {
     initFlowbite();
 });
-
-const isDarkMode = ref(false);
-
-const themeCheck = () => {
-    document.documentElement.classList.add('dark');
-    isDarkMode.value = true;
-};
-
-const iconToggle = () => {
-    isDarkMode.value = !isDarkMode.value;
-};
-
-const toggleTheme = () => {
-    if (isDarkMode.value) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-        iconToggle();
-    } else {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-        iconToggle();
-    }
-};
-
-const userTheme = localStorage.getItem('theme');
-const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-if (userTheme === 'dark' || (!userTheme && systemTheme)) {
-    themeCheck();
-} else {
-    iconToggle();
-}
 </script>
 
 

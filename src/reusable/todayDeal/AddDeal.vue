@@ -1,13 +1,12 @@
 <template>
     <!-- Modal toggle -->
-    <button id="hs-as-table-table-export-dropdown" data-modal-target="defaultModal" data-modal-toggle="defaultModal"
-        type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        Add Product
+    <button id="hs-as-table-table-export-dropdown" data-modal-target="modalID" data-modal-toggle="modalID"
+        class="ml-3 flex items-center justify-center text-white bg-red-500 border-0 py-2 px-4 focus:outline-none hover:bg-red-600 rounded">
+        Add
     </button>
 
     <!-- Main modal -->
-    <div id="defaultModal" tabindex="-1" aria-hidden="true"
+    <div id="modalID" tabindex="-1" aria-hidden="true"
         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative w-full max-w-2xl max-h-full">
             <!-- Modal content -->
@@ -16,12 +15,12 @@
                 <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                     <div class="text-center w-full">
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                            Add new Product
+                            Add Deal
                         </h3>
                     </div>
                     <button type="button"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        data-modal-hide="defaultModal">
+                        data-modal-hide="modalID">
                         <img src="../../public//close.svg" class="w-3 h-3">
                     </button>
                 </div>
@@ -99,13 +98,9 @@
                                             placeholder="original price" x-model="price" v-model.trim="originalPrice" />
                                     </div>
                                     <div class="my-3">
-                                        <label for="availability"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
-                                            Category</label>
-                                        <select id="categories" v-model="categories"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            <option v-for="cat in categories" :key="cat" :value="cat">{{ cat }}</option>
-                                        </select>
+                                        <input type="text"
+                                            class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
+                                            placeholder="category" x-model="category" v-model.trim="category" />
                                     </div>
                                     <div class="my-3">
                                         <input type="number"
@@ -129,7 +124,7 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button data-modal-hide="defaultModal" type="button" @click="addNewProduct"
+                    <button data-modal-hide="modalID" type="button" @click="addDeal"
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Add</button>
                 </div>
@@ -139,8 +134,9 @@
 </template>
 
 <script>
+// import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
-import { mapActions } from 'vuex';
+import { mapActions } from 'vuex'
 
 export default {
     data: () => ({
@@ -148,9 +144,7 @@ export default {
         title: '',
         price: '',
         originalPrice: '',
-        // category: '',
-        categories: ['Hoodies', 'T-shirts', 'Music', 'Accessories', 'Posters', 'Decor', 'Clothing'],
-        selectedCategory: '',
+        category: '',
         discount: '',
         availability: 'in-stock',
         sku: '',
@@ -161,14 +155,14 @@ export default {
     }),
 
     methods: {
-        ...mapActions(['addProduct']),
-        addNewProduct() {
+        ...mapActions(['addNewDeal']),
+        addDeal() {
             this.dialog = false
             let obj = {
                 title: this.title,
                 price: this.price,
                 originalPrice: this.originalPrice,
-                categories: this.categories,
+                category: this.category,
                 discount: this.discount,
                 availability: this.availability,
                 sku: this.sku,
@@ -176,8 +170,9 @@ export default {
                 imgFront: this.imgFront,
                 imgBack: this.imgBack,
             }
-            this.$emit("product-added");
-            return this.addProduct(obj)
+            // this.$emit("product-added");
+            // return this.addNewDeal(obj)
+            this.addNewDeal(obj);
         },
         handleImageChange(cardType) {
             const file = event.target.files[0];
