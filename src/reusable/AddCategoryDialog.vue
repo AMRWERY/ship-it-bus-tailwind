@@ -29,9 +29,8 @@
                                     </DialogTitle>
                                 </div>
                                 <button type="button" @click="closeModal"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                    data-modal-hide="defaultModal">
-                                    <img src="../../public//close.svg" class="w-3 h-3">
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                                    <i class="fa-solid fa-xmark fa-xl w-3 h-3"></i>
                                 </button>
                             </div>
                             <header class="flex flex-col justify-center items-center">
