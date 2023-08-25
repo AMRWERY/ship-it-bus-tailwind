@@ -10,7 +10,7 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.15",
     "@tailwindcss/aspect-ratio": "^0.4.2",
-    "chart.js": "^4.3.3",
+    "chart.js": "^4.4.0",
     "firebase": "^10.2.0",
     "flowbite": "^1.8.1",
     "preline": "^1.9.0",

@@ -1,34 +1,39 @@
 <template>
-    <!-- Modal toggle -->
-    <button type="button" id="hs-as-table-table-export-dropdown" data-modal-target="staticModal"
-        data-modal-toggle="staticModal" class="absolute bottom-2 right-2 float-right">
-        <i class="fa-solid fa-pen-to-square" style="color: #9288F8"></i>
-    </button>
+    <div>
+        <button type="button" id="hs-as-table-table-export-dropdown" class="absolute bottom-2 right-2 float-right"
+            @click="openModal">
+            <i class="fa-solid fa-pen-to-square" style="color: #9288F8"></i>
+        </button>
+    </div>
 
-    <!-- Main modal -->
-    <div id="staticModal" tabindex="-1" aria-hidden="true"
-        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative w-full max-w-2xl max-h-full">
-            <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <!-- Modal header -->
-                <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                    <div class="text-center w-full">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                            Edit Product
-                        </h3>
-                    </div>
-                    <button type="button"
-                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        data-modal-hide="staticModal">
-                        <img src="../../public//close.svg" class="w-3 h-3">
-                    </button>
-                </div>
+    <TransitionRoot appear :show="isOpen" as="template">
+        <Dialog as="div" @close="closeModal" class="relative z-10">
+            <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0" enter-to="opacity-100"
+                leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
+                <div class="fixed inset-0 bg-black bg-opacity-25" />
+            </TransitionChild>
 
-                <!-- Modal body -->
-                <div class="p-6 space-y-6">
-                    <div class="m-4">
-                        <div class="credit-card w-full sm:w-auto shadow-lg mx-auto rounded-xl bg-white" x-data="creditCard">
+            <div
+                class="fixed mt-12 top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+
+                <div class="flex min-h-full items-center justify-center p-4 text-center">
+                    <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0 scale-95"
+                        enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
+                        leave-to="opacity-0 scale-95">
+                        <DialogPanel
+                            class="w-full max-w-2xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                            <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
+                                <div class="text-center w-full">
+                                    <DialogTitle as="h3" class="text-xl font-semibold text-gray-900 dark:text-white">
+                                        {{ title }}
+                                    </DialogTitle>
+                                </div>
+                                <button type="button" @click="closeModal"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                    data-modal-hide="defaultModal">
+                                    <img src="../../public//close.svg" class="w-3 h-3">
+                                </button>
+                            </div>
                             <header class="flex flex-col justify-center items-center">
                                 <div class="grid grid-cols-12 gap-4">
                                     <div class="col-span-3">
@@ -78,70 +83,80 @@
                                     </li>
                                 </ul>
                             </header>
-                            <main class="mt-4 p-4">
-                                <div>
-                                    <div class="my-3">
-                                        <input type="text"
-                                            class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                            placeholder="Product Name" maxlength="22" x-model="productName"
-                                            v-model.trim="title" />
+                            <div class="mt-2">
+                                <main class="mt-4 p-4">
+                                    <div>
+                                        <div class="my-3">
+                                            <input type="text"
+                                                class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
+                                                placeholder="Product Name" maxlength="22" x-model="productName"
+                                                v-model.trim="title" />
+                                        </div>
+                                        <div class="my-3">
+                                            <input type="number"
+                                                class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
+                                                placeholder="Price" x-model="price" v-model.trim="price" />
+                                        </div>
+                                        <div class="my-3">
+                                            <input type="number"
+                                                class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
+                                                placeholder="original price" x-model="price" v-model.trim="originalPrice" />
+                                        </div>
+                                        <div class="my-3">
+                                            <input type="text"
+                                                class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
+                                                placeholder="category" x-model="category" v-model.trim="categories" />
+                                        </div>
+                                        <div class="my-3">
+                                            <input type="number"
+                                                class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
+                                                placeholder="Discount" x-model="discount" v-model.trim="discount" />
+                                        </div>
+                                        <div class="my-3">
+                                            <label for="availability"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+                                                Availability</label>
+                                            <select id="availability" v-model="availability"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option selected value="in-stock">in stock
+                                                </option>
+                                                <option value="out-of-stock">out of stock
+                                                </option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="my-3">
-                                        <input type="number"
-                                            class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                            placeholder="Price" x-model="price" v-model.trim="price" />
-                                    </div>
-                                    <div class="my-3">
-                                        <input type="number"
-                                            class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                            placeholder="original price" x-model="price" v-model.trim="originalPrice" />
-                                    </div>
-                                    <div class="my-3">
-                                        <input type="text"
-                                            class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                            placeholder="category" x-model="category" v-model.trim="categories" />
-                                    </div>
-                                    <div class="my-3">
-                                        <input type="number"
-                                            class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                            placeholder="Discount" x-model="discount" v-model.trim="discount" />
-                                    </div>
-                                    <div class="my-3">
-                                        <label for="availability"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
-                                            Availability</label>
-                                        <select id="availability" v-model="availability"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            <option selected value="in-stock">in stock</option>
-                                            <option value="out-of-stock">out of stock</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </main>
-                        </div>
-                    </div>
-                </div>
-                <!-- Modal footer -->
-                <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button data-modal-hide="staticModal" type="button" @click="updateProduct"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit</button>
+                                </main>
+                            </div>
+
+                            <div
+                                class="flex items-center float-right p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                <button type="button" @click="updateProduct"
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit</button>
+                            </div>
+                        </DialogPanel>
+                    </TransitionChild>
                 </div>
             </div>
-        </div>
-    </div>
+        </Dialog>
+    </TransitionRoot>
 </template>
-
-
+  
 <script>
 import { doc, updateDoc, getDoc } from "firebase/firestore";
 import db from "@/firebase/config";
-import { initFlowbite } from 'flowbite'
+import {
+    TransitionRoot,
+    TransitionChild,
+    Dialog,
+    DialogPanel,
+    DialogTitle
+} from '@headlessui/vue'
 
 export default {
     name: 'EditProductDialog',
 
     data: () => ({
-        dialog: false,
+        isOpen: false,
         title: "",
         price: "",
         originalPrice: "",
@@ -158,7 +173,21 @@ export default {
 
     props: ["prod"],
 
+    components: {
+        TransitionRoot,
+        TransitionChild,
+        Dialog,
+        DialogPanel,
+        DialogTitle
+    },
+
     methods: {
+        closeModal() {
+            this.isOpen = false
+        },
+        openModal() {
+            this.isOpen = true
+        },
         updateProduct() {
             const productRef = doc(db, "products", this.prod?.id);
             const updateData = {
@@ -196,19 +225,14 @@ export default {
                 this.imgBack = this.productData.imgBack;
                 this.discount = this.productData.discount;
                 this.selectedImg = this.imgFront;
-                console.log(this.productData)
             } else {
                 console.log("Document does not exist");
             }
-        },
-        selectCard(imgProperty) {
-            this.selectedImg = this.productData[imgProperty];
         },
     },
 
     mounted() {
         this.getProduct();
-        initFlowbite()
     },
 }
 </script>

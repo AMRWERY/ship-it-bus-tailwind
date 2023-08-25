@@ -109,7 +109,6 @@
 
 <script setup>
 import { onMounted } from 'vue';
-// import { ref, onMounted } from 'vue';
 import { initFlowbite } from 'flowbite';
 import { RouterView } from 'vue-router';
 

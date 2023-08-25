@@ -134,7 +134,6 @@
 </template>
 
 <script>
-// import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
 import { mapActions } from 'vuex'
 

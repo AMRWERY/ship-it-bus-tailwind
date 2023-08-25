@@ -1,35 +1,39 @@
 <template>
-    <!-- Modal toggle -->
-    <button id="hs-as-table-table-export-dropdown" data-modal-target="defaultModal" data-modal-toggle="defaultModal"
-        type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        Add Category
-    </button>
+    <div>
+        <button id="hs-as-table-table-export-dropdown" type="button" @click="openModal"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Add Category
+        </button>
+    </div>
 
-    <!-- Main modal -->
-    <div id="defaultModal" tabindex="-1" aria-hidden="true"
-        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative w-full max-w-2xl max-h-full">
-            <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <!-- Modal header -->
-                <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                    <div class="text-center w-full">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                            Add new Category
-                        </h3>
-                    </div>
-                    <button type="button"
-                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        data-modal-hide="defaultModal">
-                        <img src="../../public//close.svg" class="w-3 h-3">
-                    </button>
-                </div>
+    <TransitionRoot appear :show="isOpen" as="template">
+        <Dialog as="div" @close="closeModal" class="relative z-10">
+            <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0" enter-to="opacity-100"
+                leave="duration-200 ease-in" leave-from="opacity-100" leave-to="opacity-0">
+                <div class="fixed inset-0 bg-black bg-opacity-25" />
+            </TransitionChild>
 
-                <!-- Modal body -->
-                <div class="p-6 space-y-6">
-                    <div class="m-4">
-                        <div class="credit-card w-full sm:w-auto shadow-lg mx-auto rounded-xl bg-white" x-data="creditCard">
+            <div
+                class="fixed mt-12 top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+
+                <div class="flex min-h-full items-center justify-center p-4 text-center">
+                    <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0 scale-95"
+                        enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
+                        leave-to="opacity-0 scale-95">
+                        <DialogPanel
+                            class="w-full max-w-2xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                            <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
+                                <div class="text-center w-full">
+                                    <DialogTitle as="h3" class="text-xl font-semibold text-gray-900 dark:text-white">
+                                        Add new Category
+                                    </DialogTitle>
+                                </div>
+                                <button type="button" @click="closeModal"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                    data-modal-hide="defaultModal">
+                                    <img src="../../public//close.svg" class="w-3 h-3">
+                                </button>
+                            </div>
                             <header class="flex flex-col justify-center items-center">
                                 <div class="relative" x-show="card === 'front'"
                                     x-transition:enter="transition ease-out duration-300"
@@ -52,48 +56,65 @@
                                     </li>
                                 </ul>
                             </header>
-                            <main class="mt-4 p-4">
-                                <div>
-                                    <div class="my-3">
-                                        <input type="text"
-                                            class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                            placeholder="Category Name" maxlength="22" x-model="categoryName"
-                                            v-model.trim="title" />
+                            <div class="mt-2">
+                                <main class="mt-4 p-4">
+                                    <div>
+                                        <div class="my-3">
+                                            <input type="text"
+                                                class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
+                                                placeholder="Category Name" maxlength="22" x-model="categoryName"
+                                                v-model.trim="title" />
+                                        </div>
                                     </div>
-                                </div>
-                            </main>
-                        </div>
-                    </div>
-                </div>
-                <!-- Modal footer -->
-                <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                    <button data-modal-hide="defaultModal" type="button" @click="addNewCategory"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Add</button>
+                                </main>
+                            </div>
+
+                            <div
+                                class="flex items-center float-right p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                <button type="button" @click="addNewCategory"
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add</button>
+                            </div>
+                        </DialogPanel>
+                    </TransitionChild>
                 </div>
             </div>
-        </div>
-    </div>
+        </Dialog>
+    </TransitionRoot>
 </template>
-
-
+      
 <script>
 import { mapActions } from 'vuex';
-import { initFlowbite } from 'flowbite'
+import {
+    TransitionRoot,
+    TransitionChild,
+    Dialog,
+    DialogPanel,
+    DialogTitle
+} from '@headlessui/vue'
 
 export default {
-    name: 'AddCategoryDialog',
-
-    data() {
-        return {
-            dialog: false,
-            title: '',
-            img: null,
-            categoryImg: ''
-        }
+    components: {
+        TransitionRoot,
+        TransitionChild,
+        Dialog,
+        DialogPanel,
+        DialogTitle
     },
 
+    data: () => ({
+        isOpen: false,
+        title: '',
+        img: null,
+        categoryImg: ''
+    }),
+
     methods: {
+        closeModal() {
+            this.isOpen = false
+        },
+        openModal() {
+            this.isOpen = true
+        },
         ...mapActions(['addCategory', 'fetchCategories']),
         async addNewCategory() {
             this.dialog = false;
@@ -123,9 +144,5 @@ export default {
             }
         }
     },
-
-    mounted() {
-        initFlowbite();
-    }
 }
 </script>

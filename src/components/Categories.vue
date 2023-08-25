@@ -53,7 +53,8 @@
                                         </div>
                                         <div>
                                             <div class="mt-12">
-                                                <EditCategoryDialog :category="category" @update-category="updateCategory($event)" />
+                                                <EditCategoryDialog :category="category"
+                                                    @update-category="updateCategory($event)" />
                                             </div>
                                         </div>
                                     </div>
@@ -91,7 +92,6 @@ export default {
     methods: {
         ...mapActions(["fetchCategories", 'deleteCategory']),
         onDeleteCategory(category) {
-            // debugger
             this.deleteCategory(category);
         },
     },
