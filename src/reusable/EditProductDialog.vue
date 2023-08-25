@@ -83,7 +83,7 @@
                                 </ul>
                             </header>
                             <div class="mt-2">
-                                <main class="mt-4 p-4">
+                                <main class="mt-4">
                                     <div>
                                         <div class="my-3">
                                             <input type="text"

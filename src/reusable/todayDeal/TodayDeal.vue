@@ -21,7 +21,7 @@
                         enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
                         leave-to="opacity-0 scale-95">
                         <DialogPanel
-                            class="w-full max-w-2xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                        class="w-full max-w-3xl sm:max-w-lg md:max-w-xl lg:max-w-3xl xl:max-w-4xl transform overflow-hidden rounded-2xl bg-white p-4 text-left align-middle shadow-xl transition-all">
                             <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
                                 <div class="text-center w-full">
                                     <DialogTitle as="h3" class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -34,8 +34,8 @@
                                 </button>
                             </div>
                             <div class="mt-2">
-                                <main class="mt-4 p-4">
-                                    <div class="container px-2 py-6 mx-auto">
+                                <main class="mt-4">
+                                    <div class="container max-w-full">
                                         <div class="lg:w-4/5 mx-auto flex flex-wrap">
                                             <img alt="ecommerce"
                                                 class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
@@ -104,7 +104,7 @@
                                                     brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue
                                                     bottle austin listicle
                                                     pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.</p>
-                                                <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
+                                                <div class="flex mt-6 items-center pb-5 border-gray-100 mb-5">
                                                     <div class="flex ml-6 items-center">
                                                         <div class="flex space-x-4">
                                                             <div class="flex items-center">
@@ -179,7 +179,6 @@ const updateClock = () => {
         seconds.value = '00';
     }
 }
-
 
 onMounted(() => {
     timer = setInterval(updateClock, 1000);
