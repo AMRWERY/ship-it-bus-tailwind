@@ -56,7 +56,8 @@
                                             <div class="flex gap-2">
                                                 <p class="text-sm font-medium text-gray-900">${{ prod?.price }}</p>
                                                 <p class="text-sm font-medium text-gray-500 line-through"
-                                                    v-if="prod?.originalPrice != null">${{ prod?.originalPrice }}</p>
+                                                    v-if="prod?.originalPrice !== null && prod?.originalPrice !== '' && prod?.originalPrice !== 0">
+                                                    ${{ prod?.originalPrice }}</p>
                                             </div>
                                             <div class="mt-12">
                                                 <EditProductDialog :prod="prod" @update-product="updateProduct($event)" />

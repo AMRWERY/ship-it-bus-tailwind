@@ -94,12 +94,12 @@
                                         <div class="my-3">
                                             <input type="number"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                                placeholder="Price" x-model="price" v-model.trim="price" />
+                                                placeholder="Price" x-model="price" v-model.trim="price" @input="formatPrice" />
                                         </div>
                                         <div class="my-3">
                                             <input type="number"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                                placeholder="original price" x-model="price" v-model.trim="originalPrice" />
+                                                placeholder="original price" x-model="price" v-model.trim="originalPrice" @input="formatOriginalPrice" />
                                         </div>
                                         <div class="my-3">
                                             <label for="availability"
@@ -183,6 +183,16 @@ export default {
         },
         openModal() {
             this.isOpen = true
+        },
+        formatPrice() {
+            if (this.price !== '') {
+                this.price = parseFloat(this.price).toFixed(2);
+            }
+        },
+        formatOriginalPrice() {
+            if (this.originalPrice !== '') {
+                this.originalPrice = parseFloat(this.originalPrice).toFixed(2);
+            }
         },
         ...mapActions(['addProduct']),
         addNewProduct() {
