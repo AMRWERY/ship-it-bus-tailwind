@@ -2,7 +2,7 @@
     <!-- Modal toggle -->
     <button type="button" data-modal-target="defaultModal" data-modal-toggle="defaultModal"
         class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-        <i class="fa-regular fa-pen-to-square"></i>
+        <i class="fa-regular fa-pen-to-square fa-lg"></i>
     </button>
 
     <!-- Main modal -->

@@ -1680,7 +1680,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@popperjs/core@^2.11.2", "@popperjs/core@^2.9.3":
+"@popperjs/core@^2.9.3":
   version "2.11.8"
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
@@ -4404,13 +4404,6 @@ postcss@^8.0.0, postcss@^8.1.0, postcss@^8.1.10, postcss@^8.2.14, postcss@^8.4.2
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-preline@^1.9.0:
-  version "1.9.0"
-  resolved "https://registry.npmjs.org/preline/-/preline-1.9.0.tgz"
-  integrity sha512-zvOexsDBood9gBAQYSwz7iY8TaomtRD0/qxvCnJl3caq5pif6frl8Oe4b4DsxHHD3Clzl4I5RmVKTq9XjMvNJA==
-  dependencies:
-    "@popperjs/core" "^2.11.2"
-
 pretty-format@^26.5.2, pretty-format@^26.6.2:
   version "26.6.2"
   resolved "https://registry.npmjs.org/pretty-format/-/pretty-format-26.6.2.tgz"
@@ -5033,11 +5026,6 @@ supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
-
-tailwindcss-rtl@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.npmjs.org/tailwindcss-rtl/-/tailwindcss-rtl-0.9.0.tgz"
-  integrity sha512-y7yC8QXjluDBEFMSX33tV6xMYrf0B3sa+tOB5JSQb6/G6laBU313a+Z+qxu55M1Qyn8tDMttjomsA8IsJD+k+w==
 
 tailwindcss@^3.3.3, "tailwindcss@>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1":
   version "3.3.3"

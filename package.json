@@ -13,8 +13,6 @@
     "chart.js": "^4.4.0",
     "firebase": "^10.2.0",
     "flowbite": "^1.8.1",
-    "preline": "^1.9.0",
-    "tailwindcss-rtl": "^0.9.0",
     "vue": "^3.3.4",
     "vue-chartjs": "^5.2.0",
     "vue-router": "^4.2.4",

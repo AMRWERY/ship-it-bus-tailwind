@@ -1,8 +1,4 @@
-import {
-  collection,
-  getDocs,
-  query,
-} from "firebase/firestore";
+import { collection, getDocs, query } from "firebase/firestore";
 import db from "../../firebase/config";
 
 const state = {
@@ -23,7 +19,7 @@ const actions = {
       let pro = {
         id: doc.id,
         // ...doc.data(doc.id),
-        ...doc.data(), 
+        ...doc.data(),
       };
       sales.push(pro);
     });
@@ -36,7 +32,7 @@ const getters = {
 };
 
 export default {
-    namespaced: true,
+  namespaced: true,
   state,
   mutations,
   actions,
