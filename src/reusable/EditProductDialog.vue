@@ -60,7 +60,7 @@
                                         <div
                                             class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 relative">
                                             <label for="frontImageInput" class="cursor-pointer">
-                                                <img class="w-12" src="../../public/add-circle-svgrepo-com.svg"
+                                                <img class="w-12" src="/add-circle-svgrepo-com.svg"
                                                     alt="Add Image" />
                                             </label>
                                             <input id="frontImageInput" type="file" accept="image/*"
@@ -72,7 +72,7 @@
                                         <div
                                             class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 relative">
                                             <label for="backImageInput" class="cursor-pointer">
-                                                <img class="w-12" src="../../public/add-circle-svgrepo-com.svg"
+                                                <img class="w-12" src="/add-circle-svgrepo-com.svg"
                                                     alt="Add Image" />
                                             </label>
                                             <input id="backImageInput" type="file" accept="image/*"

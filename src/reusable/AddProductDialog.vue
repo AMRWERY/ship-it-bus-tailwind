@@ -60,7 +60,7 @@
                                         <div
                                             class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 relative">
                                             <label for="frontImageInput" class="cursor-pointer">
-                                                <img class="w-12" src="../../public/add-circle-svgrepo-com.svg"
+                                                <img class="w-12" src="/add-circle-svgrepo-com.svg"
                                                     alt="Add Image" />
                                             </label>
                                             <input id="frontImageInput" type="file" accept="image/*"
@@ -72,7 +72,7 @@
                                         <div
                                             class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 relative">
                                             <label for="backImageInput" class="cursor-pointer">
-                                                <img class="w-12" src="../../public/add-circle-svgrepo-com.svg"
+                                                <img class="w-12" src="/add-circle-svgrepo-com.svg"
                                                     alt="Add Image" />
                                             </label>
                                             <input id="backImageInput" type="file" accept="image/*"
@@ -88,7 +88,7 @@
                                         <div class="my-3">
                                             <input type="text"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                                placeholder="Product Name" maxlength="22" x-model="productName"
+                                                placeholder="Product Name" x-model="productName"
                                                 v-model.trim="title" />
                                         </div>
                                         <div class="my-3">
@@ -166,7 +166,7 @@ export default {
         title: '',
         price: '',
         originalPrice: '',
-        categories: ['Hoodies', 'T-shirts', 'Music', 'Accessories', 'Posters', 'Decor', 'Clothing'],
+        categories: ['Hoodies', 'T-shirts', 'Music', 'Accessories', 'Posters', 'Decor', 'Clothing', 'Mobile', 'Computer and Laptop'],
         selectedCategory: '',
         discount: '',
         availability: 'in-stock',

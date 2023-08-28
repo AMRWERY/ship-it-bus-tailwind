@@ -23,21 +23,21 @@
 
                 <div class="flex items-center">
                     <div class="flex items-center ml-3 space-x-2.5">
-                        <div>
+                        <!-- <div>
                             <button type="button"
                                 class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                 <i class="fa-solid fa-earth-africa fa-xl"></i>
                             </button>
-                        </div>
+                        </div> -->
+
+                        <!-- toggle theme -->
                         <div>
-                            <button v-if="isDarkMode" type="button"
-                                class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                @click="toggleTheme">
+                            <button type="button"
+                                class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                 <i class="fa-solid fa-moon fa-xl"></i>
                             </button>
-                            <button v-else type="button"
-                                class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                @click="toggleTheme">
+                            <button type="button"
+                                class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                 <i class="fa-solid fa-sun fa-xl"></i>
                             </button>
                         </div>

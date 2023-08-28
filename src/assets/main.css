@@ -4,3 +4,21 @@ body {
   background-color: #f6f6f6;
   font-family: "Roboto", sans-serif;
 }
+
+.btn {
+  height: 40px;
+  width: 40px;
+  border: none;
+  margin-inline: 5px;
+  cursor: pointer;
+}
+.back-btn {
+  background-color: #ffffff;
+}
+.next-btn {
+  background-color: #ffffff;
+}
+.btn-active {
+  background-color: #4f46e5;
+  color: white;
+}

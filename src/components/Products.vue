@@ -34,7 +34,7 @@
 
                         <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
                             <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                                <div v-for="prod in products" :key="prod" class="group relative">
+                                <div v-for="prod in displayedProducts" :key="prod" class="group relative">
                                     <button @click="onDeleteProduct(prod)" type="button"
                                         class="absolute top-2 right-2 mx-3 mt-3 z-10">
                                         <i class="fa-solid fa-trash" style="color: #F31559"></i>
@@ -71,6 +71,11 @@
                     </div>
                 </div>
             </div>
+            <div class="flex justify-center mt-4">
+                <vue-awesome-paginate :total-items="products.length" v-model="currentPage" :items-per-page="perPage"
+                    :max-pages-shown="5" paginate-buttons-class="btn" active-page-class="btn-active"
+                    back-button-class="back-btn" next-button-class="next-btn" />
+            </div>
         </div>
     </div>
 </template>
@@ -95,11 +100,22 @@ export default {
     data() {
         return {
             products: [],
+            currentPage: 1,
+            perPage: 10,
         }
     },
 
     computed: {
         ...mapGetters(['getAllProducts']),
+        startIndex() {
+            return (this.currentPage - 1) * this.perPage;
+        },
+        endIndex() {
+            return this.currentPage * this.perPage;
+        },
+        displayedProducts() {
+            return this.products.slice(this.startIndex, this.endIndex);
+        },
     },
 
     methods: {
