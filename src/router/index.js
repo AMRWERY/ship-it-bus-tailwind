@@ -5,6 +5,16 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: "/login",
+      name: "Login",
+      component: () => import("../auth/Login.vue"),
+    },
+    {
+      path: "/reset-password",
+      name: "ResetPassword",
+      component: () => import("../auth/ResetPassword.vue"),
+    },
+    {
       path: "/",
       name: "Home",
       component: Home,

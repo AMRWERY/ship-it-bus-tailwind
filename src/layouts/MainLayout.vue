@@ -133,6 +133,13 @@
 
             </ul>
         </div>
+        <div class="sticky inset-x-0 bottom-0 border-t border-gray-100">
+            <div class="mb-16" @click="logout">
+                <router-link to="/login"
+                    class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Log
+                    out</router-link>
+            </div>
+        </div>
     </aside>
 
     <div class="p-4 sm:ml-64">
@@ -146,6 +153,20 @@
 import { onMounted } from 'vue';
 import { initFlowbite } from 'flowbite';
 import { RouterView } from 'vue-router';
+import { useStore } from 'vuex';
+
+const store = useStore();
+
+const logout = async () => {
+    try {
+        await store.dispatch('logout');
+        store.commit('setIsAuthenticated', false);
+        sessionStorage.removeItem("userToken");
+        isUserLoggedIn.value = false;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 onMounted(() => {
     initFlowbite();

@@ -11,7 +11,14 @@ import store from "./store/index";
 import VueAwesomePaginate from "vue-awesome-paginate";
 import "vue-awesome-paginate/dist/style.css";
 
+//formkit
+import { plugin, defaultConfig } from "@formkit/vue";
 
 const app = createApp(App);
 
-app.use(router).use(store).use(VueAwesomePaginate).mount("#app");
+app
+  .use(router)
+  .use(store)
+  .use(VueAwesomePaginate)
+  .use(plugin, defaultConfig)
+  .mount("#app");

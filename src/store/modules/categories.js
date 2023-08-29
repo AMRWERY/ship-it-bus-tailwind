@@ -1,5 +1,12 @@
-import { getDocs, collection, query, addDoc, deleteDoc, doc } from "firebase/firestore";
-import db from "@/firebase/config";
+import {
+  getDocs,
+  collection,
+  query,
+  addDoc,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
+import { db } from "@/firebase/config";
 
 const state = {
   categories: [],

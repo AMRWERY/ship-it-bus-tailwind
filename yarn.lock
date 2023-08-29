@@ -1508,6 +1508,99 @@
   resolved "https://registry.npmjs.org/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.10.1.tgz"
   integrity sha512-Dq5rYfEpdeel0bLVN+nfD1VWmzCkK+pJbSjIawGE+RY4+NIJqhbUDDQjvV0NUK84fMfwxvtFoCtEe70HfZjFcw==
 
+"@formkit/core@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.npmjs.org/@formkit/core/-/core-0.19.0.tgz"
+  integrity sha512-7z+Ev7ZeFSULux62e3mTo+4TpREW2LrBkrfeoYZoYc1iexYFRxjkgqHS7Clkl15twUm67lq1XIRyvOvNTsJJrw==
+  dependencies:
+    "@formkit/utils" "0.19.0"
+
+"@formkit/dev@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.npmjs.org/@formkit/dev/-/dev-0.19.0.tgz"
+  integrity sha512-8M9oxQzynsv7e5+LrNj9uvf84UUBKCbdZUPN9H+Q/YHf0DZD+zhzhdIG6DDQfdxExLOSzODM4GOgUkD01U0qVg==
+  dependencies:
+    "@formkit/core" "0.19.0"
+    "@formkit/utils" "0.19.0"
+
+"@formkit/i18n@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.npmjs.org/@formkit/i18n/-/i18n-0.19.0.tgz"
+  integrity sha512-K+9LffHtwTtjaFMZu/dNxPX6h2Ub1FCDv7Ivoja0WjI+GrerXu8ggS1n74F1aEEIx7e8ks0yexfQyXcaFyRdfQ==
+  dependencies:
+    "@formkit/core" "0.19.0"
+    "@formkit/utils" "0.19.0"
+    "@formkit/validation" "0.19.0"
+
+"@formkit/icons@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.npmjs.org/@formkit/icons/-/icons-0.19.0.tgz"
+  integrity sha512-uwESNf2NcQQDKqhiWre05DMpBCGuLU+4I4lJfNwbsEga9y32/ryuYfxtovScZM6A5vfc0ukhd/9um5EDAcvKFQ==
+  dependencies:
+    "@formkit/core" "0.19.0"
+
+"@formkit/inputs@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.npmjs.org/@formkit/inputs/-/inputs-0.19.0.tgz"
+  integrity sha512-TDsM/VJNH8De6WYTKM7WyE/cVWcU67lj2vJAWjdI/2yUBspGu2gK+IJB6rVkWLuG8lcjyBmsvm7VlXfUlJ4SYg==
+  dependencies:
+    "@formkit/core" "0.19.0"
+    "@formkit/utils" "0.19.0"
+
+"@formkit/observer@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.npmjs.org/@formkit/observer/-/observer-0.19.0.tgz"
+  integrity sha512-tCdQjsZNgoIqJGROa1fvuA/6t9VgtIxLlJ5vXhlxNi7pmu2BAFjhmdiDLo9PsVF/wEl3phaka8SbhlMj1Lborg==
+  dependencies:
+    "@formkit/core" "0.19.0"
+    "@formkit/utils" "0.19.0"
+
+"@formkit/rules@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.npmjs.org/@formkit/rules/-/rules-0.19.0.tgz"
+  integrity sha512-Wscg7mYgafnxWKg7hsoC0Di2hIHbmu/mLm/sgbErODRLYAqyRFBDraMtYrhOuA2qx5JBOKIQrZDlo/G0LiQBIQ==
+  dependencies:
+    "@formkit/core" "0.19.0"
+    "@formkit/utils" "0.19.0"
+    "@formkit/validation" "0.19.0"
+
+"@formkit/themes@^0.19.0", "@formkit/themes@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.npmjs.org/@formkit/themes/-/themes-0.19.0.tgz"
+  integrity sha512-6THhIYbxU9vyiV0s/CNq8g7XMXh2vLAgAHXNQTmBz/niNRwIyMSqrVT7Xq3jtsDuxPIGvknu4msWjL+RPogBZQ==
+  dependencies:
+    "@formkit/core" "0.19.0"
+
+"@formkit/utils@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.npmjs.org/@formkit/utils/-/utils-0.19.0.tgz"
+  integrity sha512-XJn1KTMTXQuw6O/0LcEgClPmnhfcHLV+U7H4yefxc9cOEZKjacqTtojaJs756yxqBUg/JEHLoHfHoHJ9MvnH0w==
+
+"@formkit/validation@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.npmjs.org/@formkit/validation/-/validation-0.19.0.tgz"
+  integrity sha512-OdWHo9PmBtM4CMCf/bXc/RsyKW4W71PzQAb7Tcvj4B46JdkvS2Y/vD72OD9+OWL6JofG3g+9EEo2QCfDrpg8Xg==
+  dependencies:
+    "@formkit/core" "0.19.0"
+    "@formkit/observer" "0.19.0"
+    "@formkit/utils" "0.19.0"
+
+"@formkit/vue@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.npmjs.org/@formkit/vue/-/vue-0.19.0.tgz"
+  integrity sha512-OOKLbLpsfqU3BrGzre1Vg9T6/RvWhpRujoLE7Y0MTuE4iS52GTnOGWR2UmCLIUzUQBGxN7QqS+0N1y12KCH6LA==
+  dependencies:
+    "@formkit/core" "0.19.0"
+    "@formkit/dev" "0.19.0"
+    "@formkit/i18n" "0.19.0"
+    "@formkit/inputs" "0.19.0"
+    "@formkit/observer" "0.19.0"
+    "@formkit/rules" "0.19.0"
+    "@formkit/themes" "0.19.0"
+    "@formkit/utils" "0.19.0"
+    "@formkit/validation" "0.19.0"
+    vue "^3.3.4"
+
 "@grpc/grpc-js@~1.8.17":
   version "1.8.21"
   resolved "https://registry.npmjs.org/@grpc/grpc-js/-/grpc-js-1.8.21.tgz"
@@ -5027,7 +5120,7 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-tailwindcss@^3.3.3, "tailwindcss@>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1":
+tailwindcss@^3.2.0, tailwindcss@^3.3.3, "tailwindcss@>=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1":
   version "3.3.3"
   resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.3.3.tgz"
   integrity sha512-A0KgSkef7eE4Mf+nKJ83i75TMyq8HqY3qmFIJSWy8bNt0v1lG7jUcpGpoTFxAwYcWOphcTBLPPJg+bDfhDf52w==
