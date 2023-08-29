@@ -52,50 +52,85 @@
         class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-            <ul class="space-y-2 font-medium mt-16">
-                <li>
-                    <router-link to="/"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <i class="fa-solid fa-chart-line fa-lg"></i>
-                        <span class="ml-3">Dashboard</span>
-                    </router-link>
-                </li>
-                <li>
-                    <router-link to="/invoices"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <i class="fa-solid fa-arrow-trend-up fa-lg"></i>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Invoices</span>
-                    </router-link>
-                </li>
-                <li>
-                    <router-link to="/orders"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <i class="fa-solid fa-arrow-up-wide-short fa-lg"></i>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Orders</span>
-                    </router-link>
-                </li>
-                <li>
-                    <router-link to="/products"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <i class="fa-solid fa-bag-shopping fa-lg"></i>
-                        <span class="flex-1 ml-3 whitespace-nowrap">View Products</span>
-                    </router-link>
-                </li>
-                <li>
-                    <router-link to="/categories"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <i class="fa-solid fa-list-ol fa-lg"></i>
-                        <span class="flex-1 ml-3 whitespace-nowrap">View Categories</span>
-                    </router-link>
-                </li>
-                <li>
 
-                    <router-link to=""
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <i class="fa-solid fa-shop fa-lg"></i>
-                        <span class="flex-1 ml-3 whitespace-nowrap">Back to Shopping</span>
+            <ul class="space-y-2 font-medium mt-16">
+                <div class="mb-4 px-4">
+                    <p class="pl-4 text-sm font-semibold mb-1">Main</p>
+                    <router-link to="/">
+                        <div
+                            class="w-full flex items-center text-blue-400 h-10 pl-4 bg-gray-200 hover:bg-gray-200 rounded-lg cursor-pointer">
+                            <i class="fa-solid fa-chart-line fa-lg mr-2"></i>
+                            <span class="text-gray-700">Dashboard</span>
+                        </div>
                     </router-link>
-                </li>
+                    <router-link to="/invoices">
+                        <div
+                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
+                            <i class="fa-solid fa-arrow-trend-up fa-lg mr-2"></i>
+                            <span class="text-gray-700">Invoices</span>
+                        </div>
+                    </router-link>
+                    <router-link to="/orders">
+                        <div
+                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
+                            <i class="fa-solid fa-arrow-up-wide-short fa-lg mr-2"></i>
+                            <span class="text-gray-700">Orders</span>
+                        </div>
+                    </router-link>
+                </div>
+
+                <div class="mb-4 px-4">
+                    <p class="pl-4 text-sm font-semibold mb-1">Projects</p>
+                    <router-link to="/products">
+                        <div
+                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
+                            <i class="fa-solid fa-bag-shopping fa-lg mr-2"></i>
+                            <span class="text-gray-700">View Products</span>
+                        </div>
+                    </router-link>
+                    <router-link to="/categories">
+                        <div
+                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
+                            <i class="fa-solid fa-list-ol fa-lg mr-2"></i>
+                            <span class="text-gray-700">View Categories</span>
+                        </div>
+                    </router-link>
+                </div>
+
+                <div class="mb-4 px-4">
+                    <p class="pl-4 text-sm font-semibold mb-1">Misc</p>
+                    <router-link to="/terms-and-conditions">
+                        <div
+                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
+                            <i class="fa-solid fa-thumbtack fa-lg mr-2"></i>
+                            <span class="text-gray-700">Terms & Conditions</span>
+                        </div>
+                    </router-link>
+                    <router-link to="/f-a-q">
+                        <div
+                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
+                            <i class="fa-solid fa-circle-question fa-lg mr-2"></i>
+                            <span class="text-gray-700">FAQ</span>
+                        </div>
+                    </router-link>
+                    <router-link to="/privacy-policy">
+                        <div
+                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
+                            <i class="fa-solid fa-circle-info fa-lg mr-2"></i>
+                            <span class="text-gray-700">Privacy Policy</span>
+                        </div>
+                    </router-link>
+                </div>
+
+                <!-- don't delete it -->
+
+                <!-- <router-link to="">
+                    <div class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer mt-3">
+                        <i class="fa-solid fa-shop fa-lg fa-lg mr-2"></i>
+                      <span class="text-gray-700">Back to Shopping</span>
+                    </div>
+                </router-link> -->
+
             </ul>
         </div>
     </aside>
