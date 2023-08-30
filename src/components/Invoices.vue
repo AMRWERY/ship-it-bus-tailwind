@@ -97,25 +97,26 @@
                             <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3">
-                        Product name
+                    <th scope="col" class="px-6 py-3 capitalize">
+                        User e-mail
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 capitalize">
+                        Username
+                    </th>
+                    <th scope="col" class="px-6 py-3 capitalize">
                         Color
                     </th>
-                    <th scope="col" class="px-6 py-3">
-                        Category
-                    </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 capitalize">
                         Price
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 capitalize">
                         Action
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                    v-for="user in users" :key="user">
                     <td class="w-4 p-4">
                         <div class="flex items-center">
                             <input id="checkbox-table-search-1" type="checkbox"
@@ -124,10 +125,10 @@
                         </div>
                     </td>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Apple MacBook Pro 17"
+                        {{ user?.email }}
                     </th>
                     <td class="px-6 py-4">
-                        Silver
+                        {{ user?.username }}
                     </td>
                     <td class="px-6 py-4">
                         Laptop
@@ -151,10 +152,36 @@
 
 <script>
 import InvoiceDialog from '../reusable/InvoiceDialog.vue'
+import { mapGetters, mapActions } from "vuex"
 
 export default {
     name: 'Invoices',
 
-    components: { InvoiceDialog }
+    data() {
+        return {
+            users: []
+        }
+    },
+
+    components: { InvoiceDialog },
+
+    computed: {
+        ...mapGetters(['getAllUsers']),
+    },
+
+    methods: {
+        ...mapActions(["fetchUsers"]),
+    },
+
+    watch: {
+        getAllUsers(newProducts) {
+            this.users = newProducts;
+        },
+    },
+
+    mounted() {
+        this.fetchUsers()
+        this.users = this.getAllUsers
+    }
 }
 </script>

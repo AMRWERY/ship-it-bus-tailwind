@@ -17,23 +17,66 @@
                         enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
                         leave-to="opacity-0 scale-95">
                         <DialogPanel
-                            class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                            <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900">
-                                Payment successful
-                            </DialogTitle>
-                            <div class="mt-2">
-                                <p class="text-sm text-gray-500">
-                                    Your payment has been successfully submitted. We’ve sent you
-                                    an email with all of the details of your order.
-                                </p>
-                            </div>
-
-                            <div class="mt-4">
-                                <button type="button"
-                                    class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                    @click="closeModal">
-                                    Got it, thanks!
+                            class="w-full max-w-2xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                            <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
+                                <div class="w-full">
+                                    <DialogTitle as="h3" class="text-xl font-semibold text-gray-900 dark:text-white">
+                                        User purchases
+                                    </DialogTitle>
+                                </div>
+                                <button type="button" @click="closeModal"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                                    <i class="fa-solid fa-xmark fa-xl w-3 h-3"></i>
                                 </button>
+                            </div>
+                            <div class="mt-2 max-h-[400px] overflow-y-auto">
+                                <div class="container px-5 mx-auto">
+                                    <div class="-my-8 divide-y-2 divide-gray-100">
+                                        <div class="py-8 flex flex-wrap md:flex-nowrap">
+                                            <div
+                                                class="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full">
+                                                <div class="pb-4 md:pb-8 w-full md:w-40">
+                                                    <img class="w-full hidden md:block"
+                                                        src="https://i.ibb.co/84qQR4p/Rectangle-10.png" />
+                                                    <img class="w-full md:hidden"
+                                                        src="https://i.ibb.co/L039qbN/Rectangle-10.png" />
+                                                </div>
+                                                <div
+                                                    class="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0">
+                                                    <div class="w-full flex flex-col justify-start items-start space-y-8">
+                                                        <div class="flex justify-start items-start flex-col space-y-2">
+                                                            <p class="text-sm dark:text-white leading-none text-gray-800">
+                                                                <span class="dark:text-gray-400 text-gray-300">Product:
+                                                                </span> Italic Minimal Design
+                                                            </p>
+                                                            <p class="text-sm dark:text-white leading-none text-gray-800">
+                                                                <span class="dark:text-gray-400 text-gray-300">Category:
+                                                                </span>
+                                                                Small
+                                                            </p>
+                                                            <p class="text-sm dark:text-white leading-none text-gray-800">
+                                                                <span class="dark:text-gray-400 text-gray-300">Date of
+                                                                    purchases:
+                                                                </span> Light Blue
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex justify-between space-x-8 items-start w-full">
+                                                        <p class="text-base dark:text-white xl:text-lg leading-6">$36.00
+                                                            <span class="text-red-300 line-through"> $45.00</span>
+                                                        </p>
+                                                        <p
+                                                            class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
+                                                            01</p>
+                                                        <p
+                                                            class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">
+                                                            $36.00</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </DialogPanel>
                     </TransitionChild>

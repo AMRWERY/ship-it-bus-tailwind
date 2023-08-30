@@ -97,19 +97,19 @@
                             <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 capitalize">
                         Product name
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 capitalize">
                         Color
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 capitalize">
                         Category
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 capitalize">
                         Price
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 capitalize">
                         Action
                     </th>
                 </tr>
