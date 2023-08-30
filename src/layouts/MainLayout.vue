@@ -56,69 +56,58 @@
             <ul class="space-y-2 font-medium mt-16">
                 <div class="mb-4 px-4">
                     <p class="pl-4 text-sm font-semibold mb-1">Main</p>
-                    <router-link to="/">
-                        <div
-                            class="w-full flex items-center text-blue-400 h-10 pl-4 bg-gray-200 hover:bg-gray-200 rounded-lg cursor-pointer">
-                            <i class="fa-solid fa-chart-line fa-lg mr-2"></i>
-                            <span class="text-gray-700">Dashboard</span>
-                        </div>
+                    <router-link to="/" @click="selectedTab = 'dashboard'"
+                        :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'dashboard' }]">
+                        <i class="fa-solid fa-chart-line fa-lg mr-2"></i>
+                        <span class="text-gray-700">Dashboard</span>
                     </router-link>
-                    <router-link to="/invoices">
-                        <div
-                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
-                            <i class="fa-solid fa-arrow-trend-up fa-lg mr-2"></i>
-                            <span class="text-gray-700">Invoices</span>
-                        </div>
+
+                    <router-link to="/invoices" @click="selectedTab = 'invoices'"
+                        :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'invoices' }]">
+                        <i class="fa-solid fa-arrow-trend-up fa-lg mr-2"></i>
+                        <span class="text-gray-700">Invoices</span>
                     </router-link>
-                    <router-link to="/orders">
-                        <div
-                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
-                            <i class="fa-solid fa-arrow-up-wide-short fa-lg mr-2"></i>
-                            <span class="text-gray-700">Orders</span>
-                        </div>
+
+                    <router-link to="/orders" @click="selectedTab = 'orders'"
+                        :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'orders' }]">
+                        <i class="fa-solid fa-arrow-up-wide-short fa-lg mr-2"></i>
+                        <span class="text-gray-700">Orders</span>
                     </router-link>
                 </div>
 
                 <div class="mb-4 px-4">
                     <p class="pl-4 text-sm font-semibold mb-1">Projects</p>
-                    <router-link to="/products">
-                        <div
-                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
-                            <i class="fa-solid fa-bag-shopping fa-lg mr-2"></i>
-                            <span class="text-gray-700">View Products</span>
-                        </div>
+                    <router-link to="/products" @click="selectedTab = 'products'"
+                        :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'products' }]">
+                        <i class="fa-solid fa-arrow-up-wide-short fa-lg mr-2"></i>
+                        <span class="text-gray-700">View Products</span>
                     </router-link>
-                    <router-link to="/categories">
-                        <div
-                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
-                            <i class="fa-solid fa-list-ol fa-lg mr-2"></i>
-                            <span class="text-gray-700">View Categories</span>
-                        </div>
+
+                    <router-link to="/categories" @click="selectedTab = 'categories'"
+                        :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'categories' }]">
+                        <i class="fa-solid fa-list-ol fa-lg mr-2"></i>
+                        <span class="text-gray-700">View Categories</span>
                     </router-link>
                 </div>
 
                 <div class="mb-4 px-4">
                     <p class="pl-4 text-sm font-semibold mb-1">Misc</p>
-                    <router-link to="/terms-and-conditions">
-                        <div
-                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
-                            <i class="fa-solid fa-thumbtack fa-lg mr-2"></i>
-                            <span class="text-gray-700">Terms & Conditions</span>
-                        </div>
+                    <router-link to="/terms-and-conditions" @click="selectedTab = 'terms-and-conditions'"
+                        :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'terms-and-conditions' }]">
+                        <i class="fa-solid fa-thumbtack fa-lg mr-2"></i>
+                        <span class="text-gray-700">Terms & Conditions</span>
                     </router-link>
-                    <router-link to="/f-a-q">
-                        <div
-                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
-                            <i class="fa-solid fa-circle-question fa-lg mr-2"></i>
-                            <span class="text-gray-700">FAQ</span>
-                        </div>
+
+                    <router-link to="/f-a-q" @click="selectedTab = 'f-a-q'"
+                        :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'f-a-q' }]">
+                        <i class="fa-solid fa-circle-question fa-lg mr-2"></i>
+                        <span class="text-gray-700">FAQ</span>
                     </router-link>
-                    <router-link to="/privacy-policy">
-                        <div
-                            class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer">
-                            <i class="fa-solid fa-circle-info fa-lg mr-2"></i>
-                            <span class="text-gray-700">Privacy Policy</span>
-                        </div>
+
+                    <router-link to="/privacy-policy" @click="selectedTab = 'privacy-policy'"
+                        :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'privacy-policy' }]">
+                        <i class="fa-solid fa-circle-info fa-lg mr-2"></i>
+                        <span class="text-gray-700">Privacy Policy</span>
                     </router-link>
                 </div>
 
@@ -150,12 +139,13 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { initFlowbite } from 'flowbite';
 import { RouterView } from 'vue-router';
 import { useStore } from 'vuex';
 
 const store = useStore();
+const selectedTab = ref('');
 
 const logout = async () => {
     try {

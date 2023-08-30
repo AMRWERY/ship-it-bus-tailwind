@@ -45,8 +45,7 @@
                                         <div
                                             class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 relative">
                                             <label for="imageInput" class="cursor-pointer">
-                                                <img class="w-12" src="/add-circle-svgrepo-com.svg"
-                                                    alt="Add Image" />
+                                                <img class="w-12" src="/add-circle-svgrepo-com.svg" alt="Add Image" />
                                             </label>
                                             <input id="imageInput" type="file" accept="image/*"
                                                 class="absolute inset-0 opacity-0 cursor-pointer w-full h-full" />
@@ -81,7 +80,7 @@
   
 <script>
 import { doc, updateDoc, getDoc } from "firebase/firestore";
-import db from "@/firebase/config";
+import { db } from "@/firebase/config";
 import {
     TransitionRoot,
     TransitionChild,
