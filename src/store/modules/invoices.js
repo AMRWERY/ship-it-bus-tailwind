@@ -20,13 +20,12 @@ const actions = {
     let users = [];
     querySnap.forEach((doc) => {
       let user = {
-        id: doc.id,
+        // id: doc.id,
         ...doc.data(doc.id),
       };
       users.push(user);
     });
     commit("setUsers", users);
-    // commit("setSearchResults", users);
   },
   async getUserById({ commit }, id) {
     const docSnap = await getDoc(doc(db, "users", id));

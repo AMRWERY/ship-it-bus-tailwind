@@ -1,8 +1,8 @@
 <template>
-    <button type="button" @click="openModal"
+    <!-- <button type="button" @click="openModal"
         class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
         <i class="fa-solid fa-eye fa-lg"></i>
-    </button>
+    </button> -->
 
     <TransitionRoot appear :show="isOpen" as="template">
         <Dialog as="div" @close="closeModal" class="relative z-10">
@@ -17,7 +17,7 @@
                         enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
                         leave-to="opacity-0 scale-95">
                         <DialogPanel
-                            class="w-full max-w-2xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                            class="w-full max-w-4xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                             <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
                                 <div class="w-full">
                                     <DialogTitle as="h3" class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -31,46 +31,60 @@
                             </div>
                             <div class="mt-2 max-h-[400px] overflow-y-auto">
                                 <div class="container px-5 mx-auto">
-                                    <div class="-my-8 divide-y-2 divide-gray-100">
-                                        <div class="py-8 flex flex-wrap md:flex-nowrap">
-                                            <div
+                                    <div class="divide-y-2 divide-gray-100">
+                                        <div v-for="item in orders" :key="item">
+                                            <div v-for="prod in item.cartItems" :key="prod"
                                                 class="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full">
-                                                <div class="pb-4 md:pb-8 w-full md:w-40">
-                                                    <img class="w-full hidden md:block"
-                                                        src="https://i.ibb.co/84qQR4p/Rectangle-10.png" />
-                                                    <img class="w-full md:hidden"
-                                                        src="https://i.ibb.co/L039qbN/Rectangle-10.png" />
-                                                </div>
-                                                <div
-                                                    class="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0">
-                                                    <div class="w-full flex flex-col justify-start items-start space-y-8">
-                                                        <div class="flex justify-start items-start flex-col space-y-2">
-                                                            <p class="text-sm dark:text-white leading-none text-gray-800">
-                                                                <span class="dark:text-gray-400 text-gray-300">Product:
-                                                                </span> Italic Minimal Design
-                                                            </p>
-                                                            <p class="text-sm dark:text-white leading-none text-gray-800">
-                                                                <span class="dark:text-gray-400 text-gray-300">Category:
-                                                                </span>
-                                                                Small
-                                                            </p>
-                                                            <p class="text-sm dark:text-white leading-none text-gray-800">
-                                                                <span class="dark:text-gray-400 text-gray-300">Date of
-                                                                    purchases:
-                                                                </span> Light Blue
-                                                            </p>
-                                                        </div>
+                                                <div class="flex">
+                                                    <div class="pb-4 md:pb-8 w-full md:w-40">
+                                                        <img class="w-full hidden md:block" :src="prod?.imgFront" />
+                                                        <img class="w-full md:hidden" :src="prod?.imgFront" />
                                                     </div>
-                                                    <div class="flex justify-between space-x-8 items-start w-full">
-                                                        <p class="text-base dark:text-white xl:text-lg leading-6">$36.00
-                                                            <span class="text-red-300 line-through"> $45.00</span>
-                                                        </p>
-                                                        <p
-                                                            class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
-                                                            01</p>
-                                                        <p
-                                                            class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800">
-                                                            $36.00</p>
+                                                    <div
+                                                        class="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0 ml-10">
+                                                        <div
+                                                            class="w-full flex flex-col justify-start items-start space-y-8">
+                                                            <h3
+                                                                class="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800 mt-10">
+                                                                {{ prod?.title }}
+                                                            </h3>
+                                                            <!-- <div class="flex justify-start items-start flex-col space-y-2">
+                                                                <p
+                                                                    class="text-sm dark:text-white leading-none text-gray-800">
+                                                                    <span class="dark:text-gray-400 text-gray-400">Status:
+                                                                    </span>Processing
+                                                                </p>
+                                                                <p
+                                                                    class="text-sm dark:text-white leading-none text-gray-800">
+                                                                    <span class="dark:text-gray-400 text-gray-400">Payment
+                                                                        Method: </span>
+                                                                    {{ selectedCard }}
+                                                                </p>
+                                                            </div> -->
+                                                        </div>
+                                                        <div
+                                                            class="flex justify-between space-x-14 items-start w-full ml-20">
+                                                            <div class="flex justify-start items-center mt-10">
+                                                                <p class="text-base dark:text-white xl:text-lg leading-6">
+                                                                    ${{ prod?.price }}</p>
+                                                                <p
+                                                                    class="text-red-300 line-through text-base dark:text-white xl:text-lg leading-6 ml-2">
+                                                                    ${{ prod?.originalPrice }}</p>
+                                                            </div>
+
+                                                            <div class="flex items-center mt-10">
+                                                                <p
+                                                                    class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
+                                                                    {{
+                                                                        prod?.cartQty }}</p>
+                                                                <p
+                                                                    class="text-red-300 text-base dark:text-white xl:text-lg leading-6 ml-2">
+                                                                    Pieces</p>
+                                                            </div>
+                                                            <p
+                                                                class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800 mt-10">
+                                                                ${{ prod?.price }}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,6 +108,7 @@ import {
     DialogPanel,
     DialogTitle
 } from '@headlessui/vue'
+import { mapGetters, mapActions } from "vuex"
 
 export default {
     name: 'InvoiceDialog',
@@ -108,15 +123,33 @@ export default {
 
     data: () => ({
         isOpen: false,
+        orders: [],
+        // selectedUserId: null,
     }),
 
+    props: ['userId', 'isOpen'],
+
+    computed: {
+        ...mapGetters(['getAllOrders']),
+    },
+
     methods: {
+        ...mapActions(["fetchOrders"]),
         closeModal() {
             this.isOpen = false
+            this.$emit('close', false)
         },
-        openModal() {
-            this.isOpen = true
+    },
+
+    watch: {
+        getAllOrders(newOrders) {
+            this.orders = newOrders;
         },
+    },
+
+    mounted() {
+        this.fetchOrders(this.userId)
+        this.orders = this.getAllOrders
     }
 }
 </script>

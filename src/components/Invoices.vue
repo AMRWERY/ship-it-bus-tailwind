@@ -137,7 +137,11 @@
                         $2999
                     </td>
                     <td class="px-6 py-4">
-                        <InvoiceDialog />
+
+                        <button type="button" @click="openModal(user.id)"
+                            class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                            <i class="fa-solid fa-eye fa-lg"></i>
+                        </button>
 
                         <button type="button"
                             class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -147,6 +151,8 @@
                 </tr>
             </tbody>
         </table>
+        <InvoiceDialog :userId="selectedUserId" :isOpen="open" v-if="open" @close="open = $event" />
+
     </div>
 </template>
 
@@ -159,7 +165,10 @@ export default {
 
     data() {
         return {
-            users: []
+            users: [],
+            selectedUserId: null,
+            open: false,
+            userId: ''
         }
     },
 
@@ -171,6 +180,13 @@ export default {
 
     methods: {
         ...mapActions(["fetchUsers"]),
+        openModal(userId) {
+            this.selectedUserId = userId;
+            this.open = true
+        },
+        // close(event) {
+        //     this.open = event
+        // }
     },
 
     watch: {

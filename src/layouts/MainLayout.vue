@@ -109,6 +109,12 @@
                         <i class="fa-solid fa-circle-info fa-lg mr-2"></i>
                         <span class="text-gray-700">Privacy Policy</span>
                     </router-link>
+
+                    <router-link to="/login" @click="logout = 'privacy-policy'"
+                        :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'privacy-policy' }]">
+                        <i class="fa-solid fa-arrow-right-from-bracket fa-lg mr-2"></i>
+                        <span class="text-gray-700">Log out</span>
+                    </router-link>
                 </div>
 
                 <!-- don't delete it -->
@@ -121,13 +127,6 @@
                 </router-link> -->
 
             </ul>
-        </div>
-        <div class="sticky inset-x-0 bottom-0 border-t border-gray-100">
-            <div class="mb-16" @click="logout">
-                <router-link to="/login"
-                    class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Log
-                    out</router-link>
-            </div>
         </div>
     </aside>
 

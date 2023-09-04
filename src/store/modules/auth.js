@@ -128,9 +128,7 @@ const actions = {
         if (username) {
           await updateProfile(user, {
             displayName: username,
-          }).then((userProfile) => {
-            // console.log(userProfile);
-          });
+          }).then((userProfile) => {});
         }
         if (password) {
           await updatePassword(user, password);

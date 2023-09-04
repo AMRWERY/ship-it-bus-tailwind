@@ -125,7 +125,6 @@ export default {
         },
         editItem(item) {
             let id = item?.id;
-            console.log(id);
         },
         async getData() {
             const querySnap = await getDocs(query(collection(db, "products")));
@@ -135,9 +134,7 @@ export default {
                     id: doc.id,
                     ...doc.data(doc.id),
                 };
-                console.log(doc.id);
                 this.products.push(pro);
-                console.log(pro);
             });
         },
         onDeleteProduct(product) {

@@ -6,6 +6,7 @@ import categories from "./modules/categories";
 import deal from "./modules/deal";
 import salesCharts from "./modules/salesCharts";
 import invoices from "./modules/invoices";
+import orders from "./modules/orders";
 
 const store = createStore({
   modules: {
@@ -15,6 +16,7 @@ const store = createStore({
     deal,
     salesCharts,
     invoices,
+    orders,
   },
 });
 
