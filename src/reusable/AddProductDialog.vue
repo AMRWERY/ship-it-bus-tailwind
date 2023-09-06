@@ -165,7 +165,7 @@ export default {
         title: '',
         price: '',
         originalPrice: '',
-        categories: ['Hoodies', 'T-shirts', 'Music', 'Accessories', 'Posters', 'Decor', 'Clothing', 'Mobile', 'Laptop', "Shoes",],
+        categories: ['Hoodies', 'T-shirts', 'Music', 'Accessories', 'Posters', 'Decor', 'Clothing', 'Mobile', 'Laptop', "Shoes", 'Electronics', 'Jewelry', 'Groceries', "Women's Clothing", "Men's Clothing", 'Skincare', 'Albums'],
         selectedCategory: '',
         discount: '',
         availability: 'in-stock',
@@ -194,7 +194,8 @@ export default {
             }
         },
         ...mapActions(['addProduct']),
-        addNewProduct() {
+
+        async addNewProduct() {
             this.dialog = false
             let obj = {
                 title: this.title,

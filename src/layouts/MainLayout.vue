@@ -92,6 +92,12 @@
 
                 <div class="mb-4 px-4">
                     <p class="pl-4 text-sm font-semibold mb-1">Misc</p>
+                    <router-link to="/mail" @click="selectedTab = 'mail'"
+                        :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'mail' }]">
+                        <i class="fa-solid fa-envelope fa-lg mr-2"></i>
+                        <span class="text-gray-700">Mail</span>
+                    </router-link>
+
                     <router-link to="/terms-and-conditions" @click="selectedTab = 'terms-and-conditions'"
                         :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'terms-and-conditions' }]">
                         <i class="fa-solid fa-thumbtack fa-lg mr-2"></i>

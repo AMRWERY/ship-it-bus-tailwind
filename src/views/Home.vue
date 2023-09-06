@@ -75,9 +75,7 @@
         <p class="text-xl font-semibold mb-4">Recent Sales</p>
 
         <div class="w-full bg-white border rounded-lg p-4 mb-8 xl:mb-0">
-          <!-- <canvas id="buyers-chart" width="600" height="500"></canvas> -->
-          <bar id="buyers-chart"  :data="salesChart" width="600" height="500"></bar>
-          <!-- <canvas id="buyers-chart" v-if="loaded" :chart-data="buyersData" :options="chartOptions" width="600" height="500"></canvas> -->
+          <canvas id="buyers-chart" width="600" height="400"></canvas>
         </div>
       </div>
 
@@ -85,7 +83,7 @@
         <p class="text-xl font-semibold mb-4">Recent Reviews</p>
 
         <div class="w-full bg-white border rounded-lg p-4 mb-8 xl:mb-0">
-          <canvas id="reviews-chart" width="600" height="500"></canvas>
+          <canvas id="reviews-chart" width="600" height="400"></canvas>
         </div>
       </div>
 
@@ -130,75 +128,167 @@
 </template>
 
 <script>
-// import { mapActions, mapGetters } from "vuex";
-import { computed, ref } from 'vue';
-import { useStore } from 'vuex';
 import TodayDeal from '../reusable/todayDeal/TodayDeal.vue';
-import { Bar } from 'vue-chartjs'
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, PointElement, LineElement } from 'chart.js'
-
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, PointElement, LineElement)
+import Chart from 'chart.js/auto'
+import { getDocs, collection, query } from "firebase/firestore";
+import { db } from "@/firebase/config";
 
 export default {
   name: 'Dashboard',
 
-  components: { TodayDeal, Bar },
-  
+  components: { TodayDeal },
+
   data() {
     return {
-      salesChart: {
-        labels: [],
-      datasets: [
-        // {
-        //   label: "Data name",
-        //   backgroundColor: "#000",
-        //   data: [1, 2]
-        // },
-        
-      ]
+      orders: [],
+      buyersData: {
+        type: 'line',
+        data: {
+          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          datasets: [
+            {
+              label: 'First',
+              backgroundColor: "rgba(99,179,237,0.4)",
+              strokeColor: "#63b3ed",
+              pointColor: "#fff",
+              pointStrokeColor: "#63b3ed",
+              data: [203, 156, 99, 251, 305, 247, 256]
+            },
+            {
+              label: 'Sacend',
+              backgroundColor: "rgba(198,198,198,0.4)",
+              strokeColor: "#f7fafc",
+              pointColor: "#fff",
+              pointStrokeColor: "#f7fafc",
+              data: [86, 97, 144, 114, 94, 108, 156]
+            }
+          ]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                display: false,
+              },
+              ticks: {
+                display: false,
+              },
+            },
+            x: {
+              grid: {
+                display: false,
+              },
+            },
+          },
+        },
+
+      },
+      reviewsData: {
+        type: 'bar',
+        data: {
+          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          datasets: [
+            {
+              label: 'First',
+              backgroundColor: "rgba(99,179,237,0.4)",
+              strokeColor: "#63b3ed",
+              pointColor: "#fff",
+              pointStrokeColor: "#63b3ed",
+              data: [203, 156, 99, 251, 305, 247, 256]
+            },
+            {
+              label: 'Sacend',
+              backgroundColor: "rgba(198,198,198,0.4)",
+              strokeColor: "#f7fafc",
+              pointColor: "#fff",
+              pointStrokeColor: "#f7fafc",
+              data: [86, 97, 144, 114, 94, 108, 156]
+            }
+          ]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                display: false,
+              },
+              ticks: {
+                display: false,
+              },
+            },
+            x: {
+              grid: {
+                display: false,
+              },
+            },
+          },
+        },
       }
     }
   },
 
-  setup() {
-    const store = useStore();
-    const sales = ref([]);
-    const selectedStatic = ref('');
 
-    const fetchSales = async () => {
-      sales.value = await store.dispatch('salesCharts/fetchProductSales');
-    };
-
-    const randomColor = function generateRandomColor(){
-    let maxVal = 0xFFFFFF; // 16777215
-    let randomNumber = Math.random() * maxVal; 
-    randomNumber = Math.floor(randomNumber);
-    randomNumber = randomNumber.toString(16);
-    let randColor = randomNumber.padStart(6, 0);   
-    return `#${randColor.toUpperCase()}`
-}
-
-    const salesData = computed(() => {
-      if (sales.value) {
-        const labels = sales.value.map((title) => title['Sales Date']);
-        const data = sales.value.map((title) => title[selectedStatic.value]);
-
-        return {
-          labels: labels,
-          datasets: [
-            {
-              label: selectedStatic.value,
-              data: data
-            }
-          ]
-        };
+  methods: {
+    calculateTopPurchasedItems() {
+      const itemCounts = {};
+      this.orders.forEach(order => {
+        debugger
+        order.cartItems.forEach(item => {
+          const itemId = item.id;
+          if (itemCounts[itemId]) {
+            itemCounts[itemId]++;
+          } else {
+            itemCounts[itemId] = 1;
+          }
+        });
+      });
+      const topItems = [];
+      for (const itemId in itemCounts) {
+        topItems.push({ id: itemId, count: itemCounts[itemId] });
       }
-      return {};
-    });
+      topItems.sort((a, b) => b.count - a.count);
+      const topPurchasedItems = topItems.slice(0, 5);
+      return topPurchasedItems;
+    },
 
-    fetchSales();
+    async fetchOrders() {
+      try {
+        const querySnap = await getDocs(query(collection(db, "orders")));
+        let orders = [];
+        querySnap.forEach((doc) => {
+          debugger
+          let order = {
+            id: doc.id,
+            ...doc.data(),
+          };
+          orders.push(order);
+        });
+        console.log("Fetched orders:", orders);
+        this.orders = orders;
+      } catch (error) {
+        console.error("Error fetching orders:", error);
+      }
+    },
+  },
 
-    return { salesData, randomColor }
-  }
+  async mounted() {
+    await this.fetchOrders();
+
+    const topPurchasedItems = this.calculateTopPurchasedItems();
+    this.buyersData.data.labels = topPurchasedItems.map(item => item.name);
+    this.buyersData.data.datasets[0].data = topPurchasedItems.map(item => item.count);
+
+    new Chart(
+      document.getElementById('buyers-chart'),
+      this.buyersData
+    );
+
+    new Chart(
+      document.getElementById('reviews-chart'),
+      this.reviewsData
+    );
+  },
 }
 </script>

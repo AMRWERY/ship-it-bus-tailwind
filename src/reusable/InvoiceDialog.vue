@@ -1,9 +1,4 @@
 <template>
-    <!-- <button type="button" @click="openModal"
-        class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-        <i class="fa-solid fa-eye fa-lg"></i>
-    </button> -->
-
     <TransitionRoot appear :show="isOpen" as="template">
         <Dialog as="div" @close="closeModal" class="relative z-10">
             <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0" enter-to="opacity-100"
@@ -48,19 +43,6 @@
                                                                 class="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800 mt-10">
                                                                 {{ prod?.title }}
                                                             </h3>
-                                                            <!-- <div class="flex justify-start items-start flex-col space-y-2">
-                                                                <p
-                                                                    class="text-sm dark:text-white leading-none text-gray-800">
-                                                                    <span class="dark:text-gray-400 text-gray-400">Status:
-                                                                    </span>Processing
-                                                                </p>
-                                                                <p
-                                                                    class="text-sm dark:text-white leading-none text-gray-800">
-                                                                    <span class="dark:text-gray-400 text-gray-400">Payment
-                                                                        Method: </span>
-                                                                    {{ selectedCard }}
-                                                                </p>
-                                                            </div> -->
                                                         </div>
                                                         <div
                                                             class="flex justify-between space-x-14 items-start w-full ml-20">
@@ -124,7 +106,6 @@ export default {
     data: () => ({
         isOpen: false,
         orders: [],
-        // selectedUserId: null,
     }),
 
     props: ['userId', 'isOpen'],

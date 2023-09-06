@@ -40,6 +40,11 @@ const router = createRouter({
       component: () => import("../components/Categories.vue"),
     },
     {
+      path: "/mail",
+      name: "Mail",
+      component: () => import("../components/Mail.vue"),
+    },
+    {
       path: "/terms-and-conditions",
       name: "TermsAndConditions",
       component: () => import("../components/TermsAndConditions.vue"),

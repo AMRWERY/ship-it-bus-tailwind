@@ -13,6 +13,7 @@
     "@formkit/vue": "^0.19.0",
     "@headlessui/vue": "^1.7.15",
     "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.6",
     "chart.js": "^4.4.0",
     "firebase": "^10.2.0",
     "flowbite": "^1.8.1",
