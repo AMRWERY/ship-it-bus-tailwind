@@ -2,11 +2,6 @@ import { collection, addDoc, getDocs, query } from "firebase/firestore";
 import { db } from "../../firebase/config";
 
 const state = {
-  // title: "",
-  // price: "",
-  // categories: "",
-  // discount: "",
-  // productImg: "",
   deals: [],
 };
 
@@ -22,31 +17,34 @@ const actions = {
     const docRef = await addDoc(colRef, data);
     console.log("Document was created with ID:", docRef.id);
   },
-  // async fetchDeals({ commit }) {
-  //   const querySnap = await getDocs(query(collection(db, "todayDeal")));
-  //   let deals = [];
-  //   querySnap.forEach((doc) => {
-  //     let deal = {
-  //       id: doc.id,
-  //       ...doc.data(doc.id),
-  //     };
-  //     deals.push(deal);
-  //   });
-  //   commit("setNewDeal", deals);
-  // },
   async fetchDeals({ commit }) {
-    console.log("Fetching deals...");
-    const querySnap = await getDocs(query(collection(db, "todayDeal")));
-    let deals = [];
-    querySnap.forEach((doc) => {
-      let deal = {
-        id: doc.id,
-        ...doc.data(),
-      };
-      deals.push(deal);
-    });
-    console.log("Fetched deals:", deals);
-    commit("setNewDeal", deals);
+    try {
+      const querySnap = await getDocs(query(collection(db, "todayDeal")));
+      let deals = [];
+
+      const today = new Date();
+
+      querySnap.forEach((doc) => {
+        const dealData = doc.data();
+        const startDate = dealData.startDate.toDate();
+        const endDate = dealData.endDate.toDate();
+
+        if (
+          startDate.toDateString() <= today.toDateString() &&
+          today.toDateString() <= endDate.toDateString()
+        ) {
+          let deal = {
+            id: doc.id,
+            ...dealData,
+            endDate: endDate,
+          };
+          deals.push(deal);
+        }
+      });
+      commit("setNewDeal", deals);
+    } catch (error) {
+      console.error("Error fetching deals:", error);
+    }
   },
 };
 

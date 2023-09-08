@@ -21,7 +21,7 @@
                         enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
                         leave-to="opacity-0 scale-95">
                         <DialogPanel
-                        class="w-full max-w-3xl sm:max-w-lg md:max-w-xl lg:max-w-3xl xl:max-w-4xl transform overflow-hidden rounded-2xl bg-white p-4 text-left align-middle shadow-xl transition-all">
+                            class="w-full max-w-3xl sm:max-w-lg md:max-w-xl lg:max-w-3xl xl:max-w-4xl transform overflow-hidden rounded-2xl bg-white p-4 text-left align-middle shadow-xl transition-all">
                             <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
                                 <div class="text-center w-full">
                                     <DialogTitle as="h3" class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -36,18 +36,20 @@
                             <div class="mt-2">
                                 <main class="mt-4">
                                     <div class="container max-w-full">
-                                        <div class="lg:w-4/5 mx-auto flex flex-wrap">
+                                        <div class="lg:w-4/5 mx-auto flex flex-wrap" v-if="todayDeal">
                                             <img alt="ecommerce"
                                                 class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-                                                src="https://justfields.com/storage/projects/7M5rV059/1-item-a.jpg">
+                                                :src="todayDeal.productImg">
                                             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                                                 <div class="flex justify-between text-base font-medium text-gray-900">
-                                                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">Denim
-                                                        Pullover</h1>
+                                                    <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{
+                                                        todayDeal.title }}</h1>
                                                     <div class="flex gap-2 mt-2">
-                                                        <p class="text-md font-medium text-gray-500 line-through">$129.00
+                                                        <p class="text-md font-medium text-gray-500 line-through">${{
+                                                            todayDeal.originalPrice }}
                                                         </p>
-                                                        <p class="text-md font-medium text-gray-900">$99.00</p>
+                                                        <p class="text-md font-medium text-gray-900">${{ todayDeal.price }}
+                                                        </p>
                                                     </div>
                                                 </div>
                                                 <div class="flex mb-4">
@@ -122,12 +124,11 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="flex">
-                                                    <button
-                                                        class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Shop
-                                                        Now</button>
-                                                </div> -->
+                                                <AddDeal />
                                             </div>
+                                        </div>
+                                        <div v-if="todayDealExpired" class="m-5">
+                                            <p class="text-center text-red-500">Deal has been Expired</p>
                                         </div>
                                     </div>
                                 </main>
@@ -141,20 +142,35 @@
 </template>
   
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import {
     TransitionRoot,
     TransitionChild,
     Dialog,
     DialogPanel,
 } from '@headlessui/vue'
+import { useStore } from 'vuex'
+import AddDeal from './AddDeal.vue'
 
 const isOpen = ref(false)
 const hours = ref('')
 const minutes = ref('')
 const seconds = ref('')
-const dealExpiry = new Date().getTime() + 60 * 60 * 1000
-let timer = null;
+
+const store = useStore()
+
+store.dispatch('fetchDeals')
+
+const todayDeal = computed(() => store.getters.getAllDeals[0]);
+
+const todayDealExpired = computed(() => {
+    if (todayDeal.value && todayDeal.value.endDate) {
+        const now = new Date().getTime();
+        const endDate = new Date(todayDeal.value.endDate).getTime();
+        return endDate <= now;
+    }
+    return false;
+});
 
 const openModal = () => {
     isOpen.value = true;
@@ -180,7 +196,33 @@ const updateClock = () => {
     }
 }
 
+const calculateTimeRemaining = () => {
+    const now = new Date().getTime();
+
+    if (todayDeal.value && todayDeal.value.endDate) {
+        const endDate = new Date(todayDeal.value.endDate).getTime();
+        const timeLeft = endDate - now;
+
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            return;
+        }
+
+        const hoursRemaining = Math.floor(timeLeft / (1000 * 60 * 60));
+        const minutesRemaining = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const secondsRemaining = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        hours.value = String(hoursRemaining).padStart(2, '0');
+        minutes.value = String(minutesRemaining).padStart(2, '0');
+        seconds.value = String(secondsRemaining).padStart(2, '0');
+    }
+};
+
+calculateTimeRemaining();
+
+const timer = setInterval(calculateTimeRemaining, 1000);
+
 onMounted(() => {
-    timer = setInterval(updateClock, 1000);
-})
+    calculateTimeRemaining();
+});
 </script>

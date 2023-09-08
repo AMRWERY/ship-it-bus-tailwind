@@ -234,7 +234,7 @@ export default {
     calculateTopPurchasedItems() {
       const itemCounts = {};
       this.orders.forEach(order => {
-        debugger
+        // debugger
         order.cartItems.forEach(item => {
           const itemId = item.id;
           if (itemCounts[itemId]) {
@@ -258,14 +258,14 @@ export default {
         const querySnap = await getDocs(query(collection(db, "orders")));
         let orders = [];
         querySnap.forEach((doc) => {
-          debugger
+          // debugger
           let order = {
             id: doc.id,
             ...doc.data(),
           };
           orders.push(order);
         });
-        console.log("Fetched orders:", orders);
+        // console.log("Fetched orders:", orders);
         this.orders = orders;
       } catch (error) {
         console.error("Error fetching orders:", error);
