@@ -116,8 +116,8 @@
                         <span class="text-gray-700">Privacy Policy</span>
                     </router-link>
 
-                    <router-link to="/login" @click="logout = 'privacy-policy'"
-                        :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'privacy-policy' }]">
+                    <router-link to="/login" @click="logout = 'logout'"
+                        :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'logout' }]">
                         <i class="fa-solid fa-arrow-right-from-bracket fa-lg mr-2"></i>
                         <span class="text-gray-700">Log out</span>
                     </router-link>

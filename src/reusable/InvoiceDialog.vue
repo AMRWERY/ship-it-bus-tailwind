@@ -12,7 +12,7 @@
                         enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
                         leave-to="opacity-0 scale-95">
                         <DialogPanel
-                            class="w-full max-w-4xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                            class="w-full max-w-5xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                             <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
                                 <div class="w-full">
                                     <DialogTitle as="h3" class="text-xl font-semibold text-gray-900 dark:text-white">

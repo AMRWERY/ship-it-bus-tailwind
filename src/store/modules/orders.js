@@ -27,13 +27,26 @@ const actions = {
     });
 
     const filteredOrders = orders.filter((order) => order.userId == userId);
-    console.log(filteredOrders, userId);
+    // console.log(filteredOrders, userId);
     commit("setOrders", filteredOrders);
+  },
+  async fetchAllOrders({ commit }) {
+    const querySnap = await getDocs(query(collection(db, "orders")));
+    let orders = [];
+    querySnap.forEach((doc) => {
+      let order = {
+        id: doc.id,
+        ...doc.data(),
+      };
+      orders.push(order);
+    });
+    commit("setOrders", orders);
   },
 };
 
 const getters = {
   getAllOrders: (state) => state.orders,
+  getOrders: (state) => state.orders,
 };
 
 export default {

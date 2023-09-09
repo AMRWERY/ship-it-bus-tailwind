@@ -85,10 +85,10 @@
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 capitalize">
-                        Product name
+                        Product img
                     </th>
                     <th scope="col" class="px-6 py-3 capitalize">
-                        Color
+                        Product name
                     </th>
                     <th scope="col" class="px-6 py-3 capitalize">
                         Category
@@ -101,8 +101,9 @@
                     </th>
                 </tr>
             </thead>
-            <tbody>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <tbody v-for="item in getOrders" :key="item">
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                    v-for="prod in item.cartItems" :key="prod">
                     <td class="w-4 p-4">
                         <div class="flex items-center">
                             <input id="checkbox-table-search-1" type="checkbox"
@@ -111,16 +112,16 @@
                         </div>
                     </td>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Apple MacBook Pro 17"
+                        <img :src="prod?.productImg" class="w-10 h-10">
                     </th>
                     <td class="px-6 py-4">
-                        Silver
+                        {{ prod?.title }}
                     </td>
                     <td class="px-6 py-4">
-                        Laptop
+                        {{ prod?.categories }}
                     </td>
                     <td class="px-6 py-4">
-                        $2999
+                        ${{ prod?.price }}
                     </td>
                     <td class="px-6 py-4">
                         <OrdersDialog />
@@ -136,12 +137,39 @@
     </div>
 </template>
 
+
 <script>
 import OrdersDialog from '../reusable/OrdersDialog.vue'
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
-    name: 'Invoices',
+    name: 'Orders',
 
-    components: { OrdersDialog }
+    components: { OrdersDialog },
+
+    data() {
+        return {
+            orders: []
+        }
+    },
+
+    computed: {
+        ...mapGetters(['getOrders']),
+    },
+
+    methods: {
+        ...mapActions(["fetchAllOrders"]),
+    },
+
+    watch: {
+        getOrders(newOrders) {
+            this.orders = newOrders;
+            console.log(this.orders)
+        },
+    },
+
+    mounted() {
+        this.fetchAllOrders()
+    }
 }
 </script>

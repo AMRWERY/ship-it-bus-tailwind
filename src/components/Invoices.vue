@@ -142,45 +142,38 @@
     </div>
 </template>
 
-<script>
-import InvoiceDialog from '../reusable/InvoiceDialog.vue'
-import { mapGetters, mapActions } from "vuex"
 
-export default {
-    name: 'Invoices',
+<script setup>
+import InvoiceDialog from '../reusable/InvoiceDialog.vue';
+import { computed, ref, onMounted, watch } from 'vue';
+import { useStore } from 'vuex';
 
-    data() {
-        return {
-            users: [],
-            selectedUserId: null,
-            open: false,
-            userId: ''
-        }
-    },
+const store = useStore();
 
-    components: { InvoiceDialog },
+const users = ref([]);
+const selectedUserId = ref(null);
+const open = ref(false);
+const userId = ref('');
 
-    computed: {
-        ...mapGetters(['getAllUsers']),
-    },
+const getAllUsers = computed(() => store.getters.getAllUsers);
 
-    methods: {
-        ...mapActions(["fetchUsers"]),
-        openModal(userId) {
-            this.selectedUserId = userId;
-            this.open = true
-        },
-    },
+const fetchUsers = () => {
+    store.dispatch('fetchUsers');
+};
 
-    watch: {
-        getAllUsers(newProducts) {
-            this.users = newProducts;
-        },
-    },
+const openModal = (userId) => {
+    selectedUserId.value = userId;
+    open.value = true;
+};
 
-    mounted() {
-        this.fetchUsers()
-        this.users = this.getAllUsers
-    }
-}
+watch(getAllUsers, (newProducts) => {
+    users.value = newProducts;
+});
+
+onMounted(() => {
+    fetchUsers();
+});
+
+fetchUsers();
+users.value = getAllUsers.value;
 </script>
