@@ -3,6 +3,7 @@ import { db } from "@/firebase/config";
 
 const state = {
   orders: [],
+  selectedOrder: null,
 };
 
 const mutations = {
@@ -25,10 +26,9 @@ const actions = {
       };
       orders.push(order);
     });
-
     const filteredOrders = orders.filter((order) => order.userId == userId);
-    // console.log(filteredOrders, userId);
     commit("setOrders", filteredOrders);
+    // commit("setSelectedOrder", filteredOrders[0]);
   },
   async fetchAllOrders({ commit }) {
     const querySnap = await getDocs(query(collection(db, "orders")));
@@ -47,6 +47,9 @@ const actions = {
 const getters = {
   getAllOrders: (state) => state.orders,
   getOrders: (state) => state.orders,
+  getOrderById: (state) => (orderId) => {
+    return state.orders.find((order) => order.id === orderId);
+  },
 };
 
 export default {

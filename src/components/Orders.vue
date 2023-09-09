@@ -124,7 +124,8 @@
                         ${{ prod?.price }}
                     </td>
                     <td class="px-6 py-4">
-                        <OrdersDialog />
+
+                        <OrdersDialog :productId="prod?.id" />
 
                         <button type="button"
                             class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -149,7 +150,7 @@ export default {
 
     data() {
         return {
-            orders: []
+            orders: [],
         }
     },
 
@@ -159,6 +160,9 @@ export default {
 
     methods: {
         ...mapActions(["fetchAllOrders"]),
+        getOrderDetails(order) {
+            this.selectedOrder = order;
+        },
     },
 
     watch: {
