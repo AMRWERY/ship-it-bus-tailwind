@@ -12,7 +12,7 @@
                             <div class="sm:col-span-1">
                                 <label for="hs-as-table-product-review-search" class="sr-only">Search</label>
                                 <div class="relative">
-                                    <input type="text" id="hs-as-table-product-review-search"
+                                    <input type="text" id="hs-as-table-product-review-search" v-model="searchProduct"
                                         name="hs-as-table-product-review-search"
                                         class="py-2 px-3 pl-11 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                         placeholder="Search">
@@ -32,8 +32,10 @@
                             </div>
                         </div>
 
+                        <!-- shadow-md duration-300 hover:scale-105 hover:shadow-lg mb-4 -->
+
                         <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
-                            <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                            <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 ">
                                 <div v-for="prod in displayedProducts" :key="prod" class="group relative">
                                     <button @click="onDeleteProduct(prod)" type="button"
                                         class="absolute top-2 right-2 mx-3 mt-3 z-10">
@@ -102,6 +104,7 @@ export default {
             products: [],
             currentPage: 1,
             perPage: 10,
+            searchProduct: ''
         }
     },
 
@@ -114,7 +117,10 @@ export default {
             return this.currentPage * this.perPage;
         },
         displayedProducts() {
-            return this.products.slice(this.startIndex, this.endIndex);
+            const filteredProducts = this.products.filter((prod) =>
+                prod.title.toLowerCase().includes(this.searchProduct.toLowerCase())
+            );
+            return filteredProducts.slice(this.startIndex, this.endIndex);
         },
     },
 

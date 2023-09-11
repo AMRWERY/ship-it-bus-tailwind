@@ -31,7 +31,7 @@
                         </div> -->
 
                         <!-- toggle theme -->
-                        <div>
+                        <!-- <div>
                             <button type="button"
                                 class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                 <i class="fa-solid fa-moon fa-xl"></i>
@@ -40,7 +40,7 @@
                                 class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                 <i class="fa-solid fa-sun fa-xl"></i>
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -116,8 +116,8 @@
                         <span class="text-gray-700">Privacy Policy</span>
                     </router-link>
 
-                    <router-link to="/login" @click="logout = 'logout'"
-                        :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'logout' }]">
+                    <router-link to="/" @click="logout"
+                        class="w-full flex items-center text-blue-400 h-10 pl-4 rounded-lg cursor-pointer">
                         <i class="fa-solid fa-arrow-right-from-bracket fa-lg mr-2"></i>
                         <span class="text-gray-700">Log out</span>
                     </router-link>
@@ -145,11 +145,12 @@
 
 <script setup>
 import { onMounted, ref } from 'vue';
-import { initFlowbite } from 'flowbite';
+import { initDrawers } from 'flowbite';
 import { RouterView } from 'vue-router';
 import { useStore } from 'vuex';
 
 const store = useStore();
+
 const selectedTab = ref('');
 
 const logout = async () => {
@@ -157,14 +158,14 @@ const logout = async () => {
         await store.dispatch('logout');
         store.commit('setIsAuthenticated', false);
         sessionStorage.removeItem("userToken");
-        isUserLoggedIn.value = false;
+        // isUserLoggedIn.value = false;
     } catch (error) {
         console.log(error);
     }
 }
 
 onMounted(() => {
-    initFlowbite();
+    initDrawers();
 });
 </script>
 

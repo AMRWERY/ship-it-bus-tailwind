@@ -1,8 +1,4 @@
 <template>
-    <button type="button" @click="openModal"
-        class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-        <i class="fa-regular fa-pen-to-square fa-lg"></i>
-    </button>
     <TransitionRoot appear :show="isOpen" as="template">
         <Dialog as="div" @close="closeModal" class="relative z-10">
             <TransitionChild as="template" enter="duration-300 ease-out" enter-from="opacity-0" enter-to="opacity-100"
@@ -30,99 +26,39 @@
                             </DialogTitle>
                             <div class="my-6">
                                 <ol class="items-center justify-center sm:flex">
-                                    <li class="relative mb-8 sm:mb-0">
+                                    <li class="relative mb-8 sm:mb-0" v-for="status in getState" :key="status">
                                         <div class="flex items-center">
-                                            <div
-                                                class="z-10 flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                                                <i class="fa-solid fa-check fa-3x text-red-600"></i>
+                                            <div class="z-10 flex items-center justify-center w-14 h-14 rounded-full ring-0 ring-white sm:ring-8 shrink-0"
+                                                :class="{ 'bg-green-100 dark:bg-green-900': selectStatus && selectStatus.name === status.name, 'bg-blue-100 dark:bg-blue-900': selectStatus && selectStatus.name !== status.name }">
+                                                <i
+                                                    :class="[selectStatus && selectStatus.name === status.name ? 'text-blue-600' : 'text-red-600', 'fa-solid', status.icon]"></i>
                                             </div>
                                             <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                                         </div>
                                         <div class="mt-3 mr-4 sm:pr-8">
-                                            <h3 class="text-lg font-semibold text-gray-700 dark:text-white">Approved</h3>
-                                            <time
+                                            <h3 class="text-lg font-semibold text-gray-700 dark:text-white">{{ status.name
+                                            }}</h3>
+                                            <!-- <time
                                                 class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Dec
-                                                2, 2021</time>
-                                        </div>
-                                    </li>
-                                    <li class="relative mb-6 sm:mb-0">
-                                        <div class="flex items-center">
-                                            <div
-                                                class="z-10 flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                                                <i class="fa-solid fa-bag-shopping fa-3x text-red-600"></i>
-                                            </div>
-                                            <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-                                        </div>
-                                        <div class="mt-3 mr-4 sm:pr-8">
-                                            <h3 class="text-lg font-semibold text-gray-700 dark:text-white">Prepared</h3>
-                                            <time
-                                                class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Dec
-                                                2, 2021</time>
-                                        </div>
-                                    </li>
-                                    <li class="relative mb-6 sm:mb-0">
-                                        <div class="flex items-center">
-                                            <div
-                                                class="z-10 flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                                                <i class="fa-solid fa-truck fa-3x text-red-600"></i>
-                                            </div>
-                                            <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-                                        </div>
-                                        <div class="mt-3 mr-4 sm:pr-8">
-                                            <h3 class="text-lg font-semibold text-gray-700 dark:text-white">Shipped</h3>
-                                            <time
-                                                class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Dec
-                                                2, 2021</time>
-                                        </div>
-                                    </li>
-                                    <li class="relative mb-6 sm:mb-0">
-                                        <div class="flex items-center">
-                                            <div
-                                                class="z-10 flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                                                <i class="fa-solid fa-location-dot fa-3x text-red-600"></i>
-                                            </div>
-                                            <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-                                        </div>
-                                        <div class="mt-3 mr-4 sm:pr-8">
-                                            <h3 class="text-lg font-semibold text-gray-700 dark:text-white">Placed</h3>
-                                            <time
-                                                class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Dec
-                                                2, 2021</time>
-                                        </div>
-                                    </li>
-                                    <li class="relative mb-6 sm:mb-0">
-                                        <div class="flex items-center">
-                                            <div
-                                                class="z-10 flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                                                <i class="fa-solid fa-truck-ramp-box fa-3x text-red-600"></i>
-                                            </div>
-                                            <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-                                        </div>
-                                        <div class="mt-3 sm:pr-8">
-                                            <h3 class="text-lg font-semibold text-gray-700 dark:text-white">Delivered</h3>
-                                            <time
-                                                class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Dec
-                                                2, 2021</time>
+                                                2, 2021</time> -->
                                         </div>
                                     </li>
                                 </ol>
                             </div>
 
                             <div class="my-6">
-                                <div class="m-16">
-                                    <label for="countries"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Approved</label>
-                                    <select id="status"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                        <option selected>True</option>
-                                        <option>False</option>
-                                    </select>
-                                </div>
+                                <select id="status" v-model="selectStatus"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option v-for="status in getState" :key="status" :value="status"> {{
+                                        status.name }}
+                                    </option>
+                                </select>
                             </div>
+
 
                             <div class="mt-4">
                                 <div class="flex items-center p-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600">
-                                    <button @click="closeModal" type="button"
+                                    <button @click="updateOrder" type="button"
                                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
                                 </div>
                             </div>
@@ -143,6 +79,9 @@ import {
     DialogPanel,
     DialogTitle
 } from '@headlessui/vue'
+import { mapGetters, mapActions } from "vuex"
+import { updateDoc, doc } from "firebase/firestore";
+import { db } from "@/firebase/config";
 
 export default {
     name: 'OrdersDialog',
@@ -155,22 +94,46 @@ export default {
         DialogTitle
     },
 
-    props: ['productId'],
+    props: ['productId', "orderDetail", 'isOpen'],
 
     data() {
         return {
-            isOpen: false,
-            orders: [],
+            selectStatus: null,
+            selectedOrderDetails: null
         }
     },
 
     methods: {
         closeModal() {
-            this.isOpen = false
+            this.$emit('close', false)
         },
-        openModal() {
-            this.isOpen = true
+        updateOrder() {
+            const orderRef = doc(db, "orders", this.orderDetail.id);
+            const updateData = {
+                ...this.orderDetail,
+                status: this.selectStatus.name
+            };
+            console.log(this.orderDetail)
+
+            updateDoc(orderRef, updateData)
+                .then(() => {
+                    console.log("Document updated successfully");
+                })
+                .catch((error) => {
+                    console.error("Error updating document: ", error);
+                });
+            this.$emit('close', false)
         },
+        ...mapActions(["fetchAllOrders", "fetchStatus"]),
     },
+
+    computed: {
+        ...mapGetters(['getAllOrders', "getState"]),
+    },
+
+    mounted() {
+        this.selectedOrderDetails = Object.assign({}, this.orderDetail);
+        this.fetchStatus()
+    }
 }
 </script>

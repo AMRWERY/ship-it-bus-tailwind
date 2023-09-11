@@ -125,8 +125,10 @@
                     </td>
                     <td class="px-6 py-4">
 
-                        <OrdersDialog :productId="prod?.id" />
-
+                        <button type="button" @click="getOrderDetails(item)"
+                            class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                            <i class="fa-regular fa-pen-to-square fa-lg"></i>
+                        </button>
                         <button type="button"
                             class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <i class="fa-solid fa-trash fa-lg ml-4"></i>
@@ -134,6 +136,7 @@
                     </td>
                 </tr>
             </tbody>
+            <OrdersDialog :productId="prod?.id" :orderDetail="selectedOrder" :isOpen="isOpen" @close="isOpen = $event" />
         </table>
     </div>
 </template>
@@ -151,6 +154,8 @@ export default {
     data() {
         return {
             orders: [],
+            isOpen: false,
+            selectedOrder: null,
         }
     },
 
@@ -160,15 +165,18 @@ export default {
 
     methods: {
         ...mapActions(["fetchAllOrders"]),
+        closeModal() {
+            this.isOpen = false
+        },
         getOrderDetails(order) {
             this.selectedOrder = order;
+            this.isOpen = true
         },
     },
 
     watch: {
         getOrders(newOrders) {
             this.orders = newOrders;
-            console.log(this.orders)
         },
     },
 

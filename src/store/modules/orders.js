@@ -1,8 +1,9 @@
-import { getDocs, collection, query } from "firebase/firestore";
+import { getDocs, collection, query, updateDoc, doc } from "firebase/firestore";
 import { db } from "@/firebase/config";
 
 const state = {
   orders: [],
+  status: [],
   selectedOrder: null,
 };
 
@@ -12,6 +13,9 @@ const mutations = {
   },
   setSelectedOrder(state, order) {
     state.selectedProduct = order;
+  },
+  setOrderStatus(state, status) {
+    state.status = status;
   },
 };
 
@@ -42,6 +46,19 @@ const actions = {
     });
     commit("setOrders", orders);
   },
+  async fetchStatus({ commit }) {
+    const querySnap = await getDocs(query(collection(db, "orderTracking")));
+    let status = [];
+    querySnap.forEach((doc) => {
+      let state = {
+        id: doc.id,
+        ...doc.data(),
+      };
+      status.push(state);
+    });
+    commit("setOrderStatus", status);
+    console.log(status);
+  },
 };
 
 const getters = {
@@ -50,6 +67,7 @@ const getters = {
   getOrderById: (state) => (orderId) => {
     return state.orders.find((order) => order.id === orderId);
   },
+  getState: (state) => state.status,
 };
 
 export default {
