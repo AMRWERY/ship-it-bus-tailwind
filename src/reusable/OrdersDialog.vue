@@ -55,7 +55,6 @@
                                 </select>
                             </div>
 
-
                             <div class="mt-4">
                                 <div class="flex items-center p-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600">
                                     <button @click="updateOrder" type="button"

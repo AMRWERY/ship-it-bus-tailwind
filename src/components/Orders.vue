@@ -124,11 +124,11 @@
                         ${{ prod?.price }}
                     </td>
                     <td class="px-6 py-4">
-
-                        <button type="button" @click="getOrderDetails(item)"
+                        <button type="button" @click="selectedOrderProductId = prod.id; getOrderDetails(item)"
                             class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <i class="fa-regular fa-pen-to-square fa-lg"></i>
                         </button>
+
                         <button type="button"
                             class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <i class="fa-solid fa-trash fa-lg ml-4"></i>
@@ -136,7 +136,8 @@
                     </td>
                 </tr>
             </tbody>
-            <OrdersDialog :productId="prod?.id" :orderDetail="selectedOrder" :isOpen="isOpen" @close="isOpen = $event" />
+            <OrdersDialog :productId="selectedOrderProductId" :orderDetail="selectedOrder" :isOpen="isOpen"
+                @close="isOpen = $event" />
         </table>
     </div>
 </template>
