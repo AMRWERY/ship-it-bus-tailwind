@@ -8,19 +8,9 @@
       </h1>
 
       <p class="mt-4 text-gray-500">We can't find that page.</p>
-      <router-link to="/" class="
-          inline-block
-          px-5
-          py-3
-          mt-6
-          text-sm
-          font-medium
-          text-white
-          bg-indigo-600
-          rounded-xl
-          hover:bg-indigo-700
-          focus:outline-none focus:ring
-        ">Go Back Home</router-link>
+      <router-link to="/home"
+        class="inline-block px-5 py-3 mt-6 text-sm font-medium text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 focus:outline-none focus:ring">Go
+        Back Home</router-link>
     </div>
   </div>
 </template>
