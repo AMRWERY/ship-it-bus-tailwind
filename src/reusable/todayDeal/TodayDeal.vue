@@ -48,7 +48,8 @@
                                                         <p class="text-md font-medium text-gray-500 line-through">${{
                                                             todayDeal.originalPrice }}
                                                         </p>
-                                                        <p class="text-md font-medium text-gray-900">${{ todayDeal.price }}
+                                                        <p class="text-md font-medium text-gray-900">${{ todayDeal.price
+                                                        }}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -101,24 +102,29 @@
                                                 <p class="leading-relaxed">Fam locavore kickstarter distillery. Mixtape
                                                     chillwave tumeric
                                                     sriracha
-                                                    taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps cornhole
+                                                    taximy chia microdosing tilde DIY. XOXO fam indxgo juiceramps
+                                                    cornhole
                                                     raw denim forage
                                                     brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue
                                                     bottle austin listicle
-                                                    pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.</p>
+                                                    pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.
+                                                </p>
                                                 <div class="flex mt-6 items-center pb-5 border-gray-100 mb-5">
                                                     <div class="flex ml-6 items-center">
                                                         <div class="flex space-x-4">
                                                             <div class="flex items-center">
-                                                                <span class="text-4xl text-orange-400">{{ hours }}</span>
+                                                                <span class="text-4xl text-orange-400">{{ hours
+                                                                }}</span>
                                                                 <p class="ml-1 text-sm">hours</p>
                                                             </div>
                                                             <div class="flex items-center">
-                                                                <span class="text-4xl text-orange-400">{{ minutes }}</span>
+                                                                <span class="text-4xl text-orange-400">{{ minutes
+                                                                }}</span>
                                                                 <p class="ml-1 text-sm">minutes</p>
                                                             </div>
                                                             <div class="flex items-center">
-                                                                <span class="text-4xl text-orange-400">{{ seconds }}</span>
+                                                                <span class="text-4xl text-orange-400">{{ seconds
+                                                                }}</span>
                                                                 <p class="ml-1 text-sm">seconds</p>
                                                             </div>
                                                         </div>

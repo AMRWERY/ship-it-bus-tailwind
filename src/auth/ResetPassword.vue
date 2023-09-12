@@ -29,7 +29,7 @@
             </FormKit>
 
             <p class="mt-10 text-center text-sm text-gray-500">
-                <router-link to="/login" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Back to
+                <router-link to="/" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Back to
                     Login</router-link>
             </p>
         </div>

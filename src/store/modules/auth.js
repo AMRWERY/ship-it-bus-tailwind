@@ -56,23 +56,24 @@ const actions = {
     if (email === adminEmail) {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          commit("setLoading", false);
           const user = userCredential.user;
           commit("setIsAuthenticated", true);
-          commit("setUsername", user.displayName);
-          router.replace("/");
-          sessionStorage.setItem("username", user.displayName);
+          // commit("setUsername", user.displayName);
+          router.replace("/home");
+          // sessionStorage.setItem("username", user.displayName);
           sessionStorage.setItem("email", user.email);
-          sessionStorage.setItem("password", password);
-          dispatch("updateUserProfile", { username: user.displayName });
+          // sessionStorage.setItem("password", password);
+          // dispatch("updateUserProfile", { username: user.displayName });
           getIdToken(user).then((token) => {
             commit("setUserToken", token);
             sessionStorage.setItem("userToken", token);
           });
         })
         .catch((error) => {
-          commit("setLoading", false);
           console.log(error);
+        })
+        .finally(() => {
+          commit("setLoading", false);
         });
     } else {
       commit("setLoading", false);
@@ -100,7 +101,7 @@ const actions = {
         commit("userLogout", false);
         commit("setUserToken", null);
         sessionStorage.clear();
-        router.replace("/login");
+        router.replace("/");
       })
       .catch((error) => {
         commit("setLoading", false);
@@ -154,9 +155,6 @@ const getters = {
   },
   getUserEmail(state) {
     return state.email;
-  },
-  getUserPassword(state) {
-    return state.password;
   },
 };
 

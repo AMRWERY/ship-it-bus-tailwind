@@ -5,7 +5,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/login",
+      path: "/",
       name: "Login",
       component: () => import("../auth/Login.vue"),
     },
@@ -15,7 +15,7 @@ const router = createRouter({
       component: () => import("../auth/ResetPassword.vue"),
     },
     {
-      path: "/",
+      path: "/home",
       name: "Home",
       component: Home,
     },

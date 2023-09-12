@@ -1,5 +1,6 @@
 <template>
-    <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+        v-if="isUserLoggedIn">
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start">
@@ -48,7 +49,7 @@
         </div>
     </nav>
 
-    <aside id="logo-sidebar"
+    <aside id="logo-sidebar" v-if="isUserLoggedIn"
         class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
@@ -56,7 +57,7 @@
             <ul class="space-y-2 font-medium mt-16">
                 <div class="mb-4 px-4">
                     <p class="pl-4 text-sm font-semibold mb-1">Main</p>
-                    <router-link to="/" @click="selectedTab = 'dashboard'"
+                    <router-link to="/home" @click="selectedTab = 'dashboard'"
                         :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'dashboard' }]">
                         <i class="fa-solid fa-chart-line fa-lg mr-2"></i>
                         <span class="text-gray-700">Dashboard</span>
@@ -144,7 +145,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 import { initDrawers } from 'flowbite';
 import { RouterView } from 'vue-router';
 import { useStore } from 'vuex';
@@ -163,6 +164,15 @@ const logout = async () => {
         console.log(error);
     }
 }
+
+const isUserLoggedIn = computed(() => store.state.auth.isUserLoggedIn);
+
+store.dispatch('initAuthentication');
+
+onMounted(() => {
+    const userToken = sessionStorage.getItem("userToken");
+    isUserLoggedIn.value = userToken !== null && userToken !== undefined;
+});
 
 onMounted(() => {
     initDrawers();
