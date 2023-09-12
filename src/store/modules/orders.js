@@ -1,4 +1,4 @@
-import { getDocs, collection, query } from "firebase/firestore";
+import { getDocs, collection, query, orderBy } from "firebase/firestore";
 import { db } from "@/firebase/config";
 
 const state = {
@@ -47,7 +47,9 @@ const actions = {
     commit("setOrders", orders);
   },
   async fetchStatus({ commit }) {
-    const querySnap = await getDocs(query(collection(db, "orderTracking")));
+    const querySnap = await getDocs(
+      query(collection(db, "orderTracking"), orderBy("id", "asc"))
+    );
     let status = [];
     querySnap.forEach((doc) => {
       let state = {
@@ -56,8 +58,8 @@ const actions = {
       };
       status.push(state);
     });
+
     commit("setOrderStatus", status);
-    console.log(status);
   },
 };
 
