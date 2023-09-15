@@ -129,11 +129,6 @@
                             class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <i class="fa-solid fa-eye fa-lg"></i>
                         </button>
-
-                        <button type="button"
-                            class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                            <i class="fa-solid fa-trash fa-lg ml-4"></i>
-                        </button>
                     </td>
                 </tr>
             </tbody>

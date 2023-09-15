@@ -182,7 +182,6 @@ export default {
             },
           },
         },
-
       },
       reviewsData: {
         type: 'bar',

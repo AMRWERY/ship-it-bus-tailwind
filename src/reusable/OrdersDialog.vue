@@ -38,9 +38,6 @@
                                         <div class="mt-3 mr-4 sm:pr-8">
                                             <h3 class="text-lg font-semibold text-gray-700 dark:text-white">{{ status.name
                                             }}</h3>
-                                            <!-- <time
-                                                class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Dec
-                                                2, 2021</time> -->
                                         </div>
                                     </li>
                                 </ol>

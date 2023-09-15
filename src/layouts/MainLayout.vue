@@ -4,8 +4,8 @@
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start">
-                    <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
-                        type="button"
+                    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar"
+                        aria-controls="default-sidebar" type="button" @click="openDrawer()"
                         class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
                         <span class="sr-only">Open sidebar</span>
                         <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -48,7 +48,7 @@
         </div>
     </nav>
 
-    <aside id="logo-sidebar" v-if="isUserLoggedIn"
+    <aside id="default-sidebar" v-if="isUserLoggedIn"
         class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar">
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
@@ -122,16 +122,6 @@
                         <span class="text-gray-700">Log out</span>
                     </router-link>
                 </div>
-
-                <!-- don't delete it -->
-
-                <!-- <router-link to="">
-                    <div class="w-full flex items-center text-blue-400 h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer mt-3">
-                        <i class="fa-solid fa-shop fa-lg fa-lg mr-2"></i>
-                      <span class="text-gray-700">Back to Shopping</span>
-                    </div>
-                </router-link> -->
-
             </ul>
         </div>
     </aside>
@@ -150,6 +140,17 @@ import { RouterView } from 'vue-router';
 import { useStore } from 'vuex';
 
 const store = useStore();
+
+const drawer = ref(false)
+
+const openDrawer = () => {
+    // debugger
+    drawer.value = true
+}
+
+onMounted(() => {
+    initDrawers();
+});
 
 const selectedTab = ref('');
 
@@ -171,10 +172,6 @@ store.dispatch('initAuthentication');
 onMounted(() => {
     const userToken = sessionStorage.getItem("userToken");
     isUserLoggedIn.value = userToken !== null && userToken !== undefined;
-});
-
-onMounted(() => {
-    initDrawers();
 });
 </script>
 
