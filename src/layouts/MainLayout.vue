@@ -144,7 +144,6 @@ const store = useStore();
 const drawer = ref(false)
 
 const openDrawer = () => {
-    // debugger
     drawer.value = true
 }
 

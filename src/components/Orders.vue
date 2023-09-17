@@ -2,7 +2,7 @@
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-12 bg-white">
         <div class="flex items-center justify-between pb-4 m-6">
             <div>
-                <button id="dropdownRadioButton" data-dropdown-toggle="dropdownRadio"
+                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
                     class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                     type="button">
                     <i class="fa-solid fa-clock mr-2"></i>
@@ -10,56 +10,30 @@
                     <i class="fa-solid fa-chevron-down ml-2"></i>
                 </button>
                 <!-- Dropdown menu -->
-                <div id="dropdownRadio"
-                    class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-                    data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top"
-                    style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(522.5px, 3847.5px, 0px);">
-                    <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200"
-                        aria-labelledby="dropdownRadioButton">
+                <div id="dropdown"
+                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                         <li>
-                            <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <input id="filter-radio-example-1" type="radio" value="" name="filter-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="filter-radio-example-1"
-                                    class="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last
-                                    day</label>
-                            </div>
+                            <a href="#"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
+                                day</a>
                         </li>
                         <li>
-                            <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <input checked="" id="filter-radio-example-2" type="radio" value="" name="filter-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="filter-radio-example-2"
-                                    class="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last 7
-                                    days</label>
-                            </div>
+                            <a href="#"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
+                                7
+                                days</a>
                         </li>
                         <li>
-                            <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <input id="filter-radio-example-3" type="radio" value="" name="filter-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="filter-radio-example-3"
-                                    class="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last 30
-                                    days</label>
-                            </div>
+                            <a href="#"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
+                                30
+                                days</a>
                         </li>
                         <li>
-                            <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <input id="filter-radio-example-4" type="radio" value="" name="filter-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="filter-radio-example-4"
-                                    class="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last
-                                    month</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <input id="filter-radio-example-5" type="radio" value="" name="filter-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="filter-radio-example-5"
-                                    class="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last
-                                    year</label>
-                            </div>
+                            <a href="#"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
+                                year</a>
                         </li>
                     </ul>
                 </div>
@@ -146,6 +120,7 @@
 <script>
 import OrdersDialog from '../reusable/OrdersDialog.vue'
 import { mapGetters, mapActions } from 'vuex';
+import { initFlowbite } from 'flowbite'
 
 export default {
     name: 'Orders',
@@ -183,6 +158,7 @@ export default {
 
     mounted() {
         this.fetchAllOrders()
+        initFlowbite()
     }
 }
 </script>
