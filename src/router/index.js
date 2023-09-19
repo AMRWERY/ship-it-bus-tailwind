@@ -91,8 +91,9 @@ router.beforeEach(async (to, _, next) => {
   const store = useStore()
 
   if (authRequired && !store.state.auth.userToken) {
-    console.log('isAuthRequired')
     next({ name: 'Login' })
+  } else if (store.state.auth.userToken && to.name === 'Login') {
+    next({ name: 'Home' })
   } else {
     next()
   }

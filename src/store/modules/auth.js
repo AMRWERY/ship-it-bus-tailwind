@@ -60,7 +60,7 @@ const actions = {
         .catch((error) => {
           console.log(error);
           commit("setUserToken", null);
-          sessionStorage.setItem("userToken", null);
+          sessionStorage.clear();
         })
         .finally(() => {
           commit("setLoading", false);
@@ -79,7 +79,8 @@ const actions = {
           sessionStorage.setItem("userToken", token);        });
       } else {
         commit("setUserToken", null);
-        sessionStorage.setItem("userToken", null);      }
+        sessionStorage.clear();
+      }
     });
   },
   logout({ commit }) {
