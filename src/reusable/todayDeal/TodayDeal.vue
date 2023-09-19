@@ -2,7 +2,7 @@
     <div>
         <button @click="openModal"
             class="bg-blue-500 hover:bg-blue-600 focus:outline-none rounded-lg px-6 py-2 text-white font-semibold shadow">
-            Deal of Today
+            {{ $t('btn.deal_of_today') }}
         </button>
     </div>
 
@@ -25,7 +25,7 @@
                             <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
                                 <div class="text-center w-full">
                                     <DialogTitle as="h3" class="text-xl font-semibold text-gray-900 dark:text-white">
-                                        Today Deal
+                                        {{ $t('deal.today_deal') }}
                                     </DialogTitle>
                                 </div>
                                 <button type="button" @click="closeModal"
@@ -40,7 +40,7 @@
                                             <img alt="ecommerce"
                                                 class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
                                                 :src="todayDeal.productImg">
-                                            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                                            <div class="lg:w-1/2 w-full lg:ps-10 lg:py-6 mt-6 lg:mt-0">
                                                 <div class="flex justify-between text-base font-medium text-gray-900">
                                                     <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{
                                                         todayDeal.title }}</h1>
@@ -85,13 +85,13 @@
                                                             <path
                                                                 d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                                         </svg>
-                                                        <span class="text-gray-600 ml-3">4 Reviews</span>
+                                                        <span class="text-gray-600 ms-3">4 {{ $t('deal.reviews') }}</span>
                                                     </span>
-                                                    <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
-                                                        <a class="text-gray-500 mr-2">
+                                                    <span class="flex ms-3 ps-3 py-2 border-s-2 border-gray-200 space-x-2s">
+                                                        <a class="text-gray-500 me-2">
                                                             <i class="fa-brands fa-facebook-f"></i>
                                                         </a>
-                                                        <a class="text-gray-500 mr-2">
+                                                        <a class="text-gray-500 me-2">
                                                             <i class="fa-brands fa-x-twitter"></i>
                                                         </a>
                                                         <a class="text-gray-500">
@@ -110,22 +110,22 @@
                                                     pour-over, neutra jean shorts keytar banjo tattooed umami cardigan.
                                                 </p>
                                                 <div class="flex mt-6 items-center pb-5 border-gray-100 mb-5">
-                                                    <div class="flex ml-6 items-center">
-                                                        <div class="flex space-x-4">
+                                                    <div class="flex ms-6 items-center">
+                                                        <div class="flex space-s-4">
                                                             <div class="flex items-center">
                                                                 <span class="text-4xl text-orange-400">{{ hours
                                                                 }}</span>
-                                                                <p class="ml-1 text-sm">hours</p>
+                                                                <p class="ms-1 text-sm">{{ $t('deal.hours') }}</p>
                                                             </div>
                                                             <div class="flex items-center">
                                                                 <span class="text-4xl text-orange-400">{{ minutes
                                                                 }}</span>
-                                                                <p class="ml-1 text-sm">minutes</p>
+                                                                <p class="ms-1 text-sm">{{ $t('deal.minutes') }}</p>
                                                             </div>
                                                             <div class="flex items-center">
                                                                 <span class="text-4xl text-orange-400">{{ seconds
                                                                 }}</span>
-                                                                <p class="ml-1 text-sm">seconds</p>
+                                                                <p class="ms-1 text-sm">{{ $t('deal.seconds') }}</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -134,7 +134,7 @@
                                             </div>
                                         </div>
                                         <div v-if="todayDealExpired" class="m-5">
-                                            <p class="text-center text-red-500">Deal has been Expired</p>
+                                            <p class="text-center text-red-500">{{ $t('deal.deal_has_been_expired') }}</p>
                                         </div>
                                     </div>
                                 </main>

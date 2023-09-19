@@ -3,6 +3,38 @@
     "main": "Main",
     "dashboard": "Dashboard",
     "invoices": "Invoices",
-    "orders": "Orders"
+    "orders": "Orders",
+    "products": "Products",
+    "view_products": "View Products",
+    "view_categories": "View Categories",
+    "misc": "Misc",
+    "mail": "Mail",
+    "terms": "Terms",
+    "conditions": "Conditions",
+    "faq": "FAQ",
+    "privacy_policy": "Privacy Policy",
+    "log_out": "Log out"
+  },
+  "home": {
+    "good_afternoon,_amr": "Good afternoon, Amr",
+    "products_sold": "Products Sold",
+    "product_reviews": "Product Reviews",
+    "new_enquiries": "New Enquiries",
+    "product_views": "Product Views",
+    "recent_sales": "Recent Sales",
+    "recent_reviews": "Recent Reviews",
+    "recent_transactions": "Recent Transactions"
+  },
+  "deal": {
+    "today_deal": "Today Deal",
+    "reviews": "Reviews",
+    "hours": "hours",
+    "minutes": "minutes",
+    "seconds": "seconds",
+    "deal_has_been_expired": "Deal has been Expired"
+  },
+  "btn": {
+    "deal_of_today": "Deal of Today",
+    "new_deal": "New Deal"
   }
 }

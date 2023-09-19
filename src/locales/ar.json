@@ -3,6 +3,38 @@
     "main": "الرئيسيه",
     "dashboard": "لوحة القيادة",
     "invoices": "الفواتير",
-    "orders": "طلبات"
+    "orders": "طلبات",
+    "products": "منتجات",
+    "view_products": "عرض المنتجات",
+    "view_categories": "عرض الفئات",
+    "misc": "متفرقات",
+    "mail": "بريد",
+    "terms": "الشروط",
+    "conditions": "الأحكام",
+    "faq": "التعليمات",
+    "privacy_policy": "سياسة الخصوصية",
+    "log_out": "تسجيل خروج"
+  },
+  "home": {
+    "good_afternoon,_amr": "مساء الخير يا عمرو",
+    "products_sold": "المنتجات المباعة",
+    "product_reviews": "تعليقات المنتج",
+    "new_enquiries": "استفسارات جديدة",
+    "product_views": "استفسارات جديدة",
+    "recent_sales": "المبيعات الأخيرة",
+    "recent_reviews": "المراجعات الأخيرة",
+    "recent_transactions": "التحويلات الاخيرة"
+  },
+  "deal": {
+    "today_deal": "صفقة اليوم",
+    "reviews": "المراجعات",
+    "hours": "ساعات",
+    "minutes": "دقائق",
+    "seconds": "ثواني",
+    "deal_has_been_expired": "الصفقة انتهت"
+  },
+  "btn": {
+    "deal_of_today": "صفقة اليوم",
+    "new_deal": "صفقة جديدة"
   }
 }
