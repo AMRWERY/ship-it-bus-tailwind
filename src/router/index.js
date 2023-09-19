@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { useStore } from "vuex";
 import Home from "../views/Home.vue";
 
 const router = createRouter({
@@ -18,31 +19,49 @@ const router = createRouter({
       path: "/home",
       name: "Home",
       component: Home,
+      meta: {
+        isAuthRequired: true
+      }
     },
     {
       path: "/invoices",
       name: "Invoices",
       component: () => import("../components/Invoices.vue"),
+      meta: {
+        isAuthRequired: true
+      }
     },
     {
       path: "/orders",
       name: "Orders",
       component: () => import("../components/Orders.vue"),
+      meta: {
+        isAuthRequired: true
+      }
     },
     {
       path: "/products",
       name: "Products",
       component: () => import("../components/Products.vue"),
+      meta: {
+        isAuthRequired: true
+      }
     },
     {
       path: "/categories",
       name: "Categories",
       component: () => import("../components/Categories.vue"),
+      meta: {
+        isAuthRequired: true
+      }
     },
     {
       path: "/mail",
       name: "Mail",
       component: () => import("../components/Mail.vue"),
+      meta: {
+        isAuthRequired: true
+      }
     },
     {
       path: "/terms-and-conditions",
@@ -66,5 +85,17 @@ const router = createRouter({
     },
   ],
 });
+
+router.beforeEach(async (to, _, next) => {
+  const authRequired = to.meta.isAuthRequired
+  const store = useStore()
+
+  if (authRequired && !store.state.auth.userToken) {
+    console.log('isAuthRequired')
+    next({ name: 'Login' })
+  } else {
+    next()
+  }
+})
 
 export default router;

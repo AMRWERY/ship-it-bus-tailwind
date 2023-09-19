@@ -12,27 +12,16 @@ import { auth } from "@/firebase/config";
 import router from "@/router";
 
 const state = {
-  isAuthenticated: false,
   isLoading: false,
   username: "",
   email: "",
   password: "",
-  userToken: null,
-  isUserLoggedIn: false,
+  userToken: !!sessionStorage.getItem('userToken') || null,
 };
 
 const mutations = {
-  setIsAuthenticated(state, payload) {
-    state.isAuthenticated = payload;
-  },
   setUserToken(state, payload) {
     state.userToken = payload;
-  },
-  setIsUserLoggedIn(state, value) {
-    state.isUserLoggedIn = value;
-  },
-  userLogout(state, payload) {
-    state.isAuthenticated = payload;
   },
   setLoading(state, payload) {
     state.isLoading = payload;
@@ -57,7 +46,6 @@ const actions = {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          commit("setIsAuthenticated", true);
           // commit("setUsername", user.displayName);
           router.replace("/home");
           // sessionStorage.setItem("username", user.displayName);
@@ -71,6 +59,8 @@ const actions = {
         })
         .catch((error) => {
           console.log(error);
+          commit("setUserToken", null);
+          sessionStorage.setItem("userToken", null);
         })
         .finally(() => {
           commit("setLoading", false);
@@ -86,26 +76,26 @@ const actions = {
       if (user) {
         user.getIdToken().then((token) => {
           commit("setUserToken", token);
-          commit("setIsUserLoggedIn", true);
-        });
+          sessionStorage.setItem("userToken", token);        });
       } else {
         commit("setUserToken", null);
-        commit("setIsUserLoggedIn", false);
-      }
+        sessionStorage.setItem("userToken", null);      }
     });
   },
   logout({ commit }) {
     commit("setLoading", true);
     signOut(auth)
       .then(() => {
-        commit("userLogout", false);
-        commit("setUserToken", null);
-        sessionStorage.clear();
         router.replace("/");
       })
       .catch((error) => {
-        commit("setLoading", false);
         console.log(error);
+      })
+      .finally(() => {
+        commit("setUserToken", null);
+        sessionStorage.clear();
+        commit("setLoading", false);
+
       });
   },
   async resetUserPassword({ commit }, payload) {
@@ -145,7 +135,7 @@ const actions = {
 
 const getters = {
   isAuthenticated: (state) => {
-    return state.isAuthenticated;
+    return !!state.userToken
   },
   isLoading: (state) => {
     return state.isLoading;
