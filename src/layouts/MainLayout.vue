@@ -132,29 +132,22 @@
 </template>
 
 <script setup>
-import { ref, computed, watchEffect } from 'vue';
+import { onMounted, ref, computed, watchEffect } from 'vue';
 import { Drawer } from 'flowbite';
 import { RouterView } from 'vue-router';
 import { useStore } from 'vuex';
 import { useI18n } from 'vue-i18n'
 
 const store = useStore();
+const $i18n = useI18n()
 let drawer = null;
 let defaultSidebar = ref(null);
 const selectedTab = ref('');
 const isAuthenticated = computed(() => store.getters.isAuthenticated);
 
-const logout = async () => {
-    try {
-        await store.dispatch('logout');
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-const toggleSidebar = () => {
-    drawer.toggle();
-}
+onMounted(() => {
+    updateLanguageClassInBody(localStorage.getItem("currentLang") || "en");
+});
 
 watchEffect(() => {
     if (defaultSidebar.value && isAuthenticated.value) {
@@ -162,20 +155,31 @@ watchEffect(() => {
     } else if (defaultSidebar.value && !isAuthenticated.value) {
         drawer.hide()
     }
-})
+});
 
-const language = ref(localStorage.getItem("currentLang") || "en");
+const logout = async () => {
+    try {
+        await store.dispatch('logout');
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const toggleSidebar = () => {
+    drawer.toggle();
+};
 
 const switchLanguage = () => {
-    const currentLang = localStorage.getItem("currentLang");
-    localStorage.setItem("currentLang", currentLang === "ar" ? "en" : "ar");
-    language.value = currentLang === "en" ? "ar" : "en";
-    updateLanguageClassInBody(currentLang);
+    const currentLang = $i18n.locale.value;
+    const newLang = currentLang === "ar" ? "en" : "ar";
+    localStorage.setItem("currentLang", newLang);
+    $i18n.locale.value = newLang;
+    updateLanguageClassInBody(newLang);
 };
 
 const updateLanguageClassInBody = (lang) => {
     const body = document.querySelector("body");
-    if (lang === "en") {
+    if (lang === "ar") {
         body.classList.remove("ltr");
         body.classList.add("rtl");
     } else {
@@ -183,13 +187,6 @@ const updateLanguageClassInBody = (lang) => {
         body.classList.add("ltr");
     }
 };
-
-const $i18n = useI18n()
-
-onMounted(() => {
-    $i18n.locale = language.value;
-    updateLanguageClassInBody(language.value);
-});
 </script>
 
 
