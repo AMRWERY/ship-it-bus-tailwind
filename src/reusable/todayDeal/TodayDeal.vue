@@ -146,7 +146,7 @@
         </Dialog>
     </TransitionRoot>
 </template>
-  
+
 <script setup>
 import { onMounted, ref, computed } from 'vue'
 import {
@@ -154,6 +154,7 @@ import {
     TransitionChild,
     Dialog,
     DialogPanel,
+    DialogTitle
 } from '@headlessui/vue'
 import { useStore } from 'vuex'
 import AddDeal from './AddDeal.vue'

@@ -3,18 +3,16 @@
   <LoadingSpinner v-if="isLoading" />
 </template>
 
-<script>
+<script setup>
+import { computed, onMounted } from 'vue';
 import MainLayout from './layouts/MainLayout.vue'
-import { mapGetters } from "vuex";
+import { useStore } from "vuex";
 import LoadingSpinner from './reusable/LoadingSpinner.vue'
 
-export default {
-  name: 'App',
+const store = useStore()
+const isLoading = computed(() => store.getters.isLoading)
 
-  components: { MainLayout, LoadingSpinner },
-
-  computed: {
-    ...mapGetters(["isLoading"]),
-  },
-}
+onMounted(() => {
+  store.dispatch('initAuthentication')
+})
 </script>
