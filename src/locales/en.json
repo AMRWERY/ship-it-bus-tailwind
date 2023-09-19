@@ -1,0 +1,8 @@
+{
+  "mainlayout": {
+    "main": "Main",
+    "dashboard": "Dashboard",
+    "invoices": "Invoices",
+    "orders": "Orders"
+  }
+}

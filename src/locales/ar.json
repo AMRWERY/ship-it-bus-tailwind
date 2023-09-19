@@ -1,0 +1,8 @@
+{
+  "mainlayout": {
+    "main": "الرئيسيه",
+    "dashboard": "لوحة القيادة",
+    "invoices": "الفواتير",
+    "orders": "طلبات"
+  }
+}

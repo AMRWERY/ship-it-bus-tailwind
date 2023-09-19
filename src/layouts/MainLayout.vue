@@ -15,7 +15,7 @@
                                 </path>
                             </svg>
                         </button>
-                        <router-link to="" class="flex ml-2 md:mr-24">
+                        <router-link to="" class="flex ml-2 md:me-24">
                             <img src="../assets/shopping-bags-svgrepo-com.svg" class="w-10 h-10 mr-1">
                             <span
                                 class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Ship-IT</span>
@@ -24,12 +24,12 @@
 
                     <div class="flex items-center">
                         <div class="flex items-center ml-3 space-x-2.5">
-                            <!-- <div>
-                                <button type="button"
+                            <div>
+                                <button type="button" @click="switchLanguage"
                                     class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                     <i class="fa-solid fa-earth-africa fa-xl"></i>
                                 </button>
-                            </div> -->
+                            </div>
 
                             <!-- toggle theme -->
                             <!-- <div>
@@ -53,22 +53,22 @@
             <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                 <ul class="space-y-2 font-medium mt-16">
                     <div class="mb-4 px-4">
-                        <p class="pl-4 text-sm font-semibold mb-1">Main</p>
+                        <p class="pl-4 text-sm font-semibold mb-1">{{ $t('mainlayout.main') }}</p>
                         <router-link to="/home" @click="selectedTab = 'dashboard'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'dashboard' }]">
-                            <i class="fa-solid fa-chart-line fa-lg mr-2"></i>
-                            <span class="text-gray-700">Dashboard</span>
+                            <i class="fa-solid fa-chart-line fa-lg me-2"></i>
+                            <span class="text-gray-700">{{ $t('mainlayout.dashboard') }}</span>
                         </router-link>
 
                         <router-link to="/invoices" @click="selectedTab = 'invoices'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'invoices' }]">
-                            <i class="fa-solid fa-arrow-trend-up fa-lg mr-2"></i>
+                            <i class="fa-solid fa-arrow-trend-up fa-lg me-2"></i>
                             <span class="text-gray-700">Invoices</span>
                         </router-link>
 
                         <router-link to="/orders" @click="selectedTab = 'orders'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'orders' }]">
-                            <i class="fa-solid fa-arrow-up-wide-short fa-lg mr-2"></i>
+                            <i class="fa-solid fa-arrow-up-wide-short fa-lg me-2"></i>
                             <span class="text-gray-700">Orders</span>
                         </router-link>
                     </div>
@@ -77,13 +77,13 @@
                         <p class="pl-4 text-sm font-semibold mb-1">Projects</p>
                         <router-link to="/products" @click="selectedTab = 'products'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'products' }]">
-                            <i class="fa-solid fa-arrow-up-wide-short fa-lg mr-2"></i>
+                            <i class="fa-solid fa-arrow-up-wide-short fa-lg me-2"></i>
                             <span class="text-gray-700">View Products</span>
                         </router-link>
 
                         <router-link to="/categories" @click="selectedTab = 'categories'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'categories' }]">
-                            <i class="fa-solid fa-list-ol fa-lg mr-2"></i>
+                            <i class="fa-solid fa-list-ol fa-lg me-2"></i>
                             <span class="text-gray-700">View Categories</span>
                         </router-link>
                     </div>
@@ -92,31 +92,31 @@
                         <p class="pl-4 text-sm font-semibold mb-1">Misc</p>
                         <router-link to="/mail" @click="selectedTab = 'mail'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'mail' }]">
-                            <i class="fa-solid fa-envelope fa-lg mr-2"></i>
+                            <i class="fa-solid fa-envelope fa-lg me-2"></i>
                             <span class="text-gray-700">Mail</span>
                         </router-link>
 
                         <router-link to="/terms-and-conditions" @click="selectedTab = 'terms-and-conditions'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'terms-and-conditions' }]">
-                            <i class="fa-solid fa-thumbtack fa-lg mr-2"></i>
+                            <i class="fa-solid fa-thumbtack fa-lg me-2"></i>
                             <span class="text-gray-700">Terms & Conditions</span>
                         </router-link>
 
                         <router-link to="/f-a-q" @click="selectedTab = 'f-a-q'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'f-a-q' }]">
-                            <i class="fa-solid fa-circle-question fa-lg mr-2"></i>
+                            <i class="fa-solid fa-circle-question fa-lg me-2"></i>
                             <span class="text-gray-700">FAQ</span>
                         </router-link>
 
                         <router-link to="/privacy-policy" @click="selectedTab = 'privacy-policy'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'privacy-policy' }]">
-                            <i class="fa-solid fa-circle-info fa-lg mr-2"></i>
+                            <i class="fa-solid fa-circle-info fa-lg me-2"></i>
                             <span class="text-gray-700">Privacy Policy</span>
                         </router-link>
 
                         <router-link to="/" @click="logout"
                             class="w-full flex items-center text-blue-400 h-10 pl-4 rounded-lg cursor-pointer">
-                            <i class="fa-solid fa-arrow-right-from-bracket fa-lg mr-2"></i>
+                            <i class="fa-solid fa-arrow-right-from-bracket fa-lg me-2"></i>
                             <span class="text-gray-700">Log out</span>
                         </router-link>
                     </div>
@@ -137,6 +137,7 @@ import { onMounted, ref, computed } from 'vue';
 import { initDrawers } from 'flowbite';
 import { RouterView } from 'vue-router';
 import { useStore } from 'vuex';
+import { useI18n } from 'vue-i18n'
 
 const store = useStore();
 
@@ -156,6 +157,32 @@ const logout = async () => {
 
 const isAuthenticated = computed(() => store.getters.isAuthenticated);
 
+const language = ref(localStorage.getItem("currentLang") || "en");
+
+const switchLanguage = () => {
+    const currentLang = localStorage.getItem("currentLang");
+    localStorage.setItem("currentLang", currentLang === "ar" ? "en" : "ar");
+    language.value = currentLang === "en" ? "ar" : "en";
+    updateLanguageClassInBody(currentLang);
+};
+
+const updateLanguageClassInBody = (lang) => {
+    const body = document.querySelector("body");
+    if (lang === "en") {
+        body.classList.remove("ltr");
+        body.classList.add("rtl");
+    } else {
+        body.classList.remove("rtl");
+        body.classList.add("ltr");
+    }
+};
+
+const $i18n = useI18n()
+
+onMounted(() => {
+    $i18n.locale = language.value;
+    updateLanguageClassInBody(language.value);
+});
 </script>
 
 
