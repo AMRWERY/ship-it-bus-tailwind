@@ -21,14 +21,12 @@ const actions = {
     try {
       const querySnap = await getDocs(query(collection(db, "todayDeal")));
       let deals = [];
-
       const today = new Date();
-
       querySnap.forEach((doc) => {
         const dealData = doc.data();
         const startDate = dealData.startDate.toDate();
         const endDate = dealData.endDate.toDate();
-
+        debugger;
         if (
           startDate.toDateString() <= today.toDateString() &&
           today.toDateString() <= endDate.toDateString()
@@ -38,6 +36,7 @@ const actions = {
             ...dealData,
             endDate: endDate,
           };
+          console.log(deal);
           deals.push(deal);
         }
       });

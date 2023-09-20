@@ -1,4 +1,10 @@
 {
+  "sign_in": {
+    "sign_in_to_your_account": "Sign in to your account",
+    "email_address": "Email address",
+    "forgot_password?": "Forgot password?",
+    "password": "Password"
+  },
   "mainlayout": {
     "main": "Main",
     "dashboard": "Dashboard",
@@ -33,8 +39,36 @@
     "seconds": "seconds",
     "deal_has_been_expired": "Deal has been Expired"
   },
+  "invoices": {
+    "search_for_items": "Search for items",
+    "user_email": "User e-mail",
+    "username": "Username",
+    "color": "Color",
+    "price": "Price",
+    "user_purchases": "User purchases"
+  },
+  "products": {
+    "search": "Search",
+    "add_new_product": "Add New Product",
+    "product_name": "Product Name",
+    "price": "Price",
+    "original_price": "Original Price",
+    "select_category": "Select Category",
+    "discount": "Discount",
+    "select_availability": "Select Availability",
+    "in_stock": "in-stock",
+    "out_of_stock": "out-of-stock"
+  },
   "btn": {
+    "sign_in": "Sign in",
     "deal_of_today": "Deal of Today",
-    "new_deal": "New Deal"
+    "new_deal": "New Deal",
+    "add_product": "Add Product",
+    "add": "Add"
+  },
+  "validation": {
+    "invalid_admin_email": "Invalid admin email",
+    "email_is_required": "E-mail is required",
+    "password_is_required": "Password is required"
   }
 }

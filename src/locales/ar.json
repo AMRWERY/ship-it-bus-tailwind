@@ -1,4 +1,10 @@
 {
+  "sign_in": {
+    "sign_in_to_your_account": "تسجيل الدخول إلى حسابك",
+    "email_address": "عنوان البريد الإلكتروني",
+    "forgot_password?": "هل نسيت كلمة المرور؟",
+    "password": "كلمة المرور"
+  },
   "mainlayout": {
     "main": "الرئيسيه",
     "dashboard": "لوحة القيادة",
@@ -33,8 +39,36 @@
     "seconds": "ثواني",
     "deal_has_been_expired": "الصفقة انتهت"
   },
+  "invoices": {
+    "search_for_items": "البحث عن العناصر",
+    "user_email": "البريد الالكتروني للمستخدم",
+    "username": "اسم المستخدم",
+    "color": "لون",
+    "price": "سعر",
+    "user_purchases": "مشتريات المستخدم"
+  },
+  "products": {
+    "search": "بحث",
+    "add_new_product": "إضافة منتج جديد",
+    "product_name": "اسم المنتج",
+    "price": "سعر",
+    "original_price": "السعر الأصلي",
+    "select_category": "اختر الفئة",
+    "discount": "تخفيض",
+    "select_availability": "حدد التوفر",
+    "in_stock": "متوفر",
+    "out_of_stock": "غير متوفر"
+  },
   "btn": {
+    "sign_in": "تسجيل الدخول",
     "deal_of_today": "صفقة اليوم",
-    "new_deal": "صفقة جديدة"
+    "new_deal": "صفقة جديدة",
+    "add_product": "أضف منتج",
+    "add": "أضف"
+  },
+  "validation": {
+    "invalid_admin_email": "البريد الإلكتروني للمشرف غير صالح",
+    "email_is_required": "البريد الالكتروني مطلوب",
+    "password_is_required": "كلمة المرور مطلوبة"
   }
 }

@@ -8,7 +8,7 @@
                 </div>
                 <input type="text" id="table-search"
                     class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Search for items">
+                    :placeholder="$t('invoices.search_for_items')">
             </div>
         </div>
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -22,19 +22,19 @@
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 capitalize">
-                        User e-mail
+                        {{ $t('invoices.user_email') }}
                     </th>
                     <th scope="col" class="px-6 py-3 capitalize">
-                        Username
+                        {{ $t('invoices.username') }}
                     </th>
                     <th scope="col" class="px-6 py-3 capitalize">
-                        Color
+                        {{ $t('invoices.color') }}
                     </th>
                     <th scope="col" class="px-6 py-3 capitalize">
-                        Price
+                        {{ $t('invoices.price') }}
                     </th>
                     <th scope="col" class="px-6 py-3 capitalize">
-                        Action
+                        #
                     </th>
                 </tr>
             </thead>

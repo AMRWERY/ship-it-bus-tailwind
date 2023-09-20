@@ -190,7 +190,6 @@ const closeModal = () => {
 const updateClock = () => {
     const now = new Date().getTime();
     const timeLeft = dealExpiry - now;
-
     if (timeLeft > 0) {
         hours.value = String(Math.floor(timeLeft / (1000 * 60 * 60))).padStart(2, '0');
         minutes.value = String(Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
@@ -205,20 +204,16 @@ const updateClock = () => {
 
 const calculateTimeRemaining = () => {
     const now = new Date().getTime();
-
     if (todayDeal.value && todayDeal.value.endDate) {
         const endDate = new Date(todayDeal.value.endDate).getTime();
         const timeLeft = endDate - now;
-
         if (timeLeft <= 0) {
             clearInterval(timer);
             return;
         }
-
         const hoursRemaining = Math.floor(timeLeft / (1000 * 60 * 60));
         const minutesRemaining = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         const secondsRemaining = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
         hours.value = String(hoursRemaining).padStart(2, '0');
         minutes.value = String(minutesRemaining).padStart(2, '0');
         seconds.value = String(secondsRemaining).padStart(2, '0');

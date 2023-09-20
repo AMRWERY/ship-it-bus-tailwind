@@ -7,7 +7,6 @@
                         <button aria-controls="default-sidebar" type="button"
                             class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                             @click="toggleSidebar">
-                            <span class="sr-only">Open sidebar</span>
                             <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path clip-rule="evenodd" fill-rule="evenodd"
@@ -48,7 +47,7 @@
             </div>
         </nav>
         <aside ref="defaultSidebar"
-            class="fixed top-0 end-0 start-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+            class="fixed top-0 end-0 right-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
             aria-label="Sidebar">
             <div class="h-full pe-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                 <ul class="space-y-2 font-medium mt-16">
@@ -126,7 +125,30 @@
         </aside>
     </template>
 
-    <div class="p-4 ms-64 sm:ms-64">
+    <div class="flex items-center" v-else>
+        <div class="flex items-center m-3 space-x-2.5">
+            <div>
+                <button type="button" @click="switchLanguage"
+                    class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <i class="fa-solid fa-earth-africa fa-xl"></i>
+                </button>
+            </div>
+
+            <!-- toggle theme -->
+            <!-- <div>
+                <button type="button"
+                    class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <i class="fa-solid fa-moon fa-xl"></i>
+                </button>
+                <button type="button"
+                    class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <i class="fa-solid fa-sun fa-xl"></i>
+                </button>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="p-4 sm:ms-64">
         <div class="p-4 border-gray-200 rounded-lg dark:border-gray-700">
             <RouterView />
         </div>
@@ -166,15 +188,6 @@ watchEffect(() => {
     }
 })
 
-// const language = ref(localStorage.getItem("currentLang") || "en");
-
-// const switchLanguage = () => {
-//     const currentLang = localStorage.getItem("currentLang");
-//     localStorage.setItem("currentLang", currentLang === "ar" ? "en" : "ar");
-//     language.value = currentLang === "en" ? "ar" : "en";
-//     $i18n.locale = language.value;
-//     window.location.reload()
-// };
 const switchLanguage = () => {
     const currentLang = $i18n.locale.value;
     const newLang = currentLang === "ar" ? "en" : "ar";
@@ -196,13 +209,6 @@ const updateLanguageClassInBody = (lang) => {
 
 const $i18n = useI18n()
 
-// onMounted(() => {
-//     updateLanguageClassInBody(language.value);
-// });
-
-// watchEffect($i18n.locale, (lang) => {
-//     updateLanguageClassInBody(lang)
-// })
 onMounted(() => {
     updateLanguageClassInBody(localStorage.getItem("currentLang") || "en");
 });
