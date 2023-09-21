@@ -13,17 +13,20 @@
                         leave-to="opacity-0 scale-95">
                         <DialogPanel
                             class="w-full max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                            <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900">
-                                <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                        Order id <span class="text-blue-600">#{{ productId }}</span>
-                                    </h3>
-                                    <button type="button" @click="closeModal"
-                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
-                                        <i class="fa-solid fa-xmark fa-xl"></i>
-                                    </button>
+                            <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
+                                <div class="w-full">
+                                    <DialogTitle as="h3"
+                                        class="text-xl font-semibold text-center text-gray-900 dark:text-white">
+                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                            {{ $t('orders.order_id') }} <span class="text-blue-600">#{{ productId }}</span>
+                                        </h3>
+                                    </DialogTitle>
                                 </div>
-                            </DialogTitle>
+                                <button type="button" @click="closeModal"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                                    <i class="fa-solid fa-xmark fa-xl w-3 h-3"></i>
+                                </button>
+                            </div>
                             <div class="my-6">
                                 <ol class="items-center justify-center sm:flex">
                                     <li class="relative mb-8 sm:mb-0" v-for="status in getState" :key="status">
@@ -35,7 +38,7 @@
                                             </div>
                                             <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
                                         </div>
-                                        <div class="mt-3 mr-4 sm:pr-8">
+                                        <div class="mt-3 me-4 sm:pe-8">
                                             <h3 class="text-lg font-semibold text-gray-700 dark:text-white">{{ status.name
                                             }}</h3>
                                         </div>
@@ -52,11 +55,11 @@
                                 </select>
                             </div>
 
-                            <div class="mt-4">
-                                <div class="flex items-center p-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600">
-                                    <button @click="updateOrder" type="button"
-                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
-                                </div>
+                            <div
+                                class="flex items-center float-left p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                <button type="button" @click="updateOrder"
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{
+                                        $t('btn.update') }}</button>
                             </div>
                         </DialogPanel>
                     </TransitionChild>

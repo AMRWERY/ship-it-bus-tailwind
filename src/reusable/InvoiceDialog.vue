@@ -15,8 +15,9 @@
                             class="w-full max-w-5xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                             <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
                                 <div class="w-full">
-                                    <DialogTitle as="h3" class="text-xl font-semibold text-gray-900 dark:text-white">
-                                        User purchases
+                                    <DialogTitle as="h3"
+                                        class="text-xl font-semibold text-center text-gray-900 dark:text-white">
+                                        {{ $t('invoices.user_purchases') }}
                                     </DialogTitle>
                                 </div>
                                 <button type="button" @click="closeModal"
@@ -36,32 +37,31 @@
                                                         <img class="w-full md:hidden" :src="prod?.imgFront" />
                                                     </div>
                                                     <div
-                                                        class="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0 ml-10">
+                                                        class="md:flex-row flex-col flex justify-between items-start w-full pb-8 space-y-4 md:space-y-0 ms-10">
                                                         <div
                                                             class="w-full flex flex-col justify-start items-start space-y-8">
                                                             <h3
-                                                                class="text-xl dark:text-white xl:text-2xl font-semibold leading-6 text-gray-800 mt-10">
+                                                                class="text-xl dark:text-white font-semibold leading-6 text-gray-800 mt-10 text-start">
                                                                 {{ prod?.title }}
                                                             </h3>
                                                         </div>
                                                         <div
-                                                            class="flex justify-between space-x-14 items-start w-full ml-20">
-                                                            <div class="flex justify-start items-center mt-10">
+                                                            class="flex justify-between space-x-14 items-start w-full ms-20">
+                                                            <div class="flex justify-start items-center mt-10 me-10">
                                                                 <p class="text-base dark:text-white xl:text-lg leading-6">
                                                                     ${{ prod?.price }}</p>
                                                                 <p
-                                                                    class="text-red-300 line-through text-base dark:text-white xl:text-lg leading-6 ml-2">
+                                                                    class="text-red-300 line-through text-base dark:text-white xl:text-lg leading-6 ms-3">
                                                                     ${{ prod?.originalPrice }}</p>
                                                             </div>
 
                                                             <div class="flex items-center mt-10">
                                                                 <p
                                                                     class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
-                                                                    {{
-                                                                        prod?.cartQty }}</p>
+                                                                    {{ prod?.cartQty }}</p>
                                                                 <p
-                                                                    class="text-red-300 text-base dark:text-white xl:text-lg leading-6 ml-2">
-                                                                    Pieces</p>
+                                                                    class="text-red-300 text-base dark:text-white xl:text-lg leading-6 ms-2">
+                                                                    {{ $t('invoices.pieces') }}</p>
                                                             </div>
                                                             <p
                                                                 class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800 mt-10">

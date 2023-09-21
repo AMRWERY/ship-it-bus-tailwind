@@ -45,10 +45,21 @@
     "username": "اسم المستخدم",
     "color": "لون",
     "price": "سعر",
-    "user_purchases": "مشتريات المستخدم"
+    "user_purchases": "مشتريات المستخدم",
+    "pieces": "قطع"
+  },
+  "orders": {
+    "last_30_days": "آخر 30 يوما",
+    "last_day": "الأمس",
+    "last_7_days": "اخر 7 ايام",
+    "last_year": "العام الماضي",
+    "product_img": "صورة المنتج",
+    "product_name": "اسم المنتج",
+    "category": "فئة",
+    "order_id": "رقم الطلب"
   },
   "products": {
-    "search": "بحث",
+    "search_for_products": "البحث عن المنتجات",
     "add_new_product": "إضافة منتج جديد",
     "product_name": "اسم المنتج",
     "price": "سعر",
@@ -59,12 +70,49 @@
     "in_stock": "متوفر",
     "out_of_stock": "غير متوفر"
   },
+  "categories": {
+    "add_new_category": "إضافة فئة جديدة",
+    "category_name": "اسم التصنيف"
+  },
+  "mail": {
+    "reply_now": "رد الآن",
+    "email": "بريد إلكتروني",
+    "title": "عنوان",
+    "message": "رسالة"
+  },
+  "terms_and_conditions": {
+    "read_about_the_terms_and_conditions_for": "اقرأ عن الشروط والأحكام الخاصة بـ"
+  },
+  "f_a_q": {
+    "search": "بحث",
+    "frequently_asked_questions": "أسئلة مكررة",
+    "account_overview": "نظرة عامة على الحساب",
+    "first_time,_what_do_i_do_next?": "المرة الأولى، ماذا أفعل بعد ذلك؟",
+    "changing_you_profile_picture_and_other_information": "تغيير الصورة الشخصية والمعلومات الأخرى",
+    "i_didnt_get_a_confirmation_email,_what_should_i_do_next": "لم أتلق رسالة تأكيد عبر البريد الإلكتروني، ماذا علي أن أفعل بعد ذلك",
+    "what_is_the_refund_policy_if_i_have_to_cancel_during_the_month": "ما هي سياسة استرداد الأموال إذا اضطررت إلى الإلغاء خلال الشهر",
+    "subscription_plans": "خطط الاشتراك",
+    "what_is_the_refund_policy?": "ماهي سياسة إستعادة الأموال؟",
+    "payment_options": "خيارات الدفع",
+    "notification_settings": "إعدادات الإشعار",
+    "profile_preferences": "تفضيلات الملف الشخصي",
+    "privacy_and_cookies": "الخصوصية وملفات تعريف الارتباط",
+    "show_all": "عرض الكل"
+  },
+  "policy": {
+    "privacy_policy": "سياسة الخصوصية",
+    "last_updated_on_august_28, 2023": "آخر تحديث في 28 أغسطس 2023"
+  },
   "btn": {
     "sign_in": "تسجيل الدخول",
     "deal_of_today": "صفقة اليوم",
     "new_deal": "صفقة جديدة",
     "add_product": "أضف منتج",
-    "add": "أضف"
+    "add": "أضف",
+    "edit": "يحرر",
+    "add_category": "إضافة فئة",
+    "reply": "رد",
+    "update": "تحديث"
   },
   "validation": {
     "invalid_admin_email": "البريد الإلكتروني للمشرف غير صالح",

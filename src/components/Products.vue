@@ -10,15 +10,13 @@
                             class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
                             <!-- Input -->
                             <div class="sm:col-span-1">
-                                <label for="hs-as-table-product-review-search" class="sr-only">Search</label>
                                 <div class="relative">
-                                    <input type="text" id="hs-as-table-product-review-search" v-model="searchProduct"
-                                        name="hs-as-table-product-review-search"
-                                        class="py-2 px-3 pl-11 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-                                        :placeholder="$t('products.search')">
-                                    <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-4">
+                                    <div class="absolute inset-y-0 end-0 flex items-center pe-3 pointer-events-none">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </div>
+                                    <input type="text" id="table-search" v-model="searchProduct"
+                                        class="block p-2 pe-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        :placeholder="$t('products.search_for_products')">
                                 </div>
                             </div>
                             <!-- End Input -->
@@ -32,8 +30,8 @@
                             </div>
                         </div>
 
-                        <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
-                            <div class="mt-6 grid grid-cols-1 gap-s-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 ">
+                        <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-8 lg:max-w-7xl lg:ps-8">
+                            <div class="mt-6 grid grid-cols-1 gap-s-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                                 <div v-for="prod in displayedProducts" :key="prod"
                                     class="group relative transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
                                     <button @click="onDeleteProduct(prod)" type="button"
@@ -45,12 +43,12 @@
                                         <img :src="prod?.productImg"
                                             class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
                                     </div>
-                                    <div class="mt-4 flex justify-between">
+                                    <div class="mt-4 flex justify-between ">
                                         <div>
-                                            <h3 class="text-sm text-gray-700">
+                                            <h4 class="text-sm text-gray-700 ">
                                                 <span aria-hidden="true" class="absolute inset-0" />
                                                 {{ prod?.title }}
-                                            </h3>
+                                            </h4>
                                             <p class="mt-1 text-sm text-gray-500">{{ prod?.categories }}</p>
                                         </div>
                                         <div>
@@ -68,7 +66,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

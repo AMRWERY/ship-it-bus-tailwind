@@ -191,7 +191,7 @@ watchEffect(() => {
 const switchLanguage = () => {
     const currentLang = $i18n.locale.value;
     const newLang = currentLang === "ar" ? "en" : "ar";
-    localStorage.setItem("currentLang", newLang);
+    sessionStorage.setItem("currentLang", newLang);
     $i18n.locale.value = newLang;
     updateLanguageClassInBody(newLang);
 };
@@ -210,7 +210,7 @@ const updateLanguageClassInBody = (lang) => {
 const $i18n = useI18n()
 
 onMounted(() => {
-    updateLanguageClassInBody(localStorage.getItem("currentLang") || "en");
+    updateLanguageClassInBody(sessionStorage.getItem("currentLang") || "en");
 });
 
 watchEffect(() => {

@@ -26,7 +26,7 @@ import ar from "./locales/ar.json";
 const app = createApp(App);
 
 const i18n = createI18n({
-  locale: localStorage.getItem("currentLang") ?? "en",
+  locale: sessionStorage.getItem("currentLang") ?? "en",
   legacy: false,
   messages: {
     en,

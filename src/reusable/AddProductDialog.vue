@@ -84,18 +84,27 @@
                                 <main class="mt-4">
                                     <div>
                                         <div class="my-3">
+                                            <label for="title"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">{{
+                                                    $t('products.product_name') }}</label>
                                             <input type="text"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
                                                 :placeholder="$t('products.product_name')" x-model="productName"
                                                 v-model.trim="title" />
                                         </div>
                                         <div class="my-3">
+                                            <label for="price"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">{{
+                                                    $t('products.price') }}</label>
                                             <input type="number"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
                                                 :placeholder="$t('products.price')" x-model="price" v-model.trim="price"
                                                 @input="formatPrice" />
                                         </div>
                                         <div class="my-3">
+                                            <label for="price"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">{{
+                                                    $t('products.original_price') }}</label>
                                             <input type="number"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
                                                 :placeholder="$t('products.original_price')" x-model="price"
@@ -103,7 +112,7 @@
                                         </div>
                                         <div class="my-3">
                                             <label for="categories"
-                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">{{
                                                     $t('products.select_category') }}</label>
                                             <select id="categories" v-model="categories"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -111,6 +120,9 @@
                                             </select>
                                         </div>
                                         <div class="my-3">
+                                            <label for="discount"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">{{
+                                                    $t('products.discount') }}</label>
                                             <input type="number"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
                                                 :placeholder="$t('products.discount')" x-model="discount"
@@ -118,7 +130,7 @@
                                         </div>
                                         <div class="my-3">
                                             <label for="availability"
-                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">
                                                 {{ $t('products.select_availability') }}</label>
                                             <select id="availability" v-model="availability"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -131,7 +143,7 @@
                             </div>
 
                             <div
-                                class="flex items-center float-right p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                class="flex items-center float-left p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                                 <button type="button" @click="addNewProduct"
                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{
                                         $t('btn.add') }}</button>

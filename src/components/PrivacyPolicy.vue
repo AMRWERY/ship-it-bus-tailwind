@@ -2,8 +2,9 @@
     <div class="relative -mt-[5.75rem] overflow-hidden pt-[5.75rem]">
         <div class="px-4 sm:px-6 lg:px-8">
             <div class="relative mx-auto max-w-[37.5rem] pt-20 text-center pb-24">
-                <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Privacy policy</h1>
-                <p class="mt-4 text-base leading-7 text-slate-600">Last updated on August 28, 2023</p>
+                <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">{{ $t('policy.privacy_policy')
+                }}</h1>
+                <p class="mt-4 text-base leading-7 text-slate-600">{{ $t('policy.last_updated_on_august_28, 2023') }}</p>
             </div>
         </div>
         <div class="relative px-4 sm:px-6 lg:px-8">

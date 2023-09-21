@@ -5,9 +5,9 @@
                 <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
                     class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                     type="button">
-                    <i class="fa-solid fa-clock mr-2"></i>
-                    Last 30 days
-                    <i class="fa-solid fa-chevron-down ml-2"></i>
+                    <i class="fa-solid fa-clock me-2"></i>
+                    {{ $t('orders.last_30_days') }}
+                    <i class="fa-solid fa-chevron-down ms-2"></i>
                 </button>
                 <!-- Dropdown menu -->
                 <div id="dropdown"
@@ -15,63 +15,59 @@
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                         <li>
                             <a href="#"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                day</a>
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{
+                                    $t('orders.last_day') }}</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                7
-                                days</a>
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{
+                                    $t('orders.last_7_days') }}</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                30
-                                days</a>
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{
+                                    $t('orders.last_30_days') }}</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                year</a>
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{
+                                    $t('orders.last_year') }}</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <label for="table-search" class="sr-only">Search</label>
             <div class="relative">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <div class="absolute inset-y-0 end-0 flex items-center pe-3 pointer-events-none">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <input type="text" id="table-search"
-                    class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Search for items">
+                    class="block p-2 pe-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    :placeholder="$t('invoices.search_for_items')">
             </div>
         </div>
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <table class="w-full text-sm text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th scope="col" class="p-4">
+                    <th scope="col" class="p-4  text-start">
                         <div class="flex items-center">
                             <input id="checkbox-all-search" type="checkbox"
                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3 capitalize">
-                        Product img
+                        {{ $t('orders.product_img') }}
                     </th>
                     <th scope="col" class="px-6 py-3 capitalize">
-                        Product name
+                        {{ $t('orders.product_name') }}
                     </th>
                     <th scope="col" class="px-6 py-3 capitalize">
-                        Category
+                        {{ $t('orders.category') }}
                     </th>
                     <th scope="col" class="px-6 py-3 capitalize">
-                        Price
+                        {{ $t('invoices.price') }}
                     </th>
                     <th scope="col" class="px-6 py-3 capitalize">
-                        Action
+                        #
                     </th>
                 </tr>
             </thead>
@@ -97,7 +93,7 @@
                     <td class="px-6 py-4">
                         ${{ prod?.price }}
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="py-4 space-s-6">
                         <button type="button" @click="selectedOrderProductId = prod.id; getOrderDetails(item)"
                             class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <i class="fa-regular fa-pen-to-square fa-lg"></i>

@@ -2,7 +2,7 @@
     <div>
         <button id="hs-as-table-table-export-dropdown" type="button" @click="openModal"
             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Add Category
+            {{ $t('btn.add_category') }}
         </button>
     </div>
 
@@ -25,7 +25,7 @@
                             <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
                                 <div class="text-center w-full">
                                     <DialogTitle as="h3" class="text-xl font-semibold text-gray-900 dark:text-white">
-                                        Add new Category
+                                        {{ $t('categories.add_new_category') }}
                                     </DialogTitle>
                                 </div>
                                 <button type="button" @click="closeModal"
@@ -45,8 +45,7 @@
                                         <div
                                             class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 relative">
                                             <label for="imageInput" class="cursor-pointer">
-                                                <img class="w-12" src="/add-circle-svgrepo-com.svg"
-                                                    alt="Add Image" />
+                                                <img class="w-12" src="/add-circle-svgrepo-com.svg" alt="Add Image" />
                                             </label>
                                             <input id="imageInput" type="file" accept="image/*"
                                                 class="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
@@ -59,19 +58,22 @@
                                 <main class="mt-4">
                                     <div>
                                         <div class="my-3">
+                                            <label for="category"
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">
+                                                {{ $t('categories.category_name') }}</label>
                                             <input type="text"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                                placeholder="Category Name" maxlength="22" x-model="categoryName"
-                                                v-model.trim="title" />
+                                                :placeholder="$t('categories.category_name')" maxlength="22"
+                                                x-model="categoryName" v-model.trim="title" />
                                         </div>
                                     </div>
                                 </main>
                             </div>
 
                             <div
-                                class="flex items-center float-right p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                class="flex items-center float-left p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                                 <button type="button" @click="addNewCategory"
-                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add</button>
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{ $t('btn.add') }}</button>
                             </div>
                         </DialogPanel>
                     </TransitionChild>

@@ -10,7 +10,8 @@
                         <span class="mt-1 text-gray-500 text-sm">{{ formattedDate(message.date) }}</span>
                     </div>
                     <div class="md:flex-grow">
-                        <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{ message.title }}</h2>
+                        <h2 class="text-2xl font-medium text-gray-900 title-font mb-2
+                        ">{{ message.title }}</h2>
                         <p class="leading-relaxed">{{ message.message }}</p>
                         <p class="leading-relaxed text-red-600">{{ message.email }}</p>
                         <ContactDialog :email="message.email" />

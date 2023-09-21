@@ -45,10 +45,21 @@
     "username": "Username",
     "color": "Color",
     "price": "Price",
-    "user_purchases": "User purchases"
+    "user_purchases": "User purchases",
+    "pieces": "Pieces"
+  },
+  "orders": {
+    "last_30_days": "Last 30 days",
+    "last_day": "Last day",
+    "last_7_days": "Last 7 days",
+    "last_year": "Last year",
+    "product_img": "Product img",
+    "product_name": "Product name",
+    "category": "Category",
+    "order_id": "Order id"
   },
   "products": {
-    "search": "Search",
+    "search_for_products": "Search for products",
     "add_new_product": "Add New Product",
     "product_name": "Product Name",
     "price": "Price",
@@ -59,12 +70,49 @@
     "in_stock": "in-stock",
     "out_of_stock": "out-of-stock"
   },
+  "categories": {
+    "add_new_category": "Add new Category",
+    "category_name": "Category Name"
+  },
+  "mail": {
+    "reply_now": "Reply Now",
+    "email": "Email",
+    "title": "Title",
+    "message": "Message"
+  },
+  "terms_and_conditions": {
+    "read_about_the_terms_and_conditions_for": "Read about the terms and conditions for"
+  },
+  "f_a_q": {
+    "search": "Search",
+    "frequently_asked_questions": "Frequently asked questions",
+    "account_overview": "Account Overview",
+    "first_time,_what_do_i_do_next?": "First time, what do I do next?",
+    "changing_you_profile_picture_and_other_information": "Changing you profile picture and other information",
+    "i_didnt_get_a_confirmation_email,_what_should_i_do_next": "I didnt get a confirmation email, what should I do next",
+    "what_is_the_refund_policy_if_i_have_to_cancel_during_the_month": "What is the refund policy if I have to cancel during the month",
+    "subscription_plans": "Subscription Plans",
+    "what_is_the_refund_policy?": "What is the refund policy?",
+    "payment_options": "Payment Options",
+    "notification_settings": "Notification Settings",
+    "profile_preferences": "Profile Preferences",
+    "privacy_and_cookies": "Privacy and Cookies",
+    "show_all": "Show All"
+  },
+  "policy": {
+    "privacy_policy": "Privacy Policy",
+    "last_updated_on_august_28, 2023": "Last updated on August 28, 2023"
+  },
   "btn": {
     "sign_in": "Sign in",
     "deal_of_today": "Deal of Today",
     "new_deal": "New Deal",
     "add_product": "Add Product",
-    "add": "Add"
+    "add": "Add",
+    "edit": "Edit",
+    "add_category": "Add Category",
+    "reply": "Reply",
+    "update": "Update"
   },
   "validation": {
     "invalid_admin_email": "Invalid admin email",
