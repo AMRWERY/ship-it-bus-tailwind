@@ -21,10 +21,10 @@
                         enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
                         leave-to="opacity-0 scale-95">
                         <DialogPanel
-                            class="w-full max-w-2xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                            class="w-full max-w-2xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl transform overflow-hidden rounded-2xl bg-white dark:bg-gray-100 p-6 text-left align-middle shadow-xl transition-all">
                             <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
                                 <div class="text-center w-full">
-                                    <DialogTitle as="h3" class="text-xl font-semibold text-gray-900 dark:text-white">
+                                    <DialogTitle as="h3" class="text-xl font-semibold text-gray-900 dark:text-black">
                                         {{ title }}
                                     </DialogTitle>
                                 </div>
@@ -85,7 +85,7 @@
                                     <div>
                                         <div class="my-3">
                                             <label for="title"
-                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">{{
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-black text-start">{{
                                                     $t('products.product_name') }}</label>
                                             <input type="text"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
@@ -94,7 +94,7 @@
                                         </div>
                                         <div class="my-3">
                                             <label for="price"
-                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">{{
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-black text-start">{{
                                                     $t('products.price') }}</label>
                                             <input type="number"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
@@ -103,7 +103,7 @@
                                         </div>
                                         <div class="my-3">
                                             <label for="price"
-                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">{{
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-black text-start">{{
                                                     $t('products.original_price') }}</label>
                                             <input type="number"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
@@ -112,7 +112,7 @@
                                         </div>
                                         <div class="my-3">
                                             <label for="price"
-                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">{{
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-black text-start">{{
                                                     $t('orders.category') }}</label>
                                             <input type="text"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
@@ -120,7 +120,7 @@
                                         </div>
                                         <div class="my-3">
                                             <label for="discount"
-                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">{{
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-black text-start">{{
                                                     $t('products.discount') }}</label>
                                             <input type="number"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
@@ -128,10 +128,10 @@
                                         </div>
                                         <div class="my-3">
                                             <label for="availability"
-                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-start">
+                                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-black text-start">
                                                 {{ $t('products.select_availability') }}</label>
                                             <select id="availability" v-model="availability"
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                 <option selected value="in-stock">{{ $t('products.in_stock') }}
                                                 </option>
                                                 <option value="out-of-stock">{{ $t('products.out_of_stock') }}
@@ -143,7 +143,7 @@
                             </div>
 
                             <div
-                                class="flex items-center float-left p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                class="flex items-center float-left p-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600">
                                 <button type="button" @click="updateProduct"
                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{
                                         $t('btn.edit') }}</button>

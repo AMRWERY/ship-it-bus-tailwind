@@ -1,12 +1,14 @@
 <template>
     <div class="grid items-center grid-cols-4 gap-6 lg:grid-cols-12 mt-14">
         <div class="justify-center col-span-4 border-b border-b-wuiSlate-200 lg:col-span-8 lg:col-start-3">
-            <h1 class="pb-6 text-4xl font-medium text-wuiSlate-900 text-center">{{ $t('mainlayout.terms') }} &amp; {{
-                $t('mainlayout.conditions') }}</h1>
-            <p class="pb-6 text-lg text-center">{{ $t('terms_and_conditions.read_about_the_terms_and_conditions_for') }}
+            <h1 class="pb-6 text-4xl font-medium text-wuiSlate-900 dark:text-white text-center">{{ $t('mainlayout.terms') }}
+                &amp; {{
+                    $t('mainlayout.conditions') }}</h1>
+            <p class="pb-6 text-lg text-center dark:text-white">{{
+                $t('terms_and_conditions.read_about_the_terms_and_conditions_for') }}
                 Ship-IT</p>
         </div>
-        <div class="justify-center col-span-4 lg:col-span-8 lg:col-start-3">
+        <div class="justify-center col-span-4 lg:col-span-8 lg:col-start-3 dark:text-white text-left">
             <p class="pb-6 text-md">These Terms of Use constitute a legally binding agreement made between you, whether
                 personally or on behalf of an entity ("you") and Wind UI ("Company", "we", "us", or "our"), concerning your
                 access to and use of the

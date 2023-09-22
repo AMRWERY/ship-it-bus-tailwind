@@ -18,11 +18,11 @@
                         enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
                         leave-to="opacity-0 scale-95">
                         <DialogPanel
-                            class="w-full max-w-2xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                            class="w-full max-w-2xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl transform overflow-hidden rounded-2xl bg-white dark:bg-gray-100 p-6 text-left align-middle shadow-xl transition-all">
                             <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
                                 <div class="text-center w-full">
-                                    <DialogTitle as="h3" class="text-xl font-semibold text-gray-900 dark:text-white">
-                                        Add New Deal
+                                    <DialogTitle as="h3" class="text-xl font-semibold text-gray-900">
+                                        {{ $t('deal.add_new_deal') }}
                                     </DialogTitle>
                                 </div>
                                 <button type="button" @click="closeModal"
@@ -87,9 +87,10 @@
                             </div>
 
                             <div
-                                class="flex items-center float-right p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                class="flex items-center float-right p-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600">
                                 <button type="button" @click="addDeal"
-                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add</button>
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{
+                                        $t('btn.add') }}</button>
                             </div>
                         </DialogPanel>
                     </TransitionChild>

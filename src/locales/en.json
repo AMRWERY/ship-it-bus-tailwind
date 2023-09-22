@@ -5,6 +5,11 @@
     "forgot_password?": "Forgot password?",
     "password": "Password"
   },
+  "reset-password": {
+    "reset_password": "Reset Password",
+    "back_to_login": "Back to Login",
+    "your_email": "your email"
+  },
   "mainlayout": {
     "main": "Main",
     "dashboard": "Dashboard",
@@ -37,7 +42,8 @@
     "hours": "hours",
     "minutes": "minutes",
     "seconds": "seconds",
-    "deal_has_been_expired": "Deal has been Expired"
+    "deal_has_been_expired": "Deal has been Expired",
+    "add_new_deal": "Add New Deal"
   },
   "invoices": {
     "search_for_items": "Search for items",
@@ -105,6 +111,7 @@
   },
   "btn": {
     "sign_in": "Sign in",
+    "reset": "Reset",
     "deal_of_today": "Deal of Today",
     "new_deal": "New Deal",
     "add_product": "Add Product",
@@ -118,5 +125,8 @@
     "invalid_admin_email": "Invalid admin email",
     "email_is_required": "E-mail is required",
     "password_is_required": "Password is required"
+  },
+  "message": {
+    "successMessage": "Reset Password sent. check your inbox"
   }
 }

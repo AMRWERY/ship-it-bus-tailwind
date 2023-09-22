@@ -1,13 +1,15 @@
 <template>
     <div class="relative -mt-[5.75rem] overflow-hidden pt-[5.75rem]">
         <div class="px-4 sm:px-6 lg:px-8">
-            <div class="relative mx-auto max-w-[37.5rem] pt-20 text-center pb-24">
-                <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">{{ $t('policy.privacy_policy')
+            <div class="relative mx-auto max-w-[37.5rem] pt-20 text-center pb-16">
+                <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl">{{
+                    $t('policy.privacy_policy')
                 }}</h1>
-                <p class="mt-4 text-base leading-7 text-slate-600">{{ $t('policy.last_updated_on_august_28, 2023') }}</p>
+                <p class="mt-4 text-base leading-7 text-slate-600 dark:text-white">
+                    {{ $t('policy.last_updated_on_august_28, 2023') }}</p>
             </div>
         </div>
-        <div class="relative px-4 sm:px-6 lg:px-8">
+        <div class="relative px-4 sm:px-6 lg:px-8 dark:text-white text-left">
             <div
                 class="mx-auto max-w-[40rem] prose-sm prose prose-slate prose-a:font-semibold prose-a:text-sky-500 hover:prose-a:text-sky-600">
                 <p>This privacy policy ("Policy") describes how Tailwind Labs Inc. ("Tailwind", "we", "us" or "our")

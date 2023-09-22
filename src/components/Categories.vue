@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="mt-4 flex justify-between">
                                         <div>
-                                            <h3 class="text-lg text-gray-700">
+                                            <h3 class="text-lg text-gray-700 dark:text-white">
                                                 <span aria-hidden="true" class="absolute inset-0" />
                                                 {{ category.title }}
                                             </h3>

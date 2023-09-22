@@ -22,102 +22,100 @@
                     </div>
 
                     <div class="flex items-center">
-                        <div class="flex items-center ml-3 space-x-2.5">
+                        <div class="flex items-center ml-3 space-s-2.5">
                             <div>
                                 <button type="button" @click="switchLanguage"
                                     class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                                    <i class="fa-solid fa-earth-africa fa-xl"></i>
+                                    <i class="fa-solid fa-earth-africa fa-xl dark:text-white"></i>
                                 </button>
                             </div>
 
                             <!-- toggle theme -->
-                            <!-- <div>
-                                <button type="button"
+                            <div>
+                                <button type="button" @click="toggleTheme"
                                     class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                                    <i class="fa-solid fa-moon fa-xl"></i>
+                                    <i
+                                        :class="theme === 'dark' ? 'fa-solid fa-sun fa-xl dark:text-white' : 'fa-solid fa-moon fa-xl dark:text-white'"></i>
                                 </button>
-                                <button type="button"
-                                    class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                                    <i class="fa-solid fa-sun fa-xl"></i>
-                                </button>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </nav>
         <aside ref="defaultSidebar"
-            class="fixed top-0 end-0 right-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+            class="fixed top-0 right-0 ltr:left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
             aria-label="Sidebar">
-            <div class="h-full pe-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+            <div class="h-full ps-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                 <ul class="space-y-2 font-medium mt-16">
                     <div class="mb-4 px-4">
-                        <p class="pe-4 text-sm font-semibold mb-1">{{ $t('mainlayout.main') }}</p>
+                        <p class="pl-4 text-sm font-semibold mb-1 dark:text-white">{{ $t('mainlayout.main') }}</p>
                         <router-link to="/home" @click="selectedTab = 'dashboard'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'dashboard' }]">
                             <i class="fa-solid fa-chart-line fa-lg me-2"></i>
-                            <span class="text-gray-700">{{ $t('mainlayout.dashboard') }}</span>
+                            <span class="text-gray-700 dark:text-white">{{ $t('mainlayout.dashboard') }}</span>
                         </router-link>
 
                         <router-link to="/invoices" @click="selectedTab = 'invoices'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'invoices' }]">
                             <i class="fa-solid fa-arrow-trend-up fa-lg me-2"></i>
-                            <span class="text-gray-700">{{ $t('mainlayout.invoices') }}</span>
+                            <span class="text-gray-700 dark:text-white">{{ $t('mainlayout.invoices') }}</span>
                         </router-link>
 
                         <router-link to="/orders" @click="selectedTab = 'orders'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'orders' }]">
                             <i class="fa-solid fa-arrow-up-wide-short fa-lg me-2"></i>
-                            <span class="text-gray-700">{{ $t('mainlayout.orders') }}</span>
+                            <span class="text-gray-700 dark:text-white">{{ $t('mainlayout.orders') }}</span>
                         </router-link>
                     </div>
 
                     <div class="mb-4 px-4">
-                        <p class="pl-4 text-sm font-semibold mb-1">{{ $t('mainlayout.products') }}</p>
+                        <p class="pl-4 text-sm font-semibold mb-1 dark:text-white">{{ $t('mainlayout.products') }}</p>
                         <router-link to="/products" @click="selectedTab = 'products'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'products' }]">
                             <i class="fa-solid fa-arrow-up-wide-short fa-lg me-2"></i>
-                            <span class="text-gray-700">{{ $t('mainlayout.view_products') }}</span>
+                            <span class="text-gray-700 dark:text-white">{{ $t('mainlayout.view_products') }}</span>
                         </router-link>
 
                         <router-link to="/categories" @click="selectedTab = 'categories'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'categories' }]">
                             <i class="fa-solid fa-list-ol fa-lg me-2"></i>
-                            <span class="text-gray-700">{{ $t('mainlayout.view_categories') }}</span>
+                            <span class="text-gray-700 dark:text-white">{{ $t('mainlayout.view_categories') }}</span>
                         </router-link>
                     </div>
 
                     <div class="mb-4 px-4">
-                        <p class="pl-4 text-sm font-semibold mb-1">{{ $t('mainlayout.misc') }}</p>
+                        <p class="pl-4 text-sm font-semibold mb-1 dark:text-white">{{ $t('mainlayout.misc') }}</p>
                         <router-link to="/mail" @click="selectedTab = 'mail'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'mail' }]">
                             <i class="fa-solid fa-envelope fa-lg me-2"></i>
-                            <span class="text-gray-700">{{ $t('mainlayout.mail') }}</span>
+                            <span class="text-gray-700 dark:text-white">{{ $t('mainlayout.mail') }}</span>
                         </router-link>
 
                         <router-link to="/terms-and-conditions" @click="selectedTab = 'terms-and-conditions'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'terms-and-conditions' }]">
                             <i class="fa-solid fa-thumbtack fa-lg me-2"></i>
-                            <span class="text-gray-700">{{ $t('mainlayout.terms') }} & {{ $t('mainlayout.conditions')
+                            <span class="text-gray-700 dark:text-white">{{ $t('mainlayout.terms') }} & {{
+                                $t('mainlayout.conditions')
                             }}</span>
                         </router-link>
 
                         <router-link to="/f-a-q" @click="selectedTab = 'f-a-q'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'f-a-q' }]">
                             <i class="fa-solid fa-circle-question fa-lg me-2"></i>
-                            <span class="text-gray-700">{{ $t('mainlayout.faq') }}</span>
+                            <span class="text-gray-700 dark:text-white">{{ $t('mainlayout.faq') }}</span>
                         </router-link>
 
                         <router-link to="/privacy-policy" @click="selectedTab = 'privacy-policy'"
                             :class="['w-full', 'flex', 'items-center', 'text-blue-400', 'h-10', 'pl-4', 'rounded-lg', 'cursor-pointer', { 'bg-gray-200': selectedTab === 'privacy-policy' }]">
                             <i class="fa-solid fa-circle-info fa-lg me-2"></i>
-                            <span class="text-gray-700">{{ $t('mainlayout.privacy_policy') }}</span>
+                            <span class="text-gray-700 dark:text-white">{{ $t('mainlayout.privacy_policy') }}</span>
                         </router-link>
 
                         <router-link to="/" @click="logout"
                             class="w-full flex items-center text-blue-400 h-10 pl-4 rounded-lg cursor-pointer">
                             <i class="fa-solid fa-arrow-right-from-bracket fa-lg me-2"></i>
-                            <span class="text-gray-700">{{ $t('mainlayout.log_out') }}</span>
+                            <span class="text-gray-700 dark:text-white">{{ $t('mainlayout.log_out') }}</span>
                         </router-link>
                     </div>
                 </ul>
@@ -129,22 +127,18 @@
         <div class="flex items-center m-3 space-x-2.5">
             <div>
                 <button type="button" @click="switchLanguage"
-                    class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    class="rounded-full p-1 text-gray-400  dark:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                     <i class="fa-solid fa-earth-africa fa-xl"></i>
                 </button>
             </div>
 
             <!-- toggle theme -->
-            <!-- <div>
-                <button type="button"
-                    class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                    <i class="fa-solid fa-moon fa-xl"></i>
+            <div>
+                <button type="button" @click="toggleTheme"
+                    class="rounded-full p-1 text-gray-400 dark:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <i :class="theme === 'dark' ? 'fa-solid fa-sun fa-xl' : 'fa-solid fa-moon fa-xl'"></i>
                 </button>
-                <button type="button"
-                    class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                    <i class="fa-solid fa-sun fa-xl"></i>
-                </button>
-            </div> -->
+            </div>
         </div>
     </div>
 
@@ -156,7 +150,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watchEffect, onMounted } from 'vue';
+import { ref, computed, watchEffect, onMounted, inject } from 'vue';
 import { Drawer } from 'flowbite';
 import { RouterView } from 'vue-router';
 import { useStore } from 'vuex';
@@ -188,12 +182,15 @@ watchEffect(() => {
     }
 })
 
+const config = inject(Symbol.for('FormKitConfig'))
+
 const switchLanguage = () => {
     const currentLang = $i18n.locale.value;
     const newLang = currentLang === "ar" ? "en" : "ar";
     sessionStorage.setItem("currentLang", newLang);
     $i18n.locale.value = newLang;
     updateLanguageClassInBody(newLang);
+    config.locale = newLang
 };
 
 const updateLanguageClassInBody = (lang) => {
@@ -220,6 +217,25 @@ watchEffect(() => {
         drawer.hide()
     }
 });
+
+const theme = ref('light');
+
+const toggleTheme = () => {
+    theme.value = theme.value === 'dark' ? 'light' : 'dark';
+    sessionStorage.setItem('theme', theme.value);
+    updateThemeClasses(theme.value);
+};
+
+const updateThemeClasses = (newTheme) => {
+    const body = document.querySelector('body');
+    if (newTheme === 'dark') {
+        body.classList.add('dark');
+    } else {
+        body.classList.remove('dark');
+    }
+};
+
+updateThemeClasses(sessionStorage.getItem('theme') || 'light');
 </script>
 
 

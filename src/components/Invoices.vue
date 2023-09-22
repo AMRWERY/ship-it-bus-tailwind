@@ -1,12 +1,12 @@
 <template>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-12 bg-white">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-12 bg-white dark:bg-gray-700">
         <div class="flex items-center justify-between pb-4 m-6 float-end">
             <div class="relative">
                 <div class="absolute inset-y-0 end-0 flex items-center pe-3 pointer-events-none">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <input type="text" id="table-search"
-                    class="block p-2 pe-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="block p-2 pe-10 text-sm text-gray-900 dark:text-white border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     :placeholder="$t('invoices.search_for_items')">
             </div>
         </div>
@@ -19,19 +19,19 @@
                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3 capitalize">
+                    <th scope="col" class="px-6 py-3 capitalize dark:text-white">
                         {{ $t('invoices.user_email') }}
                     </th>
-                    <th scope="col" class="px-6 py-3 capitalize">
+                    <th scope="col" class="px-6 py-3 capitalize dark:text-white">
                         {{ $t('invoices.username') }}
                     </th>
-                    <th scope="col" class="px-6 py-3 capitalize">
+                    <th scope="col" class="px-6 py-3 capitalize dark:text-white">
                         {{ $t('invoices.color') }}
                     </th>
-                    <th scope="col" class="px-6 py-3 capitalize">
+                    <th scope="col" class="px-6 py-3 capitalize dark:text-white">
                         {{ $t('invoices.price') }}
                     </th>
-                    <th scope="col" class="px-6 py-3 capitalize">
+                    <th scope="col" class="px-6 py-3 capitalize dark:text-white">
                         #
                     </th>
                 </tr>
@@ -60,7 +60,7 @@
                     </td>
                     <td class="py-4">
                         <button type="button" @click="openModal(user.id)"
-                            class="rounded-full p-1 text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                            class="rounded-full p-1 text-gray-400 dark:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <i class="fa-solid fa-eye fa-lg"></i>
                         </button>
                     </td>

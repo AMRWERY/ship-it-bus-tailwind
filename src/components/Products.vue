@@ -15,7 +15,7 @@
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </div>
                                     <input type="text" id="table-search" v-model="searchProduct"
-                                        class="block p-2 pe-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        class="block p-2 pe-10 text-sm text-gray-900 dark:text-white border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         :placeholder="$t('products.search_for_products')">
                                 </div>
                             </div>
@@ -43,9 +43,9 @@
                                         <img :src="prod?.productImg"
                                             class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
                                     </div>
-                                    <div class="mt-4 flex justify-between ">
+                                    <div class="mt-4 flex justify-between">
                                         <div>
-                                            <h4 class="text-sm text-gray-700 ">
+                                            <h4 class="text-sm text-gray-700 dark:text-white">
                                                 <span aria-hidden="true" class="absolute inset-0" />
                                                 {{ prod?.title }}
                                             </h4>

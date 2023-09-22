@@ -5,6 +5,11 @@
     "forgot_password?": "هل نسيت كلمة المرور؟",
     "password": "كلمة المرور"
   },
+  "reset-password": {
+    "reset_password": "إعادة تعيين كلمة المرور",
+    "back_to_login": "العودة إلى تسجيل الدخول",
+    "your_email": "بريدك الالكتروني"
+  },
   "mainlayout": {
     "main": "الرئيسيه",
     "dashboard": "لوحة القيادة",
@@ -37,7 +42,8 @@
     "hours": "ساعات",
     "minutes": "دقائق",
     "seconds": "ثواني",
-    "deal_has_been_expired": "الصفقة انتهت"
+    "deal_has_been_expired": "الصفقة انتهت",
+    "add_new_deal": "إضافة صفقة جديدة"
   },
   "invoices": {
     "search_for_items": "البحث عن العناصر",
@@ -105,6 +111,7 @@
   },
   "btn": {
     "sign_in": "تسجيل الدخول",
+    "reset": "إعادة ضبط",
     "deal_of_today": "صفقة اليوم",
     "new_deal": "صفقة جديدة",
     "add_product": "أضف منتج",
@@ -118,5 +125,8 @@
     "invalid_admin_email": "البريد الإلكتروني للمشرف غير صالح",
     "email_is_required": "البريد الالكتروني مطلوب",
     "password_is_required": "كلمة المرور مطلوبة"
+  },
+  "message": {
+    "successMessage": "تم إرسال إعادة تعيين كلمة المرور. تحقق من صندوق الوارد الخاص بك"
   }
 }

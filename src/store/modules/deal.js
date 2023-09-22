@@ -26,7 +26,7 @@ const actions = {
         const dealData = doc.data();
         const startDate = dealData.startDate.toDate();
         const endDate = dealData.endDate.toDate();
-        debugger;
+        // debugger;
         if (
           startDate.toDateString() <= today.toDateString() &&
           today.toDateString() <= endDate.toDateString()

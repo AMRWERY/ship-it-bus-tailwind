@@ -12,11 +12,10 @@
                         enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
                         leave-to="opacity-0 scale-95">
                         <DialogPanel
-                            class="w-full max-w-5xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                            class="w-full max-w-5xl sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl transform overflow-hidden rounded-2xl bg-white dark:bg-gray-100 p-6 text-left align-middle shadow-xl transition-all">
                             <div class="flex items-start justify-between pb-4 pt-2 rounded-t dark:border-gray-600">
                                 <div class="w-full">
-                                    <DialogTitle as="h3"
-                                        class="text-xl font-semibold text-center text-gray-900 dark:text-white">
+                                    <DialogTitle as="h3" class="text-xl font-semibold text-center text-gray-900">
                                         {{ $t('invoices.user_purchases') }}
                                     </DialogTitle>
                                 </div>
@@ -41,30 +40,29 @@
                                                         <div
                                                             class="w-full flex flex-col justify-start items-start space-y-8">
                                                             <h3
-                                                                class="text-xl dark:text-white font-semibold leading-6 text-gray-800 mt-10 text-start">
+                                                                class="text-xl font-semibold leading-6 text-gray-800 mt-10 text-start">
                                                                 {{ prod?.title }}
                                                             </h3>
                                                         </div>
                                                         <div
                                                             class="flex justify-between space-x-14 items-start w-full ms-20">
                                                             <div class="flex justify-start items-center mt-10 me-10">
-                                                                <p class="text-base dark:text-white xl:text-lg leading-6">
+                                                                <p class="text-base xl:text-lg leading-6">
                                                                     ${{ prod?.price }}</p>
                                                                 <p
-                                                                    class="text-red-300 line-through text-base dark:text-white xl:text-lg leading-6 ms-3">
+                                                                    class="text-gray-500 line-through text-base xl:text-lg leading-6 ms-3">
                                                                     ${{ prod?.originalPrice }}</p>
                                                             </div>
 
                                                             <div class="flex items-center mt-10">
-                                                                <p
-                                                                    class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
+                                                                <p class="text-base xl:text-lg leading-6 text-gray-800">
                                                                     {{ prod?.cartQty }}</p>
                                                                 <p
-                                                                    class="text-red-300 text-base dark:text-white xl:text-lg leading-6 ms-2">
+                                                                    class="text-gray-500 text-base xl:text-lg leading-6 ms-2">
                                                                     {{ $t('invoices.pieces') }}</p>
                                                             </div>
                                                             <p
-                                                                class="text-base dark:text-white xl:text-lg font-semibold leading-6 text-gray-800 mt-10">
+                                                                class="text-base  xl:text-lg font-semibold leading-6 text-gray-800 mt-10">
                                                                 ${{ prod?.price }}</p>
                                                         </div>
                                                     </div>

@@ -1,5 +1,5 @@
 <template>
-    <a href="#" class="text-indigo-500 inline-flex items-center mt-4" @click="openModal">
+    <a href="#" class="text-indigo-500 dark:text-white inline-flex items-center mt-4" @click="openModal">
         {{ $t('mail.reply_now') }}
     </a>
     <TransitionRoot appear :show="isOpen" as="template">
@@ -15,7 +15,7 @@
                         enter-to="opacity-100 scale-100" leave="duration-200 ease-in" leave-from="opacity-100 scale-100"
                         leave-to="opacity-0 scale-95">
                         <DialogPanel
-                            class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 pt-0 text-start align-middle shadow-xl transition-all">
+                            class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white dark:bg-gray-100 p-6 pt-0 text-start align-middle shadow-xl transition-all">
                             <form action="#" method="POST" class="mx-auto mt-16 max-w-xl sm:mt-20"
                                 @submit.prevent="submitForm">
                                 <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">

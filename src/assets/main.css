@@ -12,12 +12,15 @@ body {
   margin-inline: 5px;
   cursor: pointer;
 }
+
 .back-btn {
   background-color: #ffffff;
 }
+
 .next-btn {
   background-color: #ffffff;
 }
+
 .btn-active {
   background-color: #4f46e5;
   color: white;
@@ -31,4 +34,8 @@ body {
 .ltr {
   direction: ltr;
   text-align: left;
+}
+
+.dark {
+  background-color: #0d2438;
 }
