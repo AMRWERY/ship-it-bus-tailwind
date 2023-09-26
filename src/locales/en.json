@@ -19,6 +19,7 @@
     "view_products": "View Products",
     "view_categories": "View Categories",
     "misc": "Misc",
+    "users": "Users",
     "mail": "Mail",
     "terms": "Terms",
     "conditions": "Conditions",
@@ -43,7 +44,9 @@
     "minutes": "minutes",
     "seconds": "seconds",
     "deal_has_been_expired": "Deal has been Expired",
-    "add_new_deal": "Add New Deal"
+    "add_new_deal": "Add New Deal",
+    "start_date": "Start Date",
+    "end_date": "End Date"
   },
   "invoices": {
     "search_for_items": "Search for items",
@@ -119,14 +122,25 @@
     "edit": "Edit",
     "add_category": "Add Category",
     "reply": "Reply",
-    "update": "Update"
+    "update": "Update",
+    "block": "Block",
+    "no": "No"
   },
   "validation": {
     "invalid_admin_email": "Invalid admin email",
     "email_is_required": "E-mail is required",
     "password_is_required": "Password is required"
   },
+  "lang": {
+    "arabic": "Arabic",
+    "english": "English",
+    "deutsch": "Deutsch",
+    "italian": "Italian",
+    "french": "French",
+    "german": "German"
+  },
   "message": {
-    "successMessage": "Reset Password sent. check your inbox"
+    "successMessage": "Reset Password sent. check your inbox",
+    "are_you_sure?": "Are You Sure?"
   }
 }

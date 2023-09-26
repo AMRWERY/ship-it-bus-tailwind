@@ -22,6 +22,10 @@ import { plugin, defaultConfig } from "@formkit/vue";
 import { createI18n } from "vue-i18n";
 import en from "./locales/en.json";
 import ar from "./locales/ar.json";
+import du from "./locales/du.json";
+import it from "./locales/it.json";
+import fr from "./locales/fr.json";
+import ge from "./locales/ge.json";
 
 const app = createApp(App);
 
@@ -31,6 +35,10 @@ const i18n = createI18n({
   messages: {
     en,
     ar,
+    du,
+    it,
+    fr,
+    ge,
   },
 });
 

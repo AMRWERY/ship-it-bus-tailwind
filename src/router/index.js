@@ -20,48 +20,56 @@ const router = createRouter({
       name: "Home",
       component: Home,
       meta: {
-        isAuthRequired: true
-      }
+        isAuthRequired: true,
+      },
     },
     {
       path: "/invoices",
       name: "Invoices",
       component: () => import("../components/Invoices.vue"),
       meta: {
-        isAuthRequired: true
-      }
+        isAuthRequired: true,
+      },
     },
     {
       path: "/orders",
       name: "Orders",
       component: () => import("../components/Orders.vue"),
       meta: {
-        isAuthRequired: true
-      }
+        isAuthRequired: true,
+      },
     },
     {
       path: "/products",
       name: "Products",
       component: () => import("../components/Products.vue"),
       meta: {
-        isAuthRequired: true
-      }
+        isAuthRequired: true,
+      },
     },
     {
       path: "/categories",
       name: "Categories",
       component: () => import("../components/Categories.vue"),
       meta: {
-        isAuthRequired: true
-      }
+        isAuthRequired: true,
+      },
+    },
+    {
+      path: "/users",
+      name: "Users",
+      component: () => import("../components/Users.vue"),
+      meta: {
+        isAuthRequired: true,
+      },
     },
     {
       path: "/mail",
       name: "Mail",
       component: () => import("../components/Mail.vue"),
       meta: {
-        isAuthRequired: true
-      }
+        isAuthRequired: true,
+      },
     },
     {
       path: "/terms-and-conditions",
@@ -87,16 +95,16 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, _, next) => {
-  const authRequired = to.meta.isAuthRequired
-  const store = useStore()
+  const authRequired = to.meta.isAuthRequired;
+  const store = useStore();
 
   if (authRequired && !store.state.auth.userToken) {
-    next({ name: 'Login' })
-  } else if (store.state.auth.userToken && to.name === 'Login') {
-    next({ name: 'Home' })
+    next({ name: "Login" });
+  } else if (store.state.auth.userToken && to.name === "Login") {
+    next({ name: "Home" });
   } else {
-    next()
+    next();
   }
-})
+});
 
 export default router;

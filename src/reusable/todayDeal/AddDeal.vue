@@ -47,7 +47,7 @@
                                         <div
                                             class="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 relative">
                                             <label for="frontImageInput" class="cursor-pointer">
-                                                <img class="w-12" src="/add-circle-svgrepo-com.svg" alt="Add Image" />
+                                                <img class="w-12" src="/add-circle-svgrepo-com.svg" />
                                             </label>
                                             <input id="frontImageInput" type="file" accept="image/*"
                                                 class="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
@@ -62,24 +62,25 @@
                                         <div class="my-3">
                                             <input type="text"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                                placeholder="Product Name" x-model="productName" v-model.trim="title" />
+                                                :placeholder="$t('orders.product_name')" x-model="productName"
+                                                v-model.trim="title" />
                                         </div>
                                         <div class="my-3">
                                             <input type="number"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                                placeholder="Price" x-model="price" v-model.trim="price"
+                                                :placeholder="$t('products.price')" x-model="price" v-model.trim="price"
                                                 @input="formatPrice" />
                                         </div>
                                         <div class="my-3">
                                             <input type="number"
                                                 class="block w-full px-5 py-2 border rounded-lg bg-white shadow-lg placeholder-gray-400 text-gray-700 focus:ring focus:outline-none"
-                                                placeholder="original price" x-model="price" v-model.trim="originalPrice"
-                                                @input="formatOriginalPrice" />
+                                                :placeholder="$t('products.original_price')" x-model="price"
+                                                v-model.trim="originalPrice" @input="formatOriginalPrice" />
                                         </div>
                                         <div class="my-3">
                                             <div class="flex space-x-2">
-                                                <VueDatePicker v-model="startDate" placeholder="Start Date" />
-                                                <VueDatePicker v-model="endDate" placeholder="End Date" />
+                                                <VueDatePicker v-model="startDate" :placeholder="$t('deal.start_date')" />
+                                                <VueDatePicker v-model="endDate" :placeholder="$t('deal.end_date')" />
                                             </div>
                                         </div>
                                     </div>

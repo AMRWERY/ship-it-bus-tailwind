@@ -19,6 +19,7 @@
     "view_products": "عرض المنتجات",
     "view_categories": "عرض الفئات",
     "misc": "متفرقات",
+    "users": "المستخدمون",
     "mail": "بريد",
     "terms": "الشروط",
     "conditions": "الأحكام",
@@ -43,7 +44,9 @@
     "minutes": "دقائق",
     "seconds": "ثواني",
     "deal_has_been_expired": "الصفقة انتهت",
-    "add_new_deal": "إضافة صفقة جديدة"
+    "add_new_deal": "إضافة صفقة جديدة",
+    "start_date": "تاريخ البدء",
+    "end_date": "تاريخ الأنتهاء"
   },
   "invoices": {
     "search_for_items": "البحث عن العناصر",
@@ -119,14 +122,25 @@
     "edit": "يحرر",
     "add_category": "إضافة فئة",
     "reply": "رد",
-    "update": "تحديث"
+    "update": "تحديث",
+    "block": "حظر",
+    "no": "لا"
   },
   "validation": {
     "invalid_admin_email": "البريد الإلكتروني للمشرف غير صالح",
     "email_is_required": "البريد الالكتروني مطلوب",
     "password_is_required": "كلمة المرور مطلوبة"
   },
+  "lang": {
+    "arabic": "العربيه",
+    "english": "الأنجليزيه",
+    "deutsch": "الهولنديه",
+    "italian": "الأيطاليه",
+    "french": "الفرنسيه",
+    "german": "الألمانيه"
+  },
   "message": {
-    "successMessage": "تم إرسال إعادة تعيين كلمة المرور. تحقق من صندوق الوارد الخاص بك"
+    "successMessage": "تم إرسال إعادة تعيين كلمة المرور. تحقق من صندوق الوارد الخاص بك",
+    "are_you_sure?": "هل أنت متأكد ؟"
   }
 }

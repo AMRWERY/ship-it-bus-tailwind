@@ -16,7 +16,7 @@ const state = {
   username: "",
   email: "",
   password: "",
-  userToken: !!sessionStorage.getItem('userToken') || null,
+  userToken: !!sessionStorage.getItem("userToken") || null,
 };
 
 const mutations = {
@@ -76,7 +76,8 @@ const actions = {
       if (user) {
         user.getIdToken().then((token) => {
           commit("setUserToken", token);
-          sessionStorage.setItem("userToken", token);        });
+          sessionStorage.setItem("userToken", token);
+        });
       } else {
         commit("setUserToken", null);
         sessionStorage.clear();
@@ -96,7 +97,6 @@ const actions = {
         commit("setUserToken", null);
         sessionStorage.clear();
         commit("setLoading", false);
-
       });
   },
   async resetUserPassword({ commit }, payload) {
@@ -136,7 +136,7 @@ const actions = {
 
 const getters = {
   isAuthenticated: (state) => {
-    return !!state.userToken
+    return !!state.userToken;
   },
   isLoading: (state) => {
     return state.isLoading;

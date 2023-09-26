@@ -1,0 +1,146 @@
+{
+  "sign_in": {
+    "sign_in_to_your_account": "Accedi al tuo account",
+    "email_address": "Indirizzo email",
+    "forgot_password?": "Password dimenticata?",
+    "password": "Password"
+  },
+  "reset-password": {
+    "reset_password": "Reimposta Password",
+    "back_to_login": "Torna al Login",
+    "your_email": "la tua email"
+  },
+  "mainlayout": {
+    "main": "Principale",
+    "dashboard": "Dashboard",
+    "invoices": "Fatture",
+    "orders": "Ordini",
+    "products": "Prodotti",
+    "view_products": "Vedi Prodotti",
+    "view_categories": "Vedi Categorie",
+    "misc": "Varie",
+    "users": "Utenti",
+    "mail": "Email",
+    "terms": "Termini",
+    "conditions": "Condizioni",
+    "faq": "Domande frequenti",
+    "privacy_policy": "Informativa sulla privacy",
+    "log_out": "Esci"
+  },
+  "home": {
+    "good_afternoon,_amr": "Buon pomeriggio, Amr",
+    "products_sold": "Prodotti Venduti",
+    "product_reviews": "Recensioni del Prodotto",
+    "new_enquiries": "Nuove Richieste",
+    "product_views": "Visualizzazioni dei Prodotti",
+    "recent_sales": "Vendite Recenti",
+    "recent_reviews": "Recensioni Recenti",
+    "recent_transactions": "Transazioni Recenti"
+  },
+  "deal": {
+    "today_deal": "Offerta del Giorno",
+    "reviews": "Recensioni",
+    "hours": "ore",
+    "minutes": "minuti",
+    "seconds": "secondi",
+    "deal_has_been_expired": "L'offerta è scaduta",
+    "add_new_deal": "Aggiungi Nuova Offerta",
+    "start_date": "Data d'inizio",
+    "end_date": "Data di fine"
+  },
+  "invoices": {
+    "search_for_items": "Cerca articoli",
+    "user_email": "Email dell'utente",
+    "username": "Nome utente",
+    "color": "Colore",
+    "price": "Prezzo",
+    "user_purchases": "Acquisti dell'utente",
+    "pieces": "Pezzi"
+  },
+  "orders": {
+    "last_30_days": "Ultimi 30 giorni",
+    "last_day": "Ultimo giorno",
+    "last_7_days": "Ultimi 7 giorni",
+    "last_year": "Ultimo anno",
+    "product_img": "Immagine del Prodotto",
+    "product_name": "Nome del Prodotto",
+    "category": "Categoria",
+    "order_id": "ID Ordine"
+  },
+  "products": {
+    "search_for_products": "Cerca prodotti",
+    "add_new_product": "Aggiungi Nuovo Prodotto",
+    "product_name": "Nome Prodotto",
+    "price": "Prezzo",
+    "original_price": "Prezzo Originale",
+    "select_category": "Seleziona Categoria",
+    "discount": "Sconto",
+    "select_availability": "Seleziona Disponibilità",
+    "in_stock": "Disponibile",
+    "out_of_stock": "Esaurito"
+  },
+  "categories": {
+    "add_new_category": "Aggiungi Nuova Categoria",
+    "category_name": "Nome Categoria"
+  },
+  "mail": {
+    "reply_now": "Rispondi Ora",
+    "email": "Email",
+    "title": "Titolo",
+    "message": "Messaggio"
+  },
+  "terms_and_conditions": {
+    "read_about_the_terms_and_conditions_for": "Leggi i Termini e le Condizioni per"
+  },
+  "f_a_q": {
+    "search": "Cerca",
+    "frequently_asked_questions": "Domande Frequenti",
+    "account_overview": "Panoramica dell'Account",
+    "first_time,_what_do_i_do_next?": "Prima volta, cosa faccio dopo?",
+    "changing_you_profile_picture_and_other_information": "Cambio dell'immagine del profilo e altre informazioni",
+    "i_didnt_get_a_confirmation_email,_what_should_i_do_next": "Non ho ricevuto l'email di conferma, cosa devo fare?",
+    "what_is_the_refund_policy_if_i_have_to_cancel_during_the_month": "Qual è la politica di rimborso se devo annullare durante il mese?",
+    "subscription_plans": "Piani di Abbonamento",
+    "what_is_the_refund_policy?": "Qual è la politica di rimborso?",
+    "payment_options": "Opzioni di Pagamento",
+    "notification_settings": "Impostazioni di Notifica",
+    "profile_preferences": "Preferenze del Profilo",
+    "privacy_and_cookies": "Privacy e Cookie",
+    "show_all": "Mostra Tutto"
+  },
+  "policy": {
+    "privacy_policy": "Informativa sulla Privacy",
+    "last_updated_on_august_28, 2023": "Ultimo aggiornamento il 28 agosto 2023"
+  },
+  "btn": {
+    "sign_in": "Accedi",
+    "reset": "Reset",
+    "deal_of_today": "Offerta del Giorno",
+    "new_deal": "Nuova Offerta",
+    "add_product": "Aggiungi Prodotto",
+    "add": "Aggiungi",
+    "edit": "Modifica",
+    "add_category": "Aggiungi Categoria",
+    "reply": "Rispondi",
+    "update": "Aggiorna",
+    "block": "Blocca",
+    "no": "No"
+  },
+  "validation": {
+    "invalid_admin_email": "Email amministrativa non valida",
+    "email_is_required": "L'email è obbligatoria",
+    "password_is_required": "La password è obbligatoria"
+  },
+  "lang": {
+    "arabic": "Arabo",
+    "english": "Inglese",
+    "deutsch": "Tedesco",
+    "italian": "Italiano",
+    "french": "Francese",
+    "german": "Tedesco"
+  },
+  "message": {
+    "successMessage": "Password ripristinata. Controlla la tua casella di posta",
+    "are_you_sure?": "Sei sicuro?"
+  }
+}
