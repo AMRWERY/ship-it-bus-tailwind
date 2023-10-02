@@ -1,6 +1,6 @@
 <template>
     <Teleport to="body">
-        <div class="flex min-h-full flex-1 flex-col justify-center ps-6 py-12 lg:px-8">
+        <div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div class="sm:mx-auto sm:w-full sm:max-w-sm">
                 <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white">
                     {{ $t('sign_in.sign_in_to_your_account') }}
@@ -44,12 +44,6 @@
                                 help-class="text-xs text-gray-500" v-model.trim="password" />
                             <div class="mb-3 text-red-600" data-message-type="validation" v-if="errorMessage">{{
                                 $t('validation.password_is_required') }}</div>
-                            <!-- <span
-                                class="absolute inset-y-0 end-0 grid place-content-center mr-5 mb-1-5 cursor-pointer text-green-600"
-                                @click="togglePasswordVisibility">
-                                <i class="far fa-eye" v-if="!passwordVisible"></i>
-                                <i class="far fa-eye-slash" v-else></i>
-                            </span> -->
                         </div>
                     </div>
 

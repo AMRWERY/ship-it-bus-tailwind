@@ -1,7 +1,7 @@
 <template>
     <template v-if="isAuthenticated">
         <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-            <div class="px-3 py-3 lg:px-5 lg:pl-3">
+            <div class="px-3 py-3 lg:px-5 lg:ps-3">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center justify-start">
                         <button aria-controls="default-sidebar" type="button"
@@ -14,17 +14,17 @@
                                 </path>
                             </svg>
                         </button>
-                        <router-link to="" class="flex ml-2 md:me-24">
-                            <img src="../assets/shopping-bags-svgrepo-com.svg" class="w-10 h-10 mr-1">
+                        <router-link to="" class="flex ms-2 md:me-24">
+                            <img src="../assets/shopping-bags-svgrepo-com.svg" class="w-10 h-10 me-1">
                             <span
                                 class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Ship-IT</span>
                         </router-link>
                     </div>
 
                     <div class="flex items-center">
-                        <div class="flex items-center ml-3 space-s-2.5">
+                        <div class="flex items-center me-3 space-s-2.5">
                             <div>
-                                <Menu as="div" class="relative ml-3">
+                                <Menu as="div" class="relative me-3">
                                     <div>
                                         <MenuButton
                                             class="rounded-full p-1 text-gray-400 dark:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -45,7 +45,7 @@
                                                 :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']"
                                                 @click="switchLanguage('ar')">
                                                 <div class="inline-flex items-center">
-                                                    <img src="../../public/palestine-flag-circular.svg"
+                                                    <img src="/palestine-flag-circular.svg"
                                                         class="h-3.5 w-3.5 rounded-full me-2">
                                                     {{ $t('lang.arabic') }}
                                                 </div>
@@ -56,7 +56,7 @@
                                                 :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']"
                                                 @click="switchLanguage('en')">
                                                 <div class="inline-flex items-center">
-                                                    <img src="../../public/en.svg" class="h-3.5 w-3.5 rounded-full me-2">
+                                                    <img src="/en.svg" class="h-3.5 w-3.5 rounded-full me-2">
                                                     {{ $t('lang.english') }}
                                                 </div>
                                             </a>
@@ -66,7 +66,7 @@
                                                 :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']"
                                                 @click="switchLanguage('ge')">
                                                 <div class="inline-flex items-center">
-                                                    <img src="../../public/ge.svg" class="h-3.5 w-3.5 rounded-full me-2">
+                                                    <img src="/ge.svg" class="h-3.5 w-3.5 rounded-full me-2">
                                                     {{ $t('lang.german') }}
                                                 </div>
                                             </a>
@@ -87,7 +87,7 @@
                                                 :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']"
                                                 @click="switchLanguage('it')">
                                                 <div class="inline-flex items-center">
-                                                    <img src="../../public/it.svg" class="h-3.5 w-3.5 rounded-full me-2">
+                                                    <img src="/it.svg" class="h-3.5 w-3.5 rounded-full me-2">
                                                     {{ $t('lang.italian') }}
                                                 </div>
                                             </a>
@@ -121,8 +121,10 @@
                 </div>
             </div>
         </nav>
+
+
         <aside ref="defaultSidebar"
-            class="fixed top-0 right-0 ltr:left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+            class="fixed top-0 sm:right-0 clear-start z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
             aria-label="Sidebar">
             <div class="h-full ps-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                 <ul class="space-y-2 font-medium mt-16">
@@ -228,8 +230,7 @@
                             <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']"
                                 @click="switchLanguage('ar')">
                                 <div class="inline-flex items-center">
-                                    <img src="../../public/palestine-flag-circular.svg"
-                                        class="h-3.5 w-3.5 rounded-full me-2">
+                                    <img src="/palestine-flag-circular.svg" class="h-3.5 w-3.5 rounded-full me-2">
                                     {{ $t('lang.arabic') }}
                                 </div>
                             </a>
@@ -238,7 +239,7 @@
                             <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']"
                                 @click="switchLanguage('en')">
                                 <div class="inline-flex items-center">
-                                    <img src="../../public/en.svg" class="h-3.5 w-3.5 rounded-full me-2">
+                                    <img src="/en.svg" class="h-3.5 w-3.5 rounded-full me-2">
                                     {{ $t('lang.english') }}
                                 </div>
                             </a>
@@ -247,7 +248,7 @@
                             <a href="#" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']"
                                 @click="switchLanguage('ge')">
                                 <div class="inline-flex items-center">
-                                    <img src="../../public/ge.svg" class="h-3.5 w-3.5 rounded-full me-2">
+                                    <img src="/ge.svg" class="h-3.5 w-3.5 rounded-full me-2">
                                     {{ $t('lang.german') }}
                                 </div>
                             </a>
@@ -316,10 +317,8 @@ let drawer = null;
 let defaultSidebar = ref(null);
 const selectedTab = ref('');
 
-// const isAuthenticated = computed(() => store.getters.isAuthenticated);
 const isAuthenticated = computed(() => {
     const isAuthenticatedValue = store.getters.isAuthenticated;
-    // console.log('isAuthenticated:', isAuthenticatedValue);
     return isAuthenticatedValue;
 });
 

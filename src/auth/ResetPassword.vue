@@ -48,7 +48,7 @@ import { useStore } from 'vuex';
 import snackbar from '@/reusable/Snackbar.vue';
 import { useI18n } from 'vue-i18n';
 
-const email = ref('')
+const email = ref('amrmounir2@gmail.com');
 const showSnackbar = ref(false)
 
 const store = useStore();

@@ -9,12 +9,22 @@
                         <div
                             class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
                             <!-- Input -->
-                            <div class="sm:col-span-1">
+                            <!-- <div class="sm:col-span-1">
                                 <div class="relative">
                                     <div class="absolute inset-y-0 end-0 flex items-center pe-3 pointer-events-none">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </div>
                                     <input type="text" id="table-search" v-model="searchProduct"
+                                        class="block p-2 pe-10 text-sm text-gray-900 dark:text-white border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        :placeholder="$t('products.search_for_products')">
+                                </div>
+                            </div> -->
+                            <div class="lg:w-2/5 flex mt-10 me-2 lg:ml-0 lg:mt-0 lg:justify-start">
+                                <div class="pt-2 relative text-gray-600">
+                                    <div class="absolute inset-y-0 end-0 flex items-center pe-3 pointer-events-none mt-2">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </div>
+                                    <input type="text" id="table-search"
                                         class="block p-2 pe-10 text-sm text-gray-900 dark:text-white border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         :placeholder="$t('products.search_for_products')">
                                 </div>
