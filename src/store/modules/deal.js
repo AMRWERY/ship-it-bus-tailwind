@@ -28,8 +28,10 @@ const actions = {
         const endDate = dealData.endDate.toDate();
         // debugger;
         if (
-          startDate.toDateString() <= today.toDateString() &&
-          today.toDateString() <= endDate.toDateString()
+          // startDate.toDateString() <= today.toDateString() &&
+          // today.toDateString() <= endDate.toDateString()
+          startDate <= today &&
+          today <= endDate
         ) {
           let deal = {
             id: doc.id,
